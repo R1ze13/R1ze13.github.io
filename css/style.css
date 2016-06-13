@@ -220,3 +220,16 @@ p {
   min-height: 42px;
 }
 /*  /posts  */
+
+
+/* FOOTER */
+.footer {
+	text-align: center;
+	font: 30px/60px 'Varela ROund';
+	height: 60px;
+}
+
+.content {
+  min-height: calc(100vh - 60px);
+}
+/* END OF FOOTER */
