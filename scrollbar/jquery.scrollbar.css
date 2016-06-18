@@ -45,7 +45,8 @@
 
 .scroll-textarea {
     border: 1px solid #cccccc;
-    border-top-color: #999999;
+/*    border-top-color: #999999;*/
+    border-top-color: red;
 }
 .scroll-textarea > .scroll-content {
     overflow: hidden !important;
@@ -569,7 +570,7 @@
 }
 
 .scrollbar-dynamic > .scroll-element .scroll-element_outer {
-    opacity: 0.3;
+    opacity: 0.4;
 
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
@@ -577,6 +578,7 @@
 }
 .scrollbar-dynamic > .scroll-element .scroll-element_size {
     background-color: #cccccc;
+    background-color: rgba(0,0,0,.8);
     opacity: 0;
 
     -webkit-border-radius: 12px;
@@ -592,6 +594,7 @@
 
 .scrollbar-dynamic > .scroll-element .scroll-bar {
     background-color: #6c6e71;
+    background-color: azure;
 
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
@@ -629,6 +632,8 @@
     left: auto;
     right: 0;
     top: 2px;
+	
+		background: #000;
 
     -webkit-transition: width 0.2s;
     -moz-transition: width 0.2s;
