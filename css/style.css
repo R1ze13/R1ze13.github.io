@@ -3,7 +3,7 @@
 }
 
 body {
-	background-image: url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-152771.jpg');
+	background-image: url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-371204.png');
 	-webkit-background-size: cover;
 	 -moz-background-size: cover;
 	 -o-background-size: cover;
@@ -227,9 +227,16 @@ p {
 	text-align: center;
 	font: 30px/60px 'Varela ROund';
 	height: 60px;
+/*	background-color: rgba(0,0,0,.5);*/
 }
 
 .content {
   min-height: calc(100vh - 60px);
 }
 /* END OF FOOTER */
+
+.wrapper {
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+}

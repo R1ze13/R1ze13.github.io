@@ -2,13 +2,22 @@
 <html>
 <head>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400;300' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+	<!-- scrollbar -->
+	<link rel="stylesheet" href="scrollbar/normalize.css">
+  <link rel="stylesheet" href="scrollbar/jquery.scrollbar.css">
+	<!-- /scrollbar -->
+	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<!--scroll-->
+<div class="wrapper scrollbar-dynamic">
+<!--scroll-->
+
 <div class="content">
 	<!--  HEADER  -->
 	<header class="navbar navbar-inverse navbar-top">
@@ -257,5 +266,16 @@
 
 <script src="js/jquery-1.12.4.min.js"></script>
 <script src="js/app.js"></script>
+
+<!-- scrollbar -->
+<script type="text/javascript" src="scrollbar/jquery.scrollbar.js"></script>
+<script type="text/javascript">
+ 	jQuery(document).ready(function(){
+  	jQuery('.scrollbar-dynamic').scrollbar();
+	});
+</script>
+</div> <!-- /wrapper scrollbar-dynamic -->
+<!-- /scrollbar -->
+
 </body>
 </html>
