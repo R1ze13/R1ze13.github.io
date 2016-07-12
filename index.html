@@ -28,32 +28,52 @@
        
 		<div class="container">
     	<div class="collapse navbar-collapse" id="responsive-menu">
-			<ul class="nav navbar-nav">
-				<li><a href="#" class="pl0">news</a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">help <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-					  	<li><a href="#">something wrong?</a></li>
-					  	<li><a href="#">send ticket</a></li>
-					  	<li><a href="#">watch guides</a></li>
-					  	<li class="divider"></li>
-					  	<li><a href="#">call us</a></li>
-						</ul>
-				</li>
-				<li><a href="#">about</a></li>
-				<li><a href="#">blog</a></li>
-			</ul>
-        <form action="" class="navbar-form navbar-right hidden-sm">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="e-mail" value="">
+				<ul class="nav navbar-nav">
+					<li><a href="#" class="pl0">news</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle">help <b class="caret"></b></a>
+							<ul class="help-menu dropdown-menu">
+								<li><a href="#">something wrong?</a></li>
+								<li><a href="#">send ticket</a></li>
+								<li><a href="#">watch guides</a></li>
+								<li class="divider"></li>
+								<li><a href="#">call us</a></li>
+							</ul>
+					</li>
+					<li><a href="#">about</a></li>
+					<li><a href="#">blog</a></li>
+				</ul>
+
+				<div class="col-xs-1 pull-right">
+					<div class="login dropdown">
+						<p>Login</p>
+						<div class="login-menu dropdown-menu">
+							<h3>Hey!</h3>
+							<form role="form">
+								<div class="form-group">
+									<input type="email" class="form-control" id="email" placeholder="Email">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" id="password" placeholder="Password">
+								</div>
+								<button type="submit" class="btn">Sign in</button>
+							</form>
+						</div>
 					</div>
-					<div class="form-group">
-						<input type="password" class="form-control" placeholder="password" value="">
-					</div>
-					<button type="submit" class="btn btn-primary">
-						<i class="fa fa-sign-in"></i> login
-					</button>
-			</form>
+				</div>
+	<!--
+				<form action="" class="navbar-form navbar-right hidden-sm">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="e-mail" value="">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" placeholder="password" value="">
+						</div>
+						<button type="submit" class="btn btn-primary">
+							<i class="fa fa-sign-in"></i> login
+						</button>
+				</form>
+	-->
 			</div>
 		</div>
 	</header>
@@ -239,6 +259,7 @@
     <!-- /articles -->
     
 		<!-- posts -->
+<!--
     <div class="container container-for-posts">
       <form>
         <div class="form-group">
@@ -253,6 +274,7 @@
       <ul class="posts">
       </ul>
     </div>
+-->
     <!-- /posts -->
 </div> <!-- /container -->
     

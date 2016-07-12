@@ -3,7 +3,7 @@
 }
 
 body {
-	background-image: url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-371204.png');
+	background-image: url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-152771.jpg');
 	-webkit-background-size: cover;
 	 -moz-background-size: cover;
 	 -o-background-size: cover;
@@ -32,17 +32,59 @@ body {
   margin-left: -15px;
 }
 
-.dropdown-menu {
+.nav .dropdown-menu {
 	background-color: rgba(29, 29, 29,.96);
 }
 
-.dropdown-menu li a {
+.nav .dropdown-menu li a {
 	color: rgba(221, 221, 221, 0.76);
 }
 
-.dropdown-menu .divider {
+.nav .dropdown-menu .divider {
 	border-bottom: 1px solid #575757;
 }
+
+/* login */
+header .login {
+  position: relative;
+	text-align: right;
+	height: 50px;
+	margin-right: -15px;
+}
+
+header .login p {
+  color: #9d9d9d;
+  font-size: 20px;
+	line-height: 30px;
+  margin: 0;
+  padding: 10px;
+  text-transform: lowercase;
+  cursor: pointer;
+	height: inherit;
+}
+
+.login .dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  left: auto;
+  width: 290px;
+  border-radius: 0;
+  padding: 10px;
+}
+
+.login .dropdown-menu h3 {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+  
+}
+
+.login .dropdown-menu button {
+  text-transform: uppercase;
+}
+/* /login */
+
+
 /*  /HEADER  */
 
 /*  ARTICLES  */
@@ -235,8 +277,10 @@ p {
 }
 /* END OF FOOTER */
 
+/* scrollbar */
 .wrapper {
     height: 100%;
     overflow: auto;
     width: 100%;
 }
+/* /scrollbar */

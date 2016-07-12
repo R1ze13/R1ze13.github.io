@@ -9,8 +9,7 @@ var main = function() {
 		$('.current').children('.description').toggle(); // по клику открываем и закрываем описание
 	});
 
-//	$(document).keypress(function(events) {   // events ЧТОБЫ РАБОТАЛО
-		$('.article').keypress(function(event) {
+	$(document).keypress(function(event) {
 		// управление в статьях с помощью клавиш
 		// не работает || с числами. почему?
 		if(event.which === 111) { // O
@@ -79,8 +78,14 @@ var main = function() {
 	// /MENU
   
 	// header dropdown
-	$('.dropdown').click(function(){
-		$('.dropdown-menu').toggle();
+	$('.dropdown-toggle').click(function(){
+		$('.login-menu').hide();
+		$('.help-menu').toggle();
+	});
+	
+	$('.login').find('p').click(function() {
+		$('.help-menu').hide();
+		$('.login-menu').toggle();
 	});
 	// /header dropdown
 	
