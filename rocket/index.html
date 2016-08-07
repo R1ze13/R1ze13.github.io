@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href='style.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <h1>Rocket <span>Gear</span></h1>
+          </div>
+<!--          <div class="pull-right">-->
+            <div class="login pull-right">
+              <p>Login</p>
+              <div class="dropdown-menu">
+                <h3>Hey!</h3>
+                <form role="form">
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn">Sign in</button>
+                </form>
+              </div>
+            </div>
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6" id="accordion">
+            <h3>rod load</h3>
+            <form role="form">
+            	<div class="form-group">
+								<label for="diameter">Diameter. mm</label>
+           				<div class="form-inline">
+            				<input type="text" class="form-control" oninput="areaCalc()" placeholder="Diameter" id="diameter">
+           					<label for="diameter" id="area"></label>
+            			</div>
+            	</div>
+            	<div class="form-group">
+            		<label for="tensileStrength">Tensile strength. H</label>
+            		<input type="text" class="form-control" oninput="tensionCalc()" placeholder="Tensile strength" id="tensileStrength">
+            	</div>
+            	<div class="form-group">
+            		<label for="tension">Tension. H/mm<sup>2</sup></label>
+            		<input type="text" class="form-control" placeholder="Tension" id="tension">
+            	</div>
+            </form>
+            
+            <h3>smth else</h3>
+            <div>
+              <ul>
+                <li><a>123</a></li>
+                <li><a>456</a></li>
+                <li><a>789</a></li>
+              </ul>
+            </div>
+            
+            <h3>and smth else</h3>
+            <div>
+              <ul>
+                <li><a>123</a></li>
+                <li><a>456</a></li>
+                <li><a>789</a></li>
+              </ul>
+            </div>          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="supporting">
+      <div class="container">
+        <h2>No Man's Sky</h2>
+        <p>The galaxy is a living, breathing place. Trade convoys travel between stars, factions vie for territory, pirates hunt the unwary, and the police are ever watching. Every other player lives in the same galaxy, and you can choose to share your discoveries with them on a map that spans known space. Perhaps you will see the results of their actions as well as your own...</p>
+      </div>
+    </div>
+
+    <div class="feature">
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <ul>
+          <li>Gift Cards</li>
+          <li>Find a city</li>
+          <li>Become a member</li>
+          <li>Contact us</li>
+        </ul>
+        <p>&copy; Rocket</p>
+      </div>
+    </div>
+
+
+    <script src="https://s3.amazonaws.com/codecademy-content/projects/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src='script.js'></script>
+    <script src='math.js'></script>
+  </body>
+</html>
