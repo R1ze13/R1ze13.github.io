@@ -1,20 +1,40 @@
 $(document).ready(function() {
 	
+$('.inner-diameter-choice').click(function() {
+	$('#kindOfPipeLabel').text('Inner diameter. mm');
+	$('#innerDiameter').attr('placeholder', 'Inner diameter');
+	$('#kindOfPipeButton').html('Inner diameter <span class="caret"></span>');
+	$('.kindOfPipe-group').find('.dropdown-menu').hide(200);
+	kindOfPipe = 'Inner diameter';
+});
 	
-var diameter, tensileForce, radius, area, tension;
+$('.pipe-wall-thickness-choice').click(function() {
+	$('#kindOfPipeLabel').text('Pipe wall thickness. mm');
+	$('#innerDiameter').attr('placeholder', 'Pipe wall thickness');
+	$('#kindOfPipeButton').html('Pipe wall thickness <span class="caret"></span>');
+	$('.kindOfPipe-group').find('.dropdown-menu').hide(200);
+	kindOfPipe = 'Pipe wall thickness';
+});
+
+var outsideDiameter, innerDiameter, pipeWallThickness, kindOfPipe, tensileForce, radius, area, tension;
 
 function getValues() {
-	diameter = $('#diameter').val();
+	outsideDiameter = $('#outsideDiameter').val();
 	tensileForce = $('#tensileForce').val();
-	radius = diameter / 2;
+	radius = outsideDiameter / 2;
 	return true;
 }
-
+	
 function areaCalc() {
 	getValues();
 	area = Math.PI * radius * radius;
 	if (area > 0) {
-		$('#area').html('S = ' + area.toFixed(1) + " mm<sup>2</sup>");
+		if (area > 99999999999999999) {
+			$('#area').text("More than the entire universe!")
+		}
+		else {
+			$('#area').html('S = ' + area.toFixed(1) + " mm<sup>2</sup>");
+		}
 	}
 	else $('#area').empty();
 	return area;
@@ -37,7 +57,7 @@ function calcMain() {
 	else $('#tension').val('').attr('placeholder', 'Tension');
 }
 	
-	$('#diameter').keyup(function() {
+	$('#outsideDiameter').keyup(function() {
 		calcMain();
 	});
 	$('#tensileForce').keyup(function() {

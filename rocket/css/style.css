@@ -30,7 +30,7 @@ body {
 }
 
 .header .login {
-  position: relative;
+	position: relative;
 	text-align: right;
 }
 
@@ -142,8 +142,20 @@ body {
 	padding: 30px;
 }
 
-#accordion > form input {
+#accordion > form input:not(.input-gr) {
 	width: 60%;
+}
+
+.kindOfPipe-group {
+	width: 60%;
+}
+
+.pipe-choice {
+	padding: 3px 20px !important;
+}
+.pipe-choice:hover {
+	cursor: pointer;
+	background-color: rgb(230, 230, 230);
 }
 
 /* Supporting */

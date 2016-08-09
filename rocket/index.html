@@ -41,12 +41,40 @@
             <h3>rod load</h3>
             <form role="form">
             	<div class="form-group">
-								<label for="diameter">Diameter. mm</label>
-           				<div class="form-inline">
-            				<input type="text" class="form-control" placeholder="Diameter" id="diameter">
-           					<label for="diameter" id="area"></label>
-            			</div>
+								<label for="outsideDiameter">Outside diameter. mm</label>
+           			<div class="form-inline">
+            			<input type="text" class="form-control" placeholder="Outside diameter" id="outsideDiameter">
+           				<label for="outsideDiameter" id="area"></label>
+            		</div>
             	</div>
+            	
+<!--
+            	<div class="form-group">
+            		<label for="inner-diameter">Inner diameter. mm</label>
+            		<div class="form-inline">
+            			<input type="text" class="form-control" placeholder="Inner diameter" id="inner-diameter">
+            			<select name="kindOfPipe" class="form-control" id="kindOfPipe">
+    							  <option selected="selected">Inner diameter</option>
+    							  <option>Pipe wall thickness</option>
+    							</select>
+            		</div>
+            	</div>
+-->
+ 	
+							<div class="form-group kindOfPipe-group">
+							 <label for="inner-diameter" id="kindOfPipeLabel">Inner diameter. mm</label>
+								<div class="input-group">
+									<input type="text" id="innerDiameter" placeholder="Inner diameter" class="form-control input-gr">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" id="kindOfPipeButton" data-toggle="dropdown">Inner diameter <span class="caret"></span></button>
+										<ul class="dropdown-menu pull-right">
+											<li class="pipe-choice inner-diameter-choice">Inner diameter</li>
+											<li class="pipe-choice pipe-wall-thickness-choice">Pipe wall thickness</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
             	<div class="form-group">
             		<label for="tensileStrength">Tensile force. H</label>
             		<input type="text" class="form-control" placeholder="Tensile force" id="tensileForce">
