@@ -43,7 +43,7 @@
             	<div class="form-group">
 								<label for="outsideDiameter">Outside diameter. mm</label>
            			<div class="form-inline">
-            			<input type="text" class="form-control" placeholder="Outside diameter" id="outsideDiameter">
+            			<input type="text" class="form-control keyupCalcMain" placeholder="Outside diameter" id="outsideDiameter">
            				<label for="outsideDiameter" id="area"></label>
             		</div>
             	</div>
@@ -64,12 +64,12 @@
 							<div class="form-group kindOfPipe-group">
 							 <label for="inner-diameter" id="kindOfPipeLabel">Inner diameter. mm</label>
 								<div class="input-group">
-									<input type="text" id="innerDiameter" placeholder="Inner diameter" class="form-control input-gr">
+									<input type="text" id="innerDiameter" placeholder="Inner diameter" class="form-control input-gr keyupCalcMain">
 									<div class="input-group-btn">
 										<button type="button" class="btn btn-default dropdown-toggle" id="kindOfPipeButton" data-toggle="dropdown">Inner diameter <span class="caret"></span></button>
 										<ul class="dropdown-menu pull-right">
-											<li class="pipe-choice inner-diameter-choice">Inner diameter</li>
-											<li class="pipe-choice pipe-wall-thickness-choice">Pipe wall thickness</li>
+											<li class="pipe-choice inner-diameter-choice clickCalcMain">Inner diameter</li>
+											<li class="pipe-choice pipe-wall-thickness-choice clickCalcMain">Pipe wall thickness</li>
 										</ul>
 									</div>
 								</div>
@@ -77,7 +77,7 @@
 
             	<div class="form-group">
             		<label for="tensileStrength">Tensile force. H</label>
-            		<input type="text" class="form-control" placeholder="Tensile force" id="tensileForce">
+            		<input type="text" class="form-control keyupCalcMain" placeholder="Tensile force" id="tensileForce">
             	</div>
             	<div class="form-group">
             		<label for="tension">Stress. H/mm<sup>2</sup></label>
@@ -129,6 +129,7 @@
       </div>
     </div>
 
+<!--
 		<script src="js/wheel-indicator.js"></script>
 		<script>
 			var indicator = new WheelIndicator({
@@ -140,9 +141,10 @@
 					preventMouse: false
 			});
 		</script>
+-->
    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script src='js/script.js'></script>
-    <script src='js/math.js'></script>
+    <script src='js/rod-load.js'></script>
   </body>
 </html>

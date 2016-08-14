@@ -158,6 +158,10 @@ body {
 	background-color: rgb(230, 230, 230);
 }
 
+.inputError {
+	background-color: rgba(255, 30, 30, 0.82);
+}
+
 /* Supporting */
 .supporting {
   background-color: #1c1c1c;
