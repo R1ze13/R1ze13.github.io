@@ -43,7 +43,7 @@ $(document).ready(function() {
 			else if (kindOfPipe === "Pipe wall thickness") {
 			pipeWallThickness = +$('#innerDiameter').val();
 			innerRadius = outsideRadius - pipeWallThickness;
-			if (innerRadius <= 0 && pipeWallThickness !== 0) {
+			if (innerRadius <= 0 && pipeWallThickness !== 0 && outsideRadius !==0) {
 				$('#kindOfPipeLabel').html('It must be less than outside <i>RADIUS</i> !');
 			}
 				else {
