@@ -74,6 +74,7 @@ $(document).ready(function() {
 		radiusInputError();
 		outsideArea = Math.PI * outsideRadius * outsideRadius;
 		if (innerRadius < 0 || (innerRadius <= 0 && kindOfPipe === 'Pipe wall thickness')) {
+			$('#area').empty();
 			return;
 		}
 		innerArea = Math.PI * innerRadius * innerRadius;
