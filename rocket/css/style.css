@@ -158,6 +158,10 @@ body {
 	background-color: rgb(230, 230, 230);
 }
 
+.totalLabel {
+	margin-left: 10px;
+}
+
 .inputError {
 	background-color: rgba(255, 30, 30, 0.82);
 }
