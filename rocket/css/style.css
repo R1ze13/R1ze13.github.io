@@ -9,8 +9,8 @@ body {
 }
 
 /* Header */
-.header {
-  background-color: rgba(28, 28, 28, .5);
+header {
+  background-color: rgba(28, 28, 28, .8);
   font-family: 'Oswald', sans-serif;
 	width: 100%;
 	position: fixed;
@@ -19,7 +19,7 @@ body {
 	/* Force Hardware Acceleration */
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
-  will-change: transform;
+/*  will-change: transform;*/
   -webkit-transition: -webkit-transform .5s;
   transition: -webkit-transform .5s;
   transition: transform .5s;
@@ -43,7 +43,7 @@ body {
 	cursor: pointer;
 }
 
-.header h1 {
+header h1 {
   color: #ffa800;
   font-size: 20px;
   margin: 0;
@@ -53,17 +53,17 @@ body {
 	display: inline-block;
 }
 
-.header h1 span {
+header h1 span {
   color: #fff;
   padding-left: 3px;
 }
 
-.header .login {
+header .login {
 	position: relative;
 	text-align: right;
 }
 
-.header .login p {
+header .login p {
   color: #fff;
   font-size: 14px;
 	padding: 10px 0;
@@ -73,12 +73,12 @@ body {
 }
 
 /*
-.header .col-md-3, .header .pull-right { 
+header .col-md-3, .header .pull-right { 
   width: 50%; float: left; 
 }
 */
 
- .header .dropdown-menu {
+ header .dropdown-menu {
   position: absolute;
   top: 40px;
   right: 0px;
@@ -89,7 +89,7 @@ body {
   font-family: Helvetica, Arial, sans-serif; 
 }
 
-.header .dropdown-menu h3 {
+header .dropdown-menu h3 {
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
   margin: 0 0 10px 0;
@@ -97,12 +97,12 @@ body {
   
 }
 
-.header .dropdown-menu button {
+header .dropdown-menu button {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
 }
 
-.header.is-hidden {
+header.is-hidden {
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);

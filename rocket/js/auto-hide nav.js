@@ -1,5 +1,5 @@
 jQuery(document).ready(function($){
-	var mainHeader = $('.header'),
+	var mainHeader = $('header'),
 		secondaryNavigation = $('.cd-secondary-nav'),
 		//this applies only if secondary nav is below intro section
 		belowNavHeroContent = $('.sub-nav-hero'),
@@ -50,6 +50,7 @@ jQuery(document).ready(function($){
 	    } else if( currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
 	    	//if scrolling down...
 	    	mainHeader.addClass('is-hidden');
+				$('header').find('.dropdown-menu').fadeOut(200);
 	    }
 	}
 
