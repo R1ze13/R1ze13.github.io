@@ -13,7 +13,17 @@ body {
   background-color: rgba(28, 28, 28, .5);
   font-family: 'Oswald', sans-serif;
 	width: 100%;
-	position: absolute;
+	position: fixed;
+	z-index: 2;
+	
+	/* Force Hardware Acceleration */
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
 }
 
 .icon-menu {
@@ -92,6 +102,12 @@ body {
   text-transform: uppercase;
 }
 
+.header.is-hidden {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
 .container > .row > div {
 /*	padding: 0;*/
 }
@@ -105,6 +121,7 @@ body {
   height: 100%;
   position: fixed;
   width: 285px;
+	z-index: 3;
 }
 
 .menu ul {
