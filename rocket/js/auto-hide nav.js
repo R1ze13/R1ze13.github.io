@@ -50,7 +50,7 @@ jQuery(document).ready(function($){
 	    } else if( currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
 	    	//if scrolling down...
 	    	mainHeader.addClass('is-hidden');
-				$('header').find('.dropdown-menu').fadeOut(200);
+				$('header').find('.dropdown-menu').fadeOut("fast", "linear");
 	    }
 	}
 

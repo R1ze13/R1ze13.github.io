@@ -44,7 +44,7 @@ $(document).ready(function() {
 			pipeWallThickness = +$('#innerDiameter').val();
 			innerRadius = outsideRadius - pipeWallThickness;
 			if (innerRadius <= 0 && pipeWallThickness !== 0 && outsideRadius !==0) {
-				$('#kindOfPipeLabel').html('It must be less than outside <i>RADIUS</i> !');
+				$('#kindOfPipeLabel').html('It must be ≤ than outside <i>R</i> !');
 			}
 				else {
 					$('#kindOfPipeLabel').text('Pipe wall thickness, mm');
@@ -90,8 +90,8 @@ $(document).ready(function() {
 		radiusInputError();
 		outsideArea = Math.PI * outsideRadius * outsideRadius;
 		if (innerRadius < 0 || (innerRadius <= 0 && kindOfPipe === 'Pipe wall thickness')) {
-			$('#area').empty();
-			$('#innerArea').empty();
+			$('#area').html('S <sub>total</sub> = 0');
+			$('#innerArea').html('S <sub>inner</sub> = 0');
 			return;
 		}
 		innerArea = Math.PI * innerRadius * innerRadius;

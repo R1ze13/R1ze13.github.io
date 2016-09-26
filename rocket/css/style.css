@@ -2,6 +2,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+	font-size: 16px;
+	font-family: "Roboto", serif;
 }
 
 .container {
@@ -11,10 +13,10 @@ body {
 /* Header */
 header {
   background-color: rgba(28, 28, 28, .8);
-  font-family: 'Oswald', sans-serif;
 	width: 100%;
 	position: fixed;
-	z-index: 2;
+	z-index: 3;
+	height: 2.625rem;
 	
 	/* Force Hardware Acceleration */
   -webkit-transform: translateZ(0);
@@ -32,9 +34,9 @@ header {
 }
 
 .icon-menu i {
-	width: 42px;
+	width: 2.625rem;
 	color: #fff;
-	line-height: 42px;
+	line-height: 2.625rem;
 	margin: 0;
 	font-size: 30px;
 }
@@ -45,10 +47,10 @@ header {
 
 header h1 {
   color: #ffa800;
-  font-size: 20px;
+  font-size: 1.25rem;
   margin: 0;
 /*  padding: 10px 0;*/
-	line-height: 42px;
+	line-height: 2.625rem;
   text-transform: uppercase;
 	display: inline-block;
 }
@@ -65,8 +67,7 @@ header .login {
 
 header .login p {
   color: #fff;
-  font-size: 14px;
-	padding: 10px 0;
+	line-height: 2.625rem;
   margin: 0;
   text-transform: uppercase;
   cursor: pointer;
@@ -86,19 +87,16 @@ header .col-md-3, .header .pull-right {
   width: 290px;
   border-radius: 0;
   padding: 10px;
-  font-family: Helvetica, Arial, sans-serif; 
 }
 
 header .dropdown-menu h3 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
   margin: 0 0 10px 0;
   text-transform: uppercase;
   
 }
 
 header .dropdown-menu button {
-  font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
 }
 
@@ -114,14 +112,13 @@ header.is-hidden {
 
 /* Menu */
 .menu {
-/*  background: #202024 url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/grey_wash_wall.png') repeat left top;*/
 	background-color: rgba(28, 28, 28, .8);
   left: -285px;  /* start off behind the scenes */
   top: 0;
   height: 100%;
   position: fixed;
   width: 285px;
-	z-index: 3;
+	z-index: 4;
 }
 
 .menu ul {
@@ -133,30 +130,31 @@ header.is-hidden {
 
 .menu li {
   border-bottom: 1px solid #636366;
-  font-family: 'Open Sans', sans-serif;
-  line-height: 42px;
+  line-height: 2.625rem;
   padding-bottom: 3px;
   padding-left: 20px;
   padding-top: 3px;
 	
 }
 
+.menu li:hover {
+	background: rgba(0, 0, 0, 0.92);
+}
+
 .menu a {
   color: #fff;
-  font-size: 23px;
-  text-decoration: none;
-	font-family: 'varela round';
+  font-size: 1.3rem;
+  text-decoration: none
 /*	text-transform: lowercase;*/
 }
 
 .icon-close {
   cursor: pointer;
-/*	background: #ffa800;*/
-  line-height: 42px;
+  line-height: 2.625rem;
 	padding-left: 15px;
   padding-top: 0px;
 	color: #fff;
-	font-size: 35px;
+	font-size: 2.2rem;
 }
 /* /Menu */
 
@@ -164,16 +162,15 @@ header.is-hidden {
 
 /* Main */
 .main {
-  background: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-375988.jpg) no-repeat center right fixed; 
+  background: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-375988.jpg) no-repeat top right fixed; 
   background-size: cover;
-/*  height: 900px;*/
 	height: 100vh;
+	min-height: 600px;
 	padding-top: 70px;
 }
 
 #accordion {
   background-color: #fff;
-  /* border: 1px solid #ddd; */
   margin-top: 20px;
   padding: 0;
 }
@@ -188,8 +185,7 @@ header.is-hidden {
   background-color: #1c1c1c;
   color: #fff;
   cursor: pointer;
-  font-family: 'Oswald', sans-serif;
-  font-size: 18px;
+  font-size: 1.2rem;
   margin: 0;
   outline: 0;
   padding: 8px 20px;
@@ -201,8 +197,6 @@ header.is-hidden {
 }
 
 .ui-accordion-content {
-  font-family: Roboto, sans-serif;
-  font-size: 14px;
   padding: 0px 20px;
 }
 
@@ -243,6 +237,11 @@ header.is-hidden {
 
 .totalLabel {
 	margin-left: 10px;
+	color: #00ad21;
+}
+
+#stress {
+	color: #00ad21;
 }
 
 .inputError {
@@ -255,16 +254,14 @@ header.is-hidden {
 }
 
 .supporting h2 {
-  font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
   text-align: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   margin-top: 40px;
   color: #fff;
 }
 
 .supporting p {
-  font-family: Roboto, sans-serif;
   text-align: center;
   margin: 8px 0 40px 0;
   color: #fff;
@@ -282,7 +279,6 @@ header.is-hidden {
 /* Footer */
 .footer {
   background-color: #1c1c1c;
-  font-family: 'Oswald', sans-serif;
   padding: 40px 0 20px 0;
   color: #fff;
 }
@@ -299,7 +295,6 @@ header.is-hidden {
 
 .footer p {
   color: #999;
-  font-size: 11px;
 }
 
 
@@ -311,9 +306,31 @@ header.is-hidden {
 }
 
 @media (max-width: 766px) {
+	html, body {
+		font-size: 25px;
+	}
+	
+	#accordion input, 
+	.kindOfPipe-group {
+		width: 100% !important;
+		font-size: 1rem;
+	}
+	
+	.totalLabel {
+		display: block;
+		text-align: center;
+	}
+	
+	.pipe-choice {
+		font-size: 0.9rem;
+	}
+	
   #area, #innerArea {
-/*		display: block;*/
 		margin: 10px 0 0;
-/*		margin-top: 10px;*/
+	}
+	
+	.main {
+		min-height: 900px;
+		height: 100vh;
 	}
 }
