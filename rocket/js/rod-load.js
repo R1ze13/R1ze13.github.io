@@ -122,7 +122,7 @@ $(document).ready(function() {
 	
 	function reset() {
 		$('.inputError').removeClass('inputError');
-		outsideDiameter, tensileForce, innerDiameter, pipeWallThickness = 0;
+		outsideDiameter = tensileForce = innerDiameter = pipeWallThickness = 0;
 	}
 	
 	$('.keyupCalcMain').keyup(function() {
