@@ -1,15 +1,9 @@
 $(document).ready(function() {
-	// LOGIN
-	$('.login').find('p').click(function() {
-    $('.login').find('.dropdown-menu').fadeToggle("fast", "linear");
-  });
-	// /LOGIN
-  
-	// Выбор ввода во втором поле
-	$('.kindOfPipe-group').find('.dropdown-toggle').click(function() {
-		$('.kindOfPipe-group').find('.dropdown-menu').fadeToggle("fast", "linear");
+	// Открытие ul
+	$('.dropdown-btn').click(function() {
+		$(this).parent().find('.dropdown-menu').fadeToggle("fast", "linear");
 	});
-	// /Выбор ввода во втором поле
+	// /Открытие ul
 	
 	
 	// ACCORDION

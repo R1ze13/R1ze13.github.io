@@ -18,7 +18,7 @@
           </div>
 <!--          <div class="pull-right">-->
             <div class="col-md-1 col-xs-3 login pull-right">
-              <p>Login</p>
+              <p class="dropdown-btn">Login</p>
               <div class="dropdown-menu">
                 <h3>Hey!</h3>
                 <form role="form">
@@ -64,7 +64,7 @@
             	<div class="form-group">
 								<label for="outsideDiameter">Outside diameter, mm</label>
            			<div class="form-inline">
-            			<input type="text" class="form-control keyupCalcMain" placeholder="Outside diameter" id="outsideDiameter">
+            			<input type="text" class="form-control keyupCalcMain rod-load-input" placeholder="" id="outsideDiameter">
            				<label for="outsideDiameter" id="area" class="totalLabel">S <sub>total</sub> = 0</label>
             		</div>
             	</div>
@@ -86,12 +86,12 @@
 								<label for="inner-diameter" id="kindOfPipeLabel">Inner diameter, mm</label>
 								<div class="form-inline">
 									<div class="input-group kindOfPipe-group">
-										<input type="text" id="innerDiameter" placeholder="Inner diameter" class="form-control input-gr keyupCalcMain">
+										<input type="text" id="innerDiameter" placeholder="" class="form-control input-gr keyupCalcMain rod-load-input">
 										<div class="input-group-btn">
-											<button type="button" class="btn btn-default dropdown-toggle" id="kindOfPipeButton" data-toggle="dropdown">Inner diameter <span class="caret"></span></button>
+											<button type="button" class="btn btn-default dropdown-toggle rod-load-btn dropdown-btn" id="kindOfPipeButton" data-toggle="dropdown"><span class="caret"></span></button>
 											<ul class="dropdown-menu pull-right">
-												<li class="pipe-choice inner-diameter-choice clickCalcMain">Inner diameter</li>
-												<li class="pipe-choice pipe-wall-thickness-choice clickCalcMain">Pipe wall thickness</li>
+												<li class="rod-load-choice inner-diameter-choice clickCalcMain">Inner diameter</li>
+												<li class="rod-load-choice pipe-wall-thickness-choice clickCalcMain">Pipe wall thickness</li>
 											</ul>
 										</div>
 									</div>
@@ -100,12 +100,26 @@
 							</div>
 
             	<div class="form-group">
-            		<label for="tensileStrength">Tensile force, H</label>
-            		<input type="text" class="form-control keyupCalcMain" placeholder="Tensile force" id="tensileForce">
+            		<label for="tensileStrength" id="tensile-force-label">Tensile force, H</label>
+<!--            		<input type="text" class="form-control keyupCalcMain" placeholder="Tensile force" id="tensileForce">-->
+           	
+           			<div class="form-inline">
+									<div class="input-group force-group kindOfPipe-group">
+										<input type="text" class="form-control keyupCalcMain input-gr rod-load-input" placeholder="" id="tensileForce">
+										<div class="input-group-btn">
+											<button type="button" class="btn btn-default dropdown-toggle rod-load-btn dropdown-btn" id="kindOfForceButton" data-toggle="dropdown"><span class="caret"></span></button>
+											<ul class="dropdown-menu pull-right">
+												<li class="rod-load-choice h-choice clickCalcMain">H</li>
+												<li class="rod-load-choice kg-choice clickCalcMain">Kg</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+           	
             	</div>
             	<div class="form-group">
             		<label for="stress">Stress, H/mm<sup>2</sup></label>
-            		<input type="text" class="form-control" placeholder="Stress" id="stress">
+            		<input type="text" class="form-control rod-load-input" placeholder="" id="stress" disabled>
             	</div>
             </form>
             

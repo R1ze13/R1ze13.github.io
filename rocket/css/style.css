@@ -178,7 +178,6 @@ header.is-hidden {
 #accordion a {
   text-decoration: none;
   color: #000;
-  
 }
 
 .ui-accordion-header {
@@ -219,18 +218,28 @@ header.is-hidden {
 	padding: 30px;
 }
 
-#accordion > form input:not(.input-gr) {
-	width: 60%;
-}
-
+#accordion > form input:not(.input-gr),
 .kindOfPipe-group {
 	width: 60%;
 }
 
-.pipe-choice {
+/*Минимально допустимое место*/
+.input-group-btn {
+	width: 1% !important;
+}
+
+.dropdown-toggle {
+/*	background-color: rgba(0, 29, 188, 0.74);*/
+	background-color: #1c1c1c;
+	color: #fff;
+	height: 2.125rem;
+	border: none;
+}
+
+.rod-load-choice {
 	padding: 3px 20px !important;
 }
-.pipe-choice:hover {
+.rod-load-choice:hover {
 	cursor: pointer;
 	background-color: rgb(230, 230, 230);
 }
@@ -247,6 +256,8 @@ header.is-hidden {
 .inputError {
 	background-color: rgba(255, 30, 30, 0.82);
 }
+
+
 
 /* Supporting */
 .supporting {
@@ -321,8 +332,18 @@ header.is-hidden {
 		text-align: center;
 	}
 	
-	.pipe-choice {
+	.rod-load-choice {
 		font-size: 0.9rem;
+	}
+	
+	.rod-load-btn {
+		font-size: .9rem;
+		padding: 0 12px;
+	}
+	
+	.rod-load-btn,
+	.rod-load-input {
+		height: 40px !important;
 	}
 	
   #area, #innerArea {
