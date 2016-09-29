@@ -11,14 +11,12 @@ $(document).ready(function() {
 
 	$('.inner-diameter-choice').click(function() {
 		$('#kindOfPipeLabel').text('Inner diameter, mm');
-//		$('#kindOfPipeButton').html('Inner diameter <span class="caret"></span>');
 		$('.kindOfPipe-group').find('.dropdown-menu').fadeOut(200);
 		kindOfPipe = 'Inner diameter';
 	});
 
 	$('.pipe-wall-thickness-choice').click(function() {
 		$('#kindOfPipeLabel').text('Pipe wall thickness, mm');
-//		$('#kindOfPipeButton').html('Pipe wall thickness <span class="caret"></span>');
 		$('.kindOfPipe-group').find('.dropdown-menu').fadeOut(200);
 		kindOfPipe = 'Pipe wall thickness';
 	});
@@ -26,14 +24,14 @@ $(document).ready(function() {
 	// kind of force
 	$('.h-choice').click(function() {
 		$('#tensile-force-label').text('Tensile force, H');
-//		$('#kindOfForceButton').html(' <span class="caret"></span>');
+		$('#stress-label').html('Stress, H/mm<sup>2</sup>');
 		$('.kindOfPipe-group').find('.dropdown-menu').fadeOut(200);
 		kindOfForce = 'H';
 	});
 
 	$('.kg-choice').click(function() {
 		$('#tensile-force-label').text('Tensile force, kg');
-//		$('#kindOfForceButton').html('Pipe wall thickness <span class="caret"></span>');
+		$('#stress-label').html('Stress, kg/mm<sup>2</sup>');
 		$('.kindOfPipe-group').find('.dropdown-menu').fadeOut(200);
 		kindOfForce = 'kg';
 	});

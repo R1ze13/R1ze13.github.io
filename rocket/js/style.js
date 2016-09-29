@@ -1,7 +1,8 @@
 $(document).ready(function() {
 	// Открытие ul
 	$('.dropdown-btn').click(function() {
-		$(this).parent().find('.dropdown-menu').fadeToggle("fast", "linear");
+		$('.dropdown-menu').not(this).fadeOut("fast", "linear");
+		$(this).parent().find('.dropdown-menu').stop().fadeToggle("fast", "linear");
 	});
 	// /Открытие ul
 	
@@ -32,17 +33,32 @@ $(document).ready(function() {
 	// События по клику мимо
 	$(document).click(function(event){
 		//MENU
-		if ($(event.target).hasClass('fa')) return;
-		if ($(event.target).closest(".menu").length) return;
-		$('.menu').animate({
-			left: '-285px'
-		}, 300);
-		$('.header').find('.icon-menu').fadeIn(300);
-		event.stopPropagation();
+		(function() {
+			if ($(event.target).hasClass('fa')) return;
+			if ($(event.target).closest(".menu").length) return;
+			$('.menu').stop().animate({
+				left: '-285px'
+			}, 300);
+			$('.header').find('.icon-menu').stop().fadeIn(300);
+		})();
 		// /MENU
 		
-		if ($(event.target).closest(".login").length) return;
-		$('.login').find('.dropdown-menu').fadeOut("fast", "linear");
+		// login
+		(function() {
+			if ($(event.target).closest(".login").length) return;
+			$('.login').find('.dropdown-menu').stop().fadeOut("fast", "linear");
+		})();
+		// /login
+		
+		// ul-menus
+		(function() {
+			if ($(event.target).hasClass('dropdown-btn')) return;
+			if ($(event.target).closest(".dropdown-menu").length) return;
+			$('.dropdown-menu').fadeOut("fast", "linear");
+		})();
+		// /ul-menus
+		
+//		event.stopPropagation();
 	});
 	// /События по клику мимо
 });
