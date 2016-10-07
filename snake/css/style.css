@@ -1,0 +1,143 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-size: 16px;
+	font-family: 'Titillium Web', sans-serif !important;
+}
+
+/* Header */
+header {
+  background-color: rgba(28, 28, 28, .8);
+	width: 100%;
+	z-index: 3;
+	height: 2.625rem;
+	
+	/* Force Hardware Acceleration */
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+/*  will-change: transform;*/
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.icon-menu {
+	text-align: center;
+	float: left;
+}
+
+.icon-menu i {
+	width: 2.625rem;
+	color: #fff;
+	line-height: 2.6rem;
+	margin: 0;
+	font-size: 30px;
+	top: 0;
+}
+
+.icon-menu i:hover {
+	cursor: pointer;
+}
+
+header h1 {
+  color: #ffa800;
+  font-size: 1.25rem;
+  margin: 0;
+/*  padding: 10px 0;*/
+	line-height: 2.625rem;
+  text-transform: uppercase;
+	display: inline-block;
+}
+
+header h1 span {
+  color: #fff;
+  padding-left: 3px;
+}
+
+header .login {
+	position: relative;
+	text-align: right;
+}
+
+header .login p {
+  color: #fff;
+	line-height: 2.625rem;
+  margin: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+ header .dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  left: auto;
+  width: 290px;
+  border-radius: 0;
+  padding: 10px;
+}
+
+header .dropdown-menu h3 {
+  font-size: 1.25rem;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  
+}
+
+header .dropdown-menu button {
+  text-transform: uppercase;
+}
+
+header.is-hidden {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+.container > .row > div {
+/*	padding: 0;*/
+}
+
+
+/*  game  */
+.game-wrapper {
+	margin: 50px auto 0;
+	text-align: center;
+}
+
+body {
+	min-height: 800px;
+	height: 100vh;
+/*	border: 1px solid transparent;*/
+	background: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-375602.jpg) bottom right;
+	overflow-x: hidden;
+}
+
+.game-wrapper__game-form {
+	margin-top: 15px;
+}
+
+.game-wrapper__game-form .btn {
+	margin: 0 15px;
+}
+
+.btn-black {
+	padding: 10px 20px !important;
+	background-color: rgba(28, 28, 28, .8);
+	color: #c6c6c6;
+	font-size: 1.6rem !important;
+	transition: .5s;
+}
+
+.btn-black:hover {
+	background: rgba(28, 28, 28, .9);
+	color: aliceblue;
+}
+
+.btn-black:focus {
+	color: aliceblue;
+}

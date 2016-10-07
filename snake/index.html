@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="icon-menu">
+			<i class="glyphicon glyphicon-align-left"></i>
+		</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xs-7">
+          <h1>snake<span>js</span></h1>
+        </div>
+          <div class="col-md-1 col-xs-3 login pull-right">
+            <p class="dropdown-btn">Login</p>
+            <div class="dropdown-menu">
+              <h3>Hey!</h3>
+              <form role="form">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn">Sign in</button>
+              </form>
+            </div>
+          </div>
+      </div>
+    </div>
+	</header>
+	<section class="game-wrapper">
+		<canvas id="canvas" height="600" width="600">canvas wont work. sandess</canvas>
+		
+		<form role="form" class="game-wrapper__game-form" onsubmit="return false;">
+			<div class="form-group--inline">
+				 <button id="game-wrapper__btn-reset" type="submit" class="btn btn-black">Reset</button>
+				 <button id="game-wrapper__btn-pause" type="submit" class="btn btn-black">Pause</button>
+				 <button id="game-wrapper__btn-start" class="btn btn-black">Start</button>
+			</div>
+		</form>
+	</section>
+	<footer>
+		
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/snake.js"></script>
+</body>
+</html>
