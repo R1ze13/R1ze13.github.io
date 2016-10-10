@@ -11,8 +11,10 @@ $(document).ready(function() {
 			cellWidth = 15, 
 			direction = 'right', 
 			snakeArray,
-			snakeLength = 4,
-			food;
+			snakeLength = 5,
+			food,
+			score = 0,
+			speed = 90;
 	
 	var drawTimer,
 			foodTimer;
@@ -29,16 +31,15 @@ $(document).ready(function() {
 	
 	function createSnake() {
 		snakeArray = [];
-		
-		for (var i = snakeLength; i >= 0; i--) {
+		for (var i = snakeLength - 1; i >= 0; i--) {
 			snakeArray.push({x: i+13, y: 18});
 		}
 	}
 	
 	function createFood() {
 		food = {
-			x: Math.round(Math.random()*(width / cellWidth)),
-			y: Math.round(Math.random()*(height / cellWidth))
+			x: Math.round(Math.random()*( (width - cellWidth) / cellWidth)),
+			y: Math.round(Math.random()*( (height - cellWidth) / cellWidth))
 		};
 	}
 	
@@ -57,6 +58,11 @@ $(document).ready(function() {
 				x: headX,
 				y: headY
 			});
+			speed -= 2;
+			score += 10;
+			$('.canvas-wrapper').addClass('change').attr('data-content', 'score: ' + score);
+			clearInterval(drawTimer);
+			drawTimer = setInterval(draw, speed);
 			createFood();
 		}
 	}
@@ -70,6 +76,7 @@ $(document).ready(function() {
 		createField();
 		dropFood();
 		eatFood();
+		
 		//	snake movement
 		headX = snakeArray[0].x;
 		headY = snakeArray[0].y;
@@ -79,7 +86,6 @@ $(document).ready(function() {
 		else if (direction === 'down') headY++;
 		else if (direction === 'left') headX--;
 		else if (direction === 'up') headY--;
-		
 		var tail = snakeArray.pop();
 		tail.x = headX;
 		tail.y = headY;
@@ -99,18 +105,12 @@ $(document).ready(function() {
 			ctx.strokeStyle = "#fff";
 			ctx.strokeRect(snake.x * cellWidth, snake.y * cellWidth, cellWidth, cellWidth);
 		}
-		
-		// painting place under the tale
-//		ctx.fillStyle = 'rgba(28, 28, 28, 1)';
-//		ctx.fillRect( snakeArray[snakeArray.length - 1].x * cellWidth, snakeArray[snakeArray.length - 1].y * cellWidth, cellWidth, cellWidth );
-//		ctx.strokeStyle = 'rgba(28, 28, 28, 1)';
-//		ctx.strokeRect( snakeArray[snakeArray.length - 1].x * cellWidth, snakeArray[snakeArray.length - 1].y * cellWidth, cellWidth, cellWidth );
 	};
 	
 	//	buttons
 	$('#game-wrapper__btn-start').click(function() {
 		if(typeof drawTimer == "undefined") {
-			drawTimer = setInterval(draw, 90);
+			drawTimer = setInterval(draw, speed);
 		}
 	});
 	
@@ -121,9 +121,10 @@ $(document).ready(function() {
 	
 	$('#game-wrapper__btn-reset').click(function() {
 		init();
+		speed = 90;
 		direction = 'right';
 		if(typeof drawTimer == "undefined") {
-			drawTimer = setInterval(draw, 90);
+			drawTimer = setInterval(draw, speed);
 		}
 	});
 	

@@ -141,3 +141,21 @@ body {
 .btn-black:focus {
 	color: aliceblue;
 }
+
+.canvas-wrapper {
+	display: inline-block;
+	position: relative;
+}
+
+.canvas-wrapper:after {
+	content: attr(data-content) 'score: 0';
+	position: absolute;
+	left: 5px;
+	top: 577px;
+	color: #c6c6c6;
+	display: inline-block;
+}
+
+.canvas-wrapper.change:after {
+	content: attr(data-content) '';
+}
