@@ -17,12 +17,14 @@ $(document).ready(function() {
 	var drawTimer,
 			foodTimer;
 	
+	var headX, headY;
+	
 	init();
 	function init() {
 		createField();
 		createSnake();
+		createFood();
 		draw();
-//		foodTimer = setInterval(createFood, 2000);
 	};
 	
 	function createSnake() {
@@ -38,29 +40,46 @@ $(document).ready(function() {
 			x: Math.round(Math.random()*(width / cellWidth)),
 			y: Math.round(Math.random()*(height / cellWidth))
 		};
-		
+	}
+	
+	function dropFood() {
 		ctx.fillStyle = 'yellow';
 		ctx.fillRect(food.x * cellWidth, food.y*cellWidth, cellWidth - 1, cellWidth - 1);
 		ctx.strokeStyle = 'orange';
 		ctx.strokeRect(food.x * cellWidth, food.y*cellWidth, cellWidth - 1, cellWidth - 1);
 	}
 	
+	function eatFood() {
+		if (headX === food.x && headY === food.y) {
+			ctx.fillStyle = 'rgba(28, 28, 28, 1)';
+			ctx.fillRect(food.x * cellWidth - 1, food.y*cellWidth - 1, cellWidth + 1, cellWidth + 1);
+			var tail = snakeArray.push({ 
+				x: headX,
+				y: headY
+			});
+			createFood();
+		}
+	}
+	
 	function createField() {
-		// field
 		ctx.fillStyle = 'rgba(28, 28, 28, 1)';
 		ctx.fillRect(0, 0, width, height);
 	}
 	
 	function draw() {
+		createField();
+		dropFood();
+		eatFood();
 		//	snake movement
-		var headX = snakeArray[0].x;
-		var headY = snakeArray[0].y;
+		headX = snakeArray[0].x;
+		headY = snakeArray[0].y;
 		
 		//	snake turns && movement
 		if (direction === 'right') headX++;
 		else if (direction === 'down') headY++;
 		else if (direction === 'left') headX--;
 		else if (direction === 'up') headY--;
+		
 		var tail = snakeArray.pop();
 		tail.x = headX;
 		tail.y = headY;
@@ -72,19 +91,18 @@ $(document).ready(function() {
 		if (headY === height/cellWidth) snakeArray[0].y = 0;
 		if (headY === -1) snakeArray[0].y = height/cellWidth - 1;
 		
-		//	snake
+		//	snake draw
 		for (var i = 0; i < snakeArray.length; i++) {
 			var snake = snakeArray[i];
-			ctx.fillStyle = "rgba(181, 181, 181, 0.72)";
+			ctx.fillStyle = "rgba(181, 181, 181, 1)";
 			ctx.fillRect(snake.x * cellWidth, snake.y * cellWidth, cellWidth, cellWidth);
-//			ctx.strokeStyle = "#fff";
-//			ctx.strokeRect(snake.x * cellWidth, snake.y * cellWidth, cellWidth - 1, cellWidth - 1);
+			ctx.strokeStyle = "#fff";
+			ctx.strokeRect(snake.x * cellWidth, snake.y * cellWidth, cellWidth, cellWidth);
 		}
 		
-		
 		// painting place under the tale
-		ctx.fillStyle = 'rgba(28, 28, 28, 1)';
-		ctx.fillRect( snakeArray[snakeArray.length - 1].x * cellWidth, snakeArray[snakeArray.length - 1].y * cellWidth, cellWidth + 1, cellWidth + 1 );
+//		ctx.fillStyle = 'rgba(28, 28, 28, 1)';
+//		ctx.fillRect( snakeArray[snakeArray.length - 1].x * cellWidth, snakeArray[snakeArray.length - 1].y * cellWidth, cellWidth, cellWidth );
 //		ctx.strokeStyle = 'rgba(28, 28, 28, 1)';
 //		ctx.strokeRect( snakeArray[snakeArray.length - 1].x * cellWidth, snakeArray[snakeArray.length - 1].y * cellWidth, cellWidth, cellWidth );
 	};
@@ -103,6 +121,7 @@ $(document).ready(function() {
 	
 	$('#game-wrapper__btn-reset').click(function() {
 		init();
+		direction = 'right';
 		if(typeof drawTimer == "undefined") {
 			drawTimer = setInterval(draw, 90);
 		}
