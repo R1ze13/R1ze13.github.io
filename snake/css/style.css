@@ -72,8 +72,11 @@ header .login p {
 }
 
  header .dropdown-menu {
+	background: rgba(28, 28, 28, .8);
+	color: #ffa800;
+	 
   position: absolute;
-  top: 40px;
+  top: 45px;
   right: 0px;
   left: auto;
   width: 290px;
@@ -81,15 +84,32 @@ header .login p {
   padding: 10px;
 }
 
+header input[type=email],
+input[type=password] {
+	line-height: 50px;
+	background-color: rgba(28, 28, 28, .8);
+	border-color: rgba(255, 168, 0, 0.56);
+	color: #c6c6c6;
+	transition: .5s;
+}
+
+header input[type=email]:focus,
+header input[type=password]:focus {
+	outline: none !important;
+	border-color: rgba(255, 168, 0, 0.9);
+	box-shadow: none;
+}
+
 header .dropdown-menu h3 {
   font-size: 1.25rem;
   margin: 0 0 10px 0;
-  text-transform: uppercase;
-  
 }
 
-header .dropdown-menu button {
+header .dropdown-menu button[type=submit] {
   text-transform: uppercase;
+	font-weight: 900;
+	background-color: rgba(255, 168, 0, 8);
+	color: rgba(28, 28, 28, .8);
 }
 
 header.is-hidden {
@@ -104,6 +124,11 @@ header.is-hidden {
 
 
 /*  game  */
+
+#canvas {
+	position: relative;
+	z-index: -1;
+}
 .game-wrapper {
 	margin: 50px auto 0;
 	text-align: center;
@@ -139,7 +164,8 @@ body {
 }
 
 .btn-black:focus {
-	color: aliceblue;
+	color: #c6c6c6;
+	outline: none;
 }
 
 .canvas-wrapper {
