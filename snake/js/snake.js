@@ -31,6 +31,7 @@ $(document).ready(function() {
 	
 	init();
 	function init() {
+		gameOver = false;
 		createField();
 		createSnake();
 		createFood();
@@ -90,6 +91,7 @@ $(document).ready(function() {
 				clearInterval(drawTimer);
 				drawTimer = undefined;
 				$('.game-overlay').stop().fadeIn('linear');
+				$('.game-overlay').find('h2').text('GAME OVER');
 				$('.game-overlay').find('p').text('Score: ' + score);
 				gameOver = true;
 			}
