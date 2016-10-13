@@ -135,9 +135,9 @@ $(document).ready(function() {
 		
 		//	teleport
 		if (headX === width/cellWidth) snakeArray[0].x = 0;
-		if (headX === -1) snakeArray[0].x = width/cellWidth - 1;
+		if (headX === -1) snakeArray[0].x = (width - cellWidth) / cellWidth;
 		if (headY === height/cellWidth) snakeArray[0].y = 0;
-		if (headY === -1) snakeArray[0].y = height/cellWidth - 1;
+		if (headY === -1) snakeArray[0].y = (width - cellWidth) / cellWidth;
 		
 		//	snake draw
 		for (let i = 0; i < snakeArray.length; i++) {
@@ -166,6 +166,7 @@ $(document).ready(function() {
 		
 		$('.game-overlay').stop().fadeIn('linear');
 		$('.game-overlay').find('h2').text('PAUSE');
+		$('.game-overlay').find('p').text('Score: ' + score);
 	});
 	
 	$('#game-wrapper__btn-reset').click(function() {
