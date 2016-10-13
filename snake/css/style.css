@@ -85,7 +85,7 @@ header .login p {
 }
 
 header input[type=email],
-input[type=password] {
+header input[type=password] {
 	line-height: 50px;
 	background-color: rgba(28, 28, 28, .8);
 	border-color: rgba(255, 168, 0, 0.56);
@@ -184,4 +184,26 @@ body {
 
 .canvas-wrapper.change:after {
 	content: attr(data-content) '';
+}
+
+.game-overlay {
+	display: none;
+	background: rgba(0, 0, 0, .6);
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 600px;
+	height: 600px;
+}
+
+.game-overlay h2 {
+	color: orange;
+	font-size: 4rem;
+	margin: 35% 0 0 0;
+}
+
+.game-overlay p {
+	color: orangered;
+	font-size: 2rem;
 }
