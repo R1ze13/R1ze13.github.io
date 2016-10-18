@@ -136,7 +136,7 @@ $(document).ready(function() {
 		if (headX === width/cellWidth) snakeArray[0].x = 0;
 		if (headX === -1) snakeArray[0].x = (width - cellWidth) / cellWidth;
 		if (headY === height/cellWidth) snakeArray[0].y = 0;
-		if (headY === -1) snakeArray[0].y = (width - cellWidth) / cellWidth;
+		if (headY === -1) snakeArray[0].y = (height - cellWidth) / cellWidth;
 		
 		//	snake draw
 		for (let i = 0; i < snakeArray.length; i++) {
