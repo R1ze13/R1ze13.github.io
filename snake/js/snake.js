@@ -39,7 +39,7 @@ $(document).ready(function() {
 	}
 	
 	function createSnake() {
-		snakeArray = []
+		snakeArray = [];
 		for (let i = snakeLength; i > 0; i--) {
 			snakeArray.push({x: i+13, y: 18});
 		}
@@ -86,6 +86,9 @@ $(document).ready(function() {
 	
 //	checkCollision();
 	function checkCollision() {
+		//	snake movement
+		headX = snakeArray[0].x;
+		headY = snakeArray[0].y;
 		for (let i = 1; i < snakeArray.length; i++) {
 			if (headX === snakeArray[i].x && headY === snakeArray[i].y) {
 				clearInterval(drawTimer);
@@ -99,9 +102,8 @@ $(document).ready(function() {
 	}
 	
 	function reset() {
-		init();
-		headX = undefined;
-		headY = undefined;
+//		headX = undefined;
+//		headY = undefined;
 		speed = 150;
 		score = 0;
 		$('.canvas-wrapper').addClass('change').attr('data-content', 'score: ' + score);
@@ -114,13 +116,10 @@ $(document).ready(function() {
 	
 	function draw() {
 		createField();
-		dropFood();
 		checkCollision();
+		if (gameOver === true) return;
+		dropFood();
 		eatFood();
-		
-		//	snake movement
-		headX = snakeArray[0].x;
-		headY = snakeArray[0].y;
 		
 		//	snake turns && movement
 		if (direction === 'right') headX++;
@@ -157,7 +156,10 @@ $(document).ready(function() {
 			}
 			$('.game-overlay').stop().fadeOut('linear');
 		}
-		else reset();
+		else {
+			reset();
+			init();
+		}
 	});
 	
 	$('#game-wrapper__btn-pause').click(function() {
@@ -171,6 +173,7 @@ $(document).ready(function() {
 	
 	$('#game-wrapper__btn-reset').click(function() {
 		reset();
+		init();
 	});
 	
 	// buttons on keyboard
