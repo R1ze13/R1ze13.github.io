@@ -82,6 +82,7 @@ header .login p {
   width: 290px;
   border-radius: 0;
   padding: 10px;
+	z-index: 5 !important;
 }
 
 header input[type=email],
@@ -132,18 +133,24 @@ header.is-hidden {
 .game-wrapper {
 	margin: 50px auto 0;
 	text-align: center;
+	position: relative;
+	z-index: -1;
 }
 
 body {
 	min-height: 800px;
 	height: 100vh;
-/*	border: 1px solid transparent;*/
-	background: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-375602.jpg) bottom right;
+	background: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-375602.jpg) bottom right fixed;
+	background-size: cover;
 	overflow-x: hidden;
+	z-index: -5;
+	position: relative;
 }
 
 .game-wrapper__game-form {
 	margin-top: 15px;
+	z-index: 300;
+	position: relative;
 }
 
 .game-wrapper__game-form .btn {
@@ -206,4 +213,61 @@ body {
 .game-overlay p {
 	color: orangered;
 	font-size: 2rem;
+}
+
+/*	options	*/
+.game-wrapper__options {
+	position: absolute;
+	left: 0;
+/*	top: 0%;*/
+	bottom: 11.5%;
+	background: rgba(28, 28, 28, .8);
+	display: inline-block;
+	width: 250px;
+	overflow: hidden;
+}
+
+.options__h3 {
+	margin: 0;
+	background: rgba(28, 28, 28, .9);
+	color: #ffa800;
+	padding: 12px;
+	border-bottom: 1px solid rgba(255, 168, 0, 0.56);
+}
+
+.options__options-form {
+	color: #fff;
+	padding: 20px;
+}
+
+.options__options-form label {
+	color: #c6c6c6;
+}
+
+.options__options-input {
+	line-height: 50px;
+	background-color: rgba(28, 28, 28, .8);
+	border-color: rgba(255, 168, 0, 0.56);
+	color: #c6c6c6;
+	transition: .5s;
+	text-align: center;
+}
+
+.options__options-input:focus {
+	outline: none !important;
+	border-color: rgba(255, 168, 0, 0.9);
+	box-shadow: none;
+}
+
+.options__options-input[disabled] {
+	background: transparent;
+	border-color: rgba(255, 168, 0, 0.2);
+	color: antiquewhite;
+}
+
+/*	media	*/
+@media (max-width: 1200px) {
+	.game-wrapper__options {
+		display: none;
+	}
 }

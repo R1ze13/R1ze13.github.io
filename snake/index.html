@@ -35,22 +35,40 @@
       </div>
     </div>
 	</header>
-	<section class="game-wrapper">
-		<div class="canvas-wrapper">
-			<canvas id="canvas" height="600" width="600">canvas wont work. sandess</canvas>
-			<div class="game-overlay game-over">
-				<h2>GAME OVER</h2>
-				<p></p>
+	<section class="game-wrapper container">
+		<div class="row">
+			<div class="canvas-wrapper">
+				<canvas id="canvas">canvas wont work. sandess</canvas>
+				<div class="game-overlay game-over">
+					<h2>GAME OVER</h2>
+					<p></p>
+				</div>
 			</div>
+			<div class="game-wrapper__options">
+				<h3 class="options__h3"><span class="glyphicon glyphicon-cog"></span></h3>
+				<form class="options__options-form">
+					<div class="form-group">
+						<label for="options__speed">Speed</label>
+						<input type="text" class="options__options-input options__speed-input form-control" id="options__speed" placeholder="default: 150">
+					</div>
+					<div class="form-group">
+						<label for="options__snake-length">Snake length</label>
+						<input type="text" class="options__options-input options__snake-length-input form-control" id="options__snake-length" placeholder="default: 5">
+					</div>
+					<div class="form-group">
+						<label for="options__lvl">Level</label>
+						<input type="text" class="options__options-input options__lvl form-control" id="options__lvl" placeholder="default: 1">
+					</div>
+				</form>
+			</div>
+			<form role="form" class="game-wrapper__game-form" onsubmit="return false;">
+				<div class="form-group--inline">
+					 <button id="game-wrapper__btn-reset" type="submit" class="btn btn-black">Reset</button>
+					 <button id="game-wrapper__btn-pause" type="submit" class="btn btn-black">Pause</button>
+					 <button id="game-wrapper__btn-start" type="submit" class="btn btn-black">Start</button>
+				</div>
+			</form>
 		</div>
-		
-		<form role="form" class="game-wrapper__game-form" onsubmit="return false;">
-			<div class="form-group--inline">
-				 <button id="game-wrapper__btn-reset" type="submit" class="btn btn-black">Reset</button>
-				 <button id="game-wrapper__btn-pause" type="submit" class="btn btn-black">Pause</button>
-				 <button id="game-wrapper__btn-start" type="submit" class="btn btn-black">Start</button>
-			</div>
-		</form>
 	</section>
 	<footer>
 		
