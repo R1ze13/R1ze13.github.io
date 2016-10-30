@@ -7,9 +7,10 @@ $(document).ready(function() {
 	canvas.width = 600;
 	canvas.height = 600;
 	
+	// cw - cell width
 	let width = $("#canvas").width(),
 			height = $("#canvas").height(),
-			cellWidth = 15,
+			cw = 15,
 			direction = 'right', 
 			snakeArray,
 			snakeLength = 5,
@@ -18,7 +19,10 @@ $(document).ready(function() {
 			speed = 150,
 			isRotateAllowed = true,
 			isOptionsAllowed = true,
-			gameOver = false;
+			isTeleportAllowed = true,
+			gameOver = false,
+			currentLevel = 1,
+			level;
 	
 	let drawTimer,
 			foodTimer;
@@ -42,13 +46,18 @@ $(document).ready(function() {
 	function getValues() {
 		if (isOptionsAllowed === false) return;
 		let speedInput = +$('.options__speed-input').val();
-		if ( speedInput !== undefined && speedInput !== 0 ) {
+		if ( speedInput !== 0 ) {
 			speed = speedInput;
 		}
 		
 		let snakeLengthInput = +$('.options__snake-length-input').val();
 		if ( snakeLengthInput !== 0 ) {
 			snakeLength = snakeLengthInput;
+		}
+		
+		let lvlInput = +$('.options__lvl').val();
+		if ( lvlInput !== 0 ) {
+			level = lvlInput;
 		}
 	}
 	
@@ -61,25 +70,32 @@ $(document).ready(function() {
 	
 	function createFood() {
 		food = {
-			x: Math.round(Math.random()*( (width - cellWidth) / cellWidth )),
-			y: Math.round(Math.random()*( (height - cellWidth) / cellWidth ))
+			x: Math.round(Math.random()*( (width - cw) / cw )),
+			y: Math.round(Math.random()*( (height - cw) / cw ))
 		};
+		
 		for (let i = 0; i < snakeArray.length; i++) {
 			if (snakeArray[i].x === food.x && snakeArray[i].y === food.y) createFood();
+		}
+		
+		if (currentLevel === 2) {
+			if (food.x === 0 || food.x === 39 || food.y === 0 || food.y === 39) {
+				createFood();
+			}
 		}
 	}
 	
 	function dropFood() {
 		ctx.fillStyle = 'yellow';
-		ctx.fillRect(food.x * cellWidth, food.y*cellWidth, cellWidth, cellWidth);
+		ctx.fillRect(food.x * cw, food.y * cw, cw, cw);
 		ctx.strokeStyle = 'orange';
-		ctx.strokeRect(food.x * cellWidth, food.y*cellWidth, cellWidth, cellWidth);
+		ctx.strokeRect(food.x * cw, food.y * cw, cw, cw);
 	}
 	
 	function eatFood() {
 		if (headX === food.x && headY === food.y) {
 			ctx.fillStyle = 'rgba(28, 28, 28, 1)';
-			ctx.fillRect(food.x * cellWidth - 1, food.y * cellWidth - 1, cellWidth + 1, cellWidth + 1);
+			ctx.fillRect(food.x * cw - 1, food.y * cw - 1, cw + 1, cw + 1);
 			let tail = snakeArray.push({ 
 				x: headX,
 				y: headY
@@ -98,16 +114,31 @@ $(document).ready(function() {
 		ctx.fillRect(0, 0, width, height);
 	}
 	
+	function gameIsOver() {
+		clearInterval(drawTimer);
+		drawTimer = undefined;
+		$('.game-overlay').stop().fadeIn('linear');
+		$('.game-overlay').find('h2').text('GAME OVER');
+		$('.game-overlay').find('p').text('Score: ' + score);
+		gameOver = true;
+		currentLevel = 1;
+	}
+	
 	function checkCollision() {
+		//	duct tape. or snake will die due to changes in options
 		if (isOptionsAllowed === true) return;
+		
+		// checking collision directly from snake's tale
 		for (let i = 1; i < snakeArray.length; i++) {
 			if (headX === snakeArray[i].x && headY === snakeArray[i].y) {
-				clearInterval(drawTimer);
-				drawTimer = undefined;
-				$('.game-overlay').stop().fadeIn('linear');
-				$('.game-overlay').find('h2').text('GAME OVER');
-				$('.game-overlay').find('p').text('Score: ' + score);
-				gameOver = true;
+				gameIsOver();
+			}
+		}
+		
+		// check collisions in levels
+		if (currentLevel === 2) {
+			if (headX === 0 || headX === 39 || headY === 0 || headY === 39) {
+				gameIsOver();
 			}
 		}
 	}
@@ -121,12 +152,41 @@ $(document).ready(function() {
 		$('.game-overlay').stop().fadeOut('linear');
 	}
 	
+	function teleport() {
+		if (headX === width/cw) snakeArray[0].x = 0;
+		if (headX === -1) snakeArray[0].x = (width - cw) / cw;
+		if (headY === height/cw) snakeArray[0].y = 0;
+		if (headY === -1) snakeArray[0].y = (height - cw) / cw;
+	}
+	
+	
+	function setLevel() {
+		if ( (score >= 10 && score < 80) || level === 2 ) {
+			currentLevel = 2;
+			setLevelTwo();
+		}
+	}
+	
+	function setLevelTwo() {
+		isTeleportAllowed = false;
+		
+		// borders
+		for (let i = 0; i < width / cw; i++) {
+			ctx.fillStyle = "rgb(62, 0, 0)";
+			ctx.fillRect(i * cw, 0 * cw, cw, cw / 2);
+			ctx.fillRect(width - cw / 2, i * cw, cw / 2, cw);
+			ctx.fillRect(i * cw, height - (cw / 2), cw, cw / 2);
+			ctx.fillRect(0, i * cw, cw / 2, cw);
+		}
+		
+	}
+	
 	function draw() {
+		headX = snakeArray[0].x;
+		headY = snakeArray[0].y;
 		createField();
 		checkCollision();
 		dropFood();
-		headX = snakeArray[0].x;
-		headY = snakeArray[0].y;
 		eatFood();
 		
 		//	snake turns && movement
@@ -143,19 +203,18 @@ $(document).ready(function() {
 		}
 		
 		//	teleport
-		if (headX === width/cellWidth) snakeArray[0].x = 0;
-		if (headX === -1) snakeArray[0].x = (width - cellWidth) / cellWidth;
-		if (headY === height/cellWidth) snakeArray[0].y = 0;
-		if (headY === -1) snakeArray[0].y = (height - cellWidth) / cellWidth;
+		if (isTeleportAllowed === true) teleport();
 		
 		//	snake draw
 		for (let i = 0; i < snakeArray.length; i++) {
 			let snake = snakeArray[i];
 			ctx.fillStyle = "rgba(181, 181, 181, 1)";
-			ctx.fillRect(snake.x * cellWidth, snake.y * cellWidth, cellWidth, cellWidth);
+			ctx.fillRect(snake.x * cw, snake.y * cw, cw, cw);
 			ctx.strokeStyle = "#fff";
-			ctx.strokeRect(snake.x * cellWidth, snake.y * cellWidth, cellWidth, cellWidth);
+			ctx.strokeRect(snake.x * cw, snake.y * cw, cw, cw);
 		}
+		
+		setLevel();
 	}
 	
 	//	options
