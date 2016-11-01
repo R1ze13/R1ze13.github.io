@@ -8,9 +8,11 @@ $(document).ready(function() {
 	canvas.height = 600;
 	
 	// cw - cell width
+	// bw - border width
 	let width = $("#canvas").width(),
 			height = $("#canvas").height(),
 			cw = 15,
+			bw = 10,
 			direction = 'right', 
 			snakeArray,
 			snakeLength = 5,
@@ -22,7 +24,8 @@ $(document).ready(function() {
 			isTeleportAllowed = true,
 			gameOver = false,
 			currentLevel = 1,
-			level;
+			_setLevel,
+			borders = [];
 	
 	let drawTimer,
 			foodTimer;
@@ -57,7 +60,7 @@ $(document).ready(function() {
 		
 		let lvlInput = +$('.options__lvl').val();
 		if ( lvlInput !== 0 ) {
-			level = lvlInput;
+			_setLevel = lvlInput;
 		}
 	}
 	
@@ -78,9 +81,11 @@ $(document).ready(function() {
 			if (snakeArray[i].x === food.x && snakeArray[i].y === food.y) createFood();
 		}
 		
-		if (currentLevel === 2) {
-			if (food.x === 0 || food.x === 39 || food.y === 0 || food.y === 39) {
-				createFood();
+		if (currentLevel !== 1) {
+			for (let i = 1; i < borders.length; i++) {
+				if (food.x === borders[i].x && food.y === borders[i].y) {
+					createFood();
+				}
 			}
 		}
 	}
@@ -137,8 +142,10 @@ $(document).ready(function() {
 		
 		// check collisions in levels
 		if (currentLevel === 2) {
-			if (headX === 0 || headX === 39 || headY === 0 || headY === 39) {
-				gameIsOver();
+			for (let i = 1; i < borders.length; i++) {
+				if (headX === borders[i].x && headY === borders[i].y) {
+					gameIsOver();
+				}
 			}
 		}
 	}
@@ -146,6 +153,8 @@ $(document).ready(function() {
 	function reset() {
 		speed = 150;
 		score = 0;
+		currentLevel = 1;
+		borders = [];
 		gameOver = false;
 		$('.canvas-wrapper').addClass('change').attr('data-content', 'score: ' + score);
 		direction = 'right';
@@ -161,23 +170,47 @@ $(document).ready(function() {
 	
 	
 	function setLevel() {
-		if ( (score >= 10 && score < 80) || level === 2 ) {
+		if (gameOver) return;
+		
+		if ( score === 0 || _setLevel === 1) {
+			currentLevel = 1;
+			borders = [];
+		}
+		
+		if ( (score >= 20 && score <= 80) || _setLevel === 2 ) {
 			currentLevel = 2;
 			setLevelTwo();
+		}
+		
+		if ( (score >= 90 && score <= 150) || _setLevel === 3 ) {
+			currentLevel = 3;
+			setLevelThree();
 		}
 	}
 	
 	function setLevelTwo() {
-		isTeleportAllowed = false;
-		
 		// borders
+//		for (let i = 0; i < width / cw; i++) {
+//			ctx.fillStyle = "rgb(62, 0, 0)";
+//			ctx.fillRect(i * cw, 0 * cw, cw, cw / 2);
+//			ctx.fillRect(width - cw / 2, i * cw, cw / 2, cw);
+//			ctx.fillRect(i * cw, height - (cw / 2), cw, cw / 2);
+//			ctx.fillRect(0, i * cw, cw / 2, cw);
+//		}
+		
+		borders = [];
 		for (let i = 0; i < width / cw; i++) {
-			ctx.fillStyle = "rgb(62, 0, 0)";
-			ctx.fillRect(i * cw, 0 * cw, cw, cw / 2);
-			ctx.fillRect(width - cw / 2, i * cw, cw / 2, cw);
-			ctx.fillRect(i * cw, height - (cw / 2), cw, cw / 2);
-			ctx.fillRect(0, i * cw, cw / 2, cw);
+			borders.push({x: i, y: 0});
+			borders.push({x: 0, y: i});
 		}
+		for (let i = width / cw - 1; i > 0; i--) {
+			borders.push({x: i, y: width / cw - 1});
+			borders.push({x: width / cw - 1, y: i});
+		}
+	}
+	
+	function setLevelThree() {
+		borders = [];
 		
 	}
 	
@@ -215,6 +248,12 @@ $(document).ready(function() {
 		}
 		
 		setLevel();
+		// lvl draw
+		for (let i = 0; i < borders.length; i++) {
+			let border = borders[i];
+			ctx.fillStyle = "rgb(57, 0, 0)";
+			ctx.fillRect(border.x * cw, border.y * cw, cw, cw);
+		}
 	}
 	
 	//	options
