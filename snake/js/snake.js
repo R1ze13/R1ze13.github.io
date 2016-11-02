@@ -1,7 +1,7 @@
 'use strict';
 $(document).ready(function() {
 	
-// Canvas
+	// Canvas
 	let canvas = $('#canvas')[0],
 			ctx = canvas.getContext("2d");
 	canvas.width = 600;
@@ -9,6 +9,8 @@ $(document).ready(function() {
 	
 	// cw - cell width
 	// bw - border width
+	// direction - start direction for the snake
+	// _setLevel - variable to set level via options input
 	let width = $("#canvas").width(),
 			height = $("#canvas").height(),
 			cw = 15,
@@ -25,12 +27,23 @@ $(document).ready(function() {
 			gameOver = false,
 			currentLevel = 1,
 			_setLevel,
-			borders = [];
+			borders = [],
+			bordersLevel2 = {},
+			bordersLevel2Length;
 	
 	let drawTimer,
 			foodTimer;
 	
+	// coordinates of snake's head
 	let headX, headY;
+	
+	
+	// variables for level 3
+	// r - random number for direction of border
+	// rx - random X of border
+	// same for ry
+	// r1, r4 are not used yet
+	let r, r1, rx, ry, r4;
 	
 	$('.canvas-wrapper').css({
 		'height': height + 'px',
@@ -48,6 +61,7 @@ $(document).ready(function() {
 	
 	function getValues() {
 		if (isOptionsAllowed === false) return;
+		
 		let speedInput = +$('.options__speed-input').val();
 		if ( speedInput !== 0 ) {
 			speed = speedInput;
@@ -80,14 +94,6 @@ $(document).ready(function() {
 		for (let i = 0; i < snakeArray.length; i++) {
 			if (snakeArray[i].x === food.x && snakeArray[i].y === food.y) createFood();
 		}
-		
-		if (currentLevel !== 1) {
-			for (let i = 1; i < borders.length; i++) {
-				if (food.x === borders[i].x && food.y === borders[i].y) {
-					createFood();
-				}
-			}
-		}
 	}
 	
 	function dropFood() {
@@ -119,6 +125,12 @@ $(document).ready(function() {
 		ctx.fillRect(0, 0, width, height);
 	}
 	
+	function randomInteger(min, max) {
+    let rand = min - 0.5 + Math.random() * (max - min + 1)
+    rand = Math.round(rand);
+    return rand;
+  }
+	
 	function gameIsOver() {
 		clearInterval(drawTimer);
 		drawTimer = undefined;
@@ -141,10 +153,19 @@ $(document).ready(function() {
 		}
 		
 		// check collisions in levels
-		if (currentLevel === 2) {
-			for (let i = 1; i < borders.length; i++) {
+		if (currentLevel !== 1) {
+			for (let i = 0; i < borders.length; i++) {
 				if (headX === borders[i].x && headY === borders[i].y) {
 					gameIsOver();
+				}
+			}
+		}
+		
+		// check collision with food and borders
+		if (currentLevel !== 1) {
+			for (let i = 1; i < borders.length; i++) {
+				if (food.x === borders[i].x && food.y === borders[i].y) {
+					createFood();
 				}
 			}
 		}
@@ -159,6 +180,8 @@ $(document).ready(function() {
 		$('.canvas-wrapper').addClass('change').attr('data-content', 'score: ' + score);
 		direction = 'right';
 		$('.game-overlay').stop().fadeOut('linear');
+		
+		r = r1 = rx = ry = r4 = undefined;
 	}
 	
 	function teleport() {
@@ -172,52 +195,85 @@ $(document).ready(function() {
 	function setLevel() {
 		if (gameOver) return;
 		
-		if ( score === 0 || _setLevel === 1) {
-			currentLevel = 1;
-			borders = [];
+		if (_setLevel) {
+			currentLevel = _setLevel;
+			if (_setLevel === 1) borders = [];
+			if (_setLevel === 2) setLevelTwo();
+			if (_setLevel === 3) setLevelThree();
 		}
-		
-		if ( (score >= 20 && score <= 80) || _setLevel === 2 ) {
-			currentLevel = 2;
-			setLevelTwo();
-		}
-		
-		if ( (score >= 90 && score <= 150) || _setLevel === 3 ) {
-			currentLevel = 3;
-			setLevelThree();
+		else {
+			if (score === 0) {
+				currentLevel = 1;
+				borders = [];
+			}
+
+			if (score >= 20 && score <= 80) {
+				currentLevel = 2;
+				setLevelTwo();
+			}
+
+			if (score >= 90 && score <= 150) {
+				currentLevel = 3;
+				setLevelThree();
+			}
 		}
 	}
 	
 	function setLevelTwo() {
-		// borders
-//		for (let i = 0; i < width / cw; i++) {
-//			ctx.fillStyle = "rgb(62, 0, 0)";
-//			ctx.fillRect(i * cw, 0 * cw, cw, cw / 2);
-//			ctx.fillRect(width - cw / 2, i * cw, cw / 2, cw);
-//			ctx.fillRect(i * cw, height - (cw / 2), cw, cw / 2);
-//			ctx.fillRect(0, i * cw, cw / 2, cw);
-//		}
-		
 		borders = [];
 		for (let i = 0; i < width / cw; i++) {
 			borders.push({x: i, y: 0});
 			borders.push({x: 0, y: i});
 		}
-		for (let i = width / cw - 1; i > 0; i--) {
+		for (let i = width / cw; i > 0; i--) {
 			borders.push({x: i, y: width / cw - 1});
 			borders.push({x: width / cw - 1, y: i});
 		}
 	}
 	
-	function setLevelThree() {
+	function setLevelThree() {	
+		if (borders.length === 0) createBorder();
 		borders = [];
+		dropBorder();
+	}
+	
+	function createBorder() {
+		borders = [];
+		bordersLevel2Length = randomInteger(3, 8);
+		r = randomInteger(0, 1);
+		rx = Math.round(Math.random()*( (width - cw) / cw - bordersLevel2Length ));
+		ry = Math.round(Math.random()*( (height - cw) / cw -bordersLevel2Length ));
 		
+		for (let i = 0; i < borders.length; i++) {
+			if (borders[i].x === food.x && borders[i].y === food.y) createBorder();
+			for (let j = 0; j < snakeArray.length; j++) {
+				if (borders[i].x === snakeArray[j].x && borders[i].y === snakeArray[j].y) createBorder();
+			}
+		}
+	}
+	
+	function dropBorder() {
+		for (let i = bordersLevel2Length; i > 0; i--) {
+			if (r) {
+				borders.push({
+					x: i + rx,
+					y: ry
+				});
+			}
+			else {
+				borders.push({
+					x: rx,
+					y: i + ry
+				});
+			}
+		}
 	}
 	
 	function draw() {
 		headX = snakeArray[0].x;
 		headY = snakeArray[0].y;
 		createField();
+		setLevel();
 		checkCollision();
 		dropFood();
 		eatFood();
@@ -246,13 +302,13 @@ $(document).ready(function() {
 			ctx.strokeStyle = "#fff";
 			ctx.strokeRect(snake.x * cw, snake.y * cw, cw, cw);
 		}
-		
-		setLevel();
 		// lvl draw
 		for (let i = 0; i < borders.length; i++) {
 			let border = borders[i];
 			ctx.fillStyle = "rgb(57, 0, 0)";
 			ctx.fillRect(border.x * cw, border.y * cw, cw, cw);
+			ctx.strokeStyle = "#030000";
+			ctx.strokeRect(border.x * cw, border.y * cw, cw, cw);
 		}
 	}
 	
