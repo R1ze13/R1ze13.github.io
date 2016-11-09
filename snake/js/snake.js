@@ -21,6 +21,7 @@ $(document).ready(function() {
 			food,
 			score = 0,
 			speed = 150,
+			defaultSpeed = 150,
 			isRotateAllowed = true,
 			isOptionsAllowed = true,
 			isTeleportAllowed = true,
@@ -76,6 +77,7 @@ $(document).ready(function() {
 		let lvlInput = +$('.options__lvl').val();
 		if ( lvlInput !== 0 ) {
 			_setLevel = lvlInput;
+			borders = [];
 		}
 	}
 	
@@ -129,7 +131,8 @@ $(document).ready(function() {
 			clearInterval(drawTimer);
 			drawTimer = setInterval(draw, speed);
 			createFood();
-			createBorder();
+			
+			if (currentLevel === 3 || currentLevel === 4) createBorder();
 		}
 	}
 	
@@ -178,7 +181,7 @@ $(document).ready(function() {
 	}
 	
 	function reset() {
-		speed = 150;
+		speed = defaultSpeed;
 		score = 0;
 		currentLevel = 1;
 		borders = [];
@@ -197,7 +200,6 @@ $(document).ready(function() {
 		if (headY === -1) snakeArray[0].y = (height - cw) / cw;
 	}
 	
-	
 	function setLevel() {
 		if (gameOver) return;
 		
@@ -206,8 +208,9 @@ $(document).ready(function() {
 			if (_setLevel === 1) borders = [];
 			if (_setLevel === 2) setLevelTwo();
 			if (_setLevel === 3) setLevelThree();
+			if (_setLevel === 4) setLevelFour();
 		}
-		else {
+		else if (_setLevel == undefined) {
 			if (score === 0) {
 				currentLevel = 1;
 				borders = [];
@@ -222,26 +225,37 @@ $(document).ready(function() {
 				currentLevel = 3;
 				setLevelThree();
 			}
+			
+			if (score >= 160 && score <= 450) {
+				currentLevel = 4;
+				setLevelFour();
+			}
 		}
 	}
 	
 	function setLevelTwo() {
-		borders = [];
-		for (let i = 0; i < width / cw; i++) {
-			borders.push({x: i, y: 0});
-			borders.push({x: 0, y: i});
-		}
-		for (let i = width / cw; i > 0; i--) {
-			borders.push({x: i, y: width / cw - 1});
-			borders.push({x: width / cw - 1, y: i});
+		if (borders.length === 0) {
+			for (let i = 0; i < width / cw; i++) {
+				borders.push({x: i, y: 0});
+				borders.push({x: 0, y: i});
+			}
+			for (let i = width / cw; i > 0; i--) {
+				borders.push({x: i, y: width / cw - 1});
+				borders.push({x: width / cw - 1, y: i});
+			}
 		}
 	}
 	
 	function setLevelThree() {
-//		if (borders.length === 0) createBorder();
-//		createBorder();
+		// duct tape. or lvl 2 borders will not fade
+		if (score === 90) borders = [];
+		
 		if (!lvl3Timer)	lvl3Timer = setInterval (createBorder, 2000);
-//		dropBorder();
+	}
+	
+	function setLevelFour() {
+		setLevelTwo();
+		setLevelThree();
 	}
 	
 	function createBorder() {
@@ -266,6 +280,7 @@ $(document).ready(function() {
 			}
 		}
 		
+		//	FIXME. sometimes a border can be generated on the snake
 		for (let i = 0; i < border.length; i++) {
 			if (border[i].x === food.x && border[i].y === food.y) createBorder();
 			for (let j = 0; j < snakeArray.length; j++) {
@@ -340,10 +355,10 @@ $(document).ready(function() {
 			reset();
 			init();
 		}
-		if(typeof drawTimer == "undefined") {
+		if (typeof drawTimer == "undefined") {
 				drawTimer = setInterval(draw, speed);
 		}
-		if(typeof lvl3Timer == "undefined") {
+		if (typeof lvl3Timer == "undefined" && (currentLevel === 3 || currentLevel === 4)) {
 				lvl3Timer = setInterval(createBorder, 2000);
 		}
 	});
