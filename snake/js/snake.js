@@ -29,10 +29,11 @@ $(document).ready(function() {
 			_setLevel,
 			borders = [],
 			bordersLevel2 = {},
-			bordersLevel2Length;
+			bordersLevel3Length;
 	
 	let drawTimer,
-			foodTimer;
+			foodTimer,
+			lvl3Timer;
 	
 	// coordinates of snake's head
 	let headX, headY;
@@ -94,6 +95,17 @@ $(document).ready(function() {
 		for (let i = 0; i < snakeArray.length; i++) {
 			if (snakeArray[i].x === food.x && snakeArray[i].y === food.y) createFood();
 		}
+//		for (let i = 0; i < borders.length; i++) {
+//			if (borders[i].x === food.x && borders[i].y === food.y) createFood();
+//		}
+		
+		//	check collision with food and borders
+		//	FIXME
+		if (currentLevel !== 1) {
+			for (let i = 0; i < borders.length; i++) {
+				if (food.x === borders[i].x && food.y === borders[i].y) createFood();
+			}
+		}
 	}
 	
 	function dropFood() {
@@ -117,6 +129,7 @@ $(document).ready(function() {
 			clearInterval(drawTimer);
 			drawTimer = setInterval(draw, speed);
 			createFood();
+			createBorder();
 		}
 	}
 	
@@ -134,6 +147,8 @@ $(document).ready(function() {
 	function gameIsOver() {
 		clearInterval(drawTimer);
 		drawTimer = undefined;
+		clearInterval(lvl3Timer);
+		lvl3Timer = undefined;
 		$('.game-overlay').stop().fadeIn('linear');
 		$('.game-overlay').find('h2').text('GAME OVER');
 		$('.game-overlay').find('p').text('Score: ' + score);
@@ -145,27 +160,18 @@ $(document).ready(function() {
 		//	duct tape. or snake will die due to changes in options
 		if (isOptionsAllowed === true) return;
 		
-		// checking collision directly from snake's tale
+		//	checking collision directly from snake's tale
 		for (let i = 1; i < snakeArray.length; i++) {
 			if (headX === snakeArray[i].x && headY === snakeArray[i].y) {
 				gameIsOver();
 			}
 		}
 		
-		// check collisions in levels
+		//	check collisions in levels
 		if (currentLevel !== 1) {
 			for (let i = 0; i < borders.length; i++) {
 				if (headX === borders[i].x && headY === borders[i].y) {
 					gameIsOver();
-				}
-			}
-		}
-		
-		// check collision with food and borders
-		if (currentLevel !== 1) {
-			for (let i = 1; i < borders.length; i++) {
-				if (food.x === borders[i].x && food.y === borders[i].y) {
-					createFood();
 				}
 			}
 		}
@@ -231,42 +237,43 @@ $(document).ready(function() {
 		}
 	}
 	
-	function setLevelThree() {	
-		if (borders.length === 0) createBorder();
-		borders = [];
-		dropBorder();
+	function setLevelThree() {
+//		if (borders.length === 0) createBorder();
+//		createBorder();
+		if (!lvl3Timer)	lvl3Timer = setInterval (createBorder, 2000);
+//		dropBorder();
 	}
 	
 	function createBorder() {
-		borders = [];
-		bordersLevel2Length = randomInteger(3, 8);
+		let border = [];
+		bordersLevel3Length = randomInteger(3, 8);
 		r = randomInteger(0, 1);
-		rx = Math.round(Math.random()*( (width - cw) / cw - bordersLevel2Length ));
-		ry = Math.round(Math.random()*( (height - cw) / cw -bordersLevel2Length ));
+		rx = Math.round(Math.random()*( (width - cw) / cw - bordersLevel3Length ));
+		ry = Math.round(Math.random()*( (height - cw) / cw - bordersLevel3Length ));
 		
-		for (let i = 0; i < borders.length; i++) {
-			if (borders[i].x === food.x && borders[i].y === food.y) createBorder();
-			for (let j = 0; j < snakeArray.length; j++) {
-				if (borders[i].x === snakeArray[j].x && borders[i].y === snakeArray[j].y) createBorder();
-			}
-		}
-	}
-	
-	function dropBorder() {
-		for (let i = bordersLevel2Length; i > 0; i--) {
+		for (let i = bordersLevel3Length; i > 0; i--) {
 			if (r) {
-				borders.push({
+				border.push({
 					x: i + rx,
 					y: ry
 				});
 			}
 			else {
-				borders.push({
+				border.push({
 					x: rx,
 					y: i + ry
 				});
 			}
 		}
+		
+		for (let i = 0; i < border.length; i++) {
+			if (border[i].x === food.x && border[i].y === food.y) createBorder();
+			for (let j = 0; j < snakeArray.length; j++) {
+				if (border[i].x === snakeArray[j].x && border[i].y === snakeArray[j].y) createBorder();
+			}
+		}
+		
+		borders = borders.concat(border);
 	}
 	
 	function draw() {
@@ -336,12 +343,17 @@ $(document).ready(function() {
 		if(typeof drawTimer == "undefined") {
 				drawTimer = setInterval(draw, speed);
 		}
+		if(typeof lvl3Timer == "undefined") {
+				lvl3Timer = setInterval(createBorder, 2000);
+		}
 	});
 	
 	//	pause button
 	$('#game-wrapper__btn-pause').click(function() {
 		clearInterval(drawTimer);
 		drawTimer = undefined;
+		clearInterval(lvl3Timer);
+		lvl3Timer = undefined;
 		
 		$('.game-overlay').stop().fadeIn('linear');
 		$('.game-overlay').find('h2').text('PAUSE');
@@ -354,6 +366,8 @@ $(document).ready(function() {
 		isOptionsAllowed = true;
 		clearInterval(drawTimer);
 		drawTimer = undefined;
+		clearInterval(lvl3Timer);
+		lvl3Timer = undefined;
 		gameOver = true;
 		reset();
 		init();
