@@ -95,7 +95,7 @@ $(document).ready(function() {
 		};
 		
 		for (let i = 0; i < snakeArray.length; i++) {
-			if (snakeArray[i].x === food.x && snakeArray[i].y === food.y) createFood();
+			if (snakeArray[i].x === food.x && snakeArray[i].y === food.y) return createFood();
 		}
 //		for (let i = 0; i < borders.length; i++) {
 //			if (borders[i].x === food.x && borders[i].y === food.y) createFood();
@@ -105,7 +105,7 @@ $(document).ready(function() {
 		//	FIXME
 		if (currentLevel !== 1) {
 			for (let i = 0; i < borders.length; i++) {
-				if (food.x === borders[i].x && food.y === borders[i].y) createFood();
+				if (food.x === borders[i].x && food.y === borders[i].y) return createFood();
 			}
 		}
 	}
@@ -132,7 +132,7 @@ $(document).ready(function() {
 			drawTimer = setInterval(draw, speed);
 			createFood();
 			
-			if (currentLevel === 3 || currentLevel === 4) createBorder();
+			if (currentLevel === 3 || currentLevel === 4) return createBorder();
 		}
 	}
 	
@@ -142,7 +142,7 @@ $(document).ready(function() {
 	}
 	
 	function randomInteger(min, max) {
-    let rand = min - 0.5 + Math.random() * (max - min + 1)
+    let rand = min - 0.5 + Math.random() * (max - min + 1);
     rand = Math.round(rand);
     return rand;
   }
@@ -248,7 +248,9 @@ $(document).ready(function() {
 	
 	function setLevelThree() {
 		// duct tape. or lvl 2 borders will not fade
-		if (score === 90) borders = [];
+		if (_setLevel === 3 || _setLevel === 4) {
+			if (score === 90) borders = [];
+		}
 		
 		if (!lvl3Timer)	lvl3Timer = setInterval (createBorder, 2000);
 	}
@@ -261,10 +263,20 @@ $(document).ready(function() {
 	function createBorder() {
 		let border = [];
 		bordersLevel3Length = randomInteger(3, 8);
-		r = randomInteger(0, 1);
 		rx = Math.round(Math.random()*( (width - cw) / cw - bordersLevel3Length ));
 		ry = Math.round(Math.random()*( (height - cw) / cw - bordersLevel3Length ));
+		if (direction === 'right' || direction === 'left') {
+			if (headX - 7 < rx && rx < headX + 7)	{
+				 return createBorder();
+			}
+		}
+		else if (direction === 'up' || direction === 'down') {
+			if (headY - 7 < ry && ry < headY + 7) {
+				return createBorder();
+			}
+		}
 		
+		r = randomInteger(0, 1);
 		for (let i = bordersLevel3Length; i > 0; i--) {
 			if (r) {
 				border.push({
@@ -282,9 +294,9 @@ $(document).ready(function() {
 		
 		//	FIXME. sometimes a border can be generated on the snake
 		for (let i = 0; i < border.length; i++) {
-			if (border[i].x === food.x && border[i].y === food.y) createBorder();
+			if (border[i].x === food.x && border[i].y === food.y) return createBorder();
 			for (let j = 0; j < snakeArray.length; j++) {
-				if (border[i].x === snakeArray[j].x && border[i].y === snakeArray[j].y) createBorder();
+				if (border[i].x === snakeArray[j].x && border[i].y === snakeArray[j].y) return createBorder();
 			}
 		}
 		
