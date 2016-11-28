@@ -1,12 +1,12 @@
 'use strict';
 $(document).ready(function() {
-	
+
 	// Canvas
 	let canvas = $('#canvas')[0],
 			ctx = canvas.getContext("2d");
 	canvas.width = 600;
 	canvas.height = 600;
-	
+
 	// cw - cell width
 	// bw - border width
 	// direction - start direction for the snake
@@ -15,7 +15,7 @@ $(document).ready(function() {
 			height = $("#canvas").height(),
 			cw = 15,
 			bw = 10,
-			direction = 'right', 
+			direction = 'right',
 			snakeArray,
 			snakeLength = 5,
 			food,
@@ -31,27 +31,27 @@ $(document).ready(function() {
 			borders = [],
 			bordersLevel2 = {},
 			bordersLevel3Length;
-	
+
 	let drawTimer,
 			foodTimer,
 			lvl3Timer;
-	
+
 	// coordinates of snake's head
 	let headX, headY;
-	
-	
+
+
 	// variables for level 3
 	// r - random number for direction of border
 	// rx - random X of border
 	// same for ry
 	// r1, r4 are not used yet
 	let r, r1, rx, ry, r4;
-	
+
 	$('.canvas-wrapper').css({
 		'height': height + 'px',
 		'width': width + 'px'
 	});
-	
+
 	init();
 	function init() {
 		getValues();
@@ -60,47 +60,47 @@ $(document).ready(function() {
 		createFood();
 		draw();
 	}
-	
+
 	function getValues() {
 		if (isOptionsAllowed === false) return;
-		
+
 		let speedInput = +$('.options__speed-input').val();
 		if ( speedInput !== 0 ) {
 			speed = speedInput;
 		}
-		
+
 		let snakeLengthInput = +$('.options__snake-length-input').val();
 		if ( snakeLengthInput !== 0 ) {
 			snakeLength = snakeLengthInput;
 		}
-		
+
 		let lvlInput = +$('.options__lvl').val();
 		if ( lvlInput !== 0 ) {
 			_setLevel = lvlInput;
 			borders = [];
 		}
 	}
-	
+
 	function createSnake() {
 		snakeArray = [];
 		for (let i = snakeLength; i > 0; i--) {
 			snakeArray.push({x: i+13, y: 18});
 		}
 	}
-	
+
 	function createFood() {
 		food = {
 			x: Math.round(Math.random()*( (width - cw) / cw )),
 			y: Math.round(Math.random()*( (height - cw) / cw ))
 		};
-		
+
 		for (let i = 0; i < snakeArray.length; i++) {
 			if (snakeArray[i].x === food.x && snakeArray[i].y === food.y) return createFood();
 		}
 //		for (let i = 0; i < borders.length; i++) {
 //			if (borders[i].x === food.x && borders[i].y === food.y) createFood();
 //		}
-		
+
 		//	check collision with food and borders
 		//	FIXME
 		if (currentLevel !== 1) {
@@ -109,19 +109,19 @@ $(document).ready(function() {
 			}
 		}
 	}
-	
+
 	function dropFood() {
 		ctx.fillStyle = 'yellow';
 		ctx.fillRect(food.x * cw, food.y * cw, cw, cw);
 		ctx.strokeStyle = 'orange';
 		ctx.strokeRect(food.x * cw, food.y * cw, cw, cw);
 	}
-	
+
 	function eatFood() {
 		if (headX === food.x && headY === food.y) {
 			ctx.fillStyle = 'rgba(28, 28, 28, 1)';
 			ctx.fillRect(food.x * cw - 1, food.y * cw - 1, cw + 1, cw + 1);
-			let tail = snakeArray.push({ 
+			let tail = snakeArray.push({
 				x: headX,
 				y: headY
 			});
@@ -131,22 +131,22 @@ $(document).ready(function() {
 			clearInterval(drawTimer);
 			drawTimer = setInterval(draw, speed);
 			createFood();
-			
+
 			if (currentLevel === 3 || currentLevel === 4) return createBorder();
 		}
 	}
-	
+
 	function createField() {
 		ctx.fillStyle = 'rgba(28, 28, 28, 1)';
 		ctx.fillRect(0, 0, width, height);
 	}
-	
+
 	function randomInteger(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     rand = Math.round(rand);
     return rand;
   }
-	
+
 	function gameIsOver() {
 		clearInterval(drawTimer);
 		drawTimer = undefined;
@@ -158,18 +158,18 @@ $(document).ready(function() {
 		gameOver = true;
 		currentLevel = 1;
 	}
-	
+
 	function checkCollision() {
 		//	duct tape. or snake will die due to changes in options
 		if (isOptionsAllowed === true) return;
-		
+
 		//	checking collision directly from snake's tale
 		for (let i = 1; i < snakeArray.length; i++) {
 			if (headX === snakeArray[i].x && headY === snakeArray[i].y) {
 				gameIsOver();
 			}
 		}
-		
+
 		//	check collisions in levels
 		if (currentLevel !== 1) {
 			for (let i = 0; i < borders.length; i++) {
@@ -179,7 +179,7 @@ $(document).ready(function() {
 			}
 		}
 	}
-	
+
 	function reset() {
 		speed = defaultSpeed;
 		score = 0;
@@ -189,20 +189,20 @@ $(document).ready(function() {
 		$('.canvas-wrapper').addClass('change').attr('data-content', 'score: ' + score);
 		direction = 'right';
 		$('.game-overlay').stop().fadeOut('linear');
-		
+
 		r = r1 = rx = ry = r4 = undefined;
 	}
-	
+
 	function teleport() {
 		if (headX === width/cw) snakeArray[0].x = 0;
 		if (headX === -1) snakeArray[0].x = (width - cw) / cw;
 		if (headY === height/cw) snakeArray[0].y = 0;
 		if (headY === -1) snakeArray[0].y = (height - cw) / cw;
 	}
-	
+
 	function setLevel() {
 		if (gameOver) return;
-		
+
 		if (_setLevel) {
 			currentLevel = _setLevel;
 			if (_setLevel === 1) borders = [];
@@ -225,14 +225,14 @@ $(document).ready(function() {
 				currentLevel = 3;
 				setLevelThree();
 			}
-			
+
 			if (score >= 160 && score <= 450) {
 				currentLevel = 4;
 				setLevelFour();
 			}
 		}
 	}
-	
+
 	function setLevelTwo() {
 		if (borders.length === 0) {
 			for (let i = 0; i < width / cw; i++) {
@@ -243,23 +243,28 @@ $(document).ready(function() {
 				borders.push({x: i, y: width / cw - 1});
 				borders.push({x: width / cw - 1, y: i});
 			}
+			// for (let i = borders.length; i > 0; i--) {
+			// 	if (borders[i].x === food.x && borders[i].y === food.y) {
+			// 		return createFood();
+			// 	}
+			// }
 		}
 	}
-	
+
 	function setLevelThree() {
 		// duct tape. or lvl 2 borders will not fade
-		if (_setLevel === 3 || _setLevel === 4) {
+		// if (_setLevel === 3 || _setLevel === 4) {
 			if (score === 90) borders = [];
-		}
-		
+		// }
+
 		if (!lvl3Timer)	lvl3Timer = setInterval (createBorder, 2000);
 	}
-	
+
 	function setLevelFour() {
 		setLevelTwo();
 		setLevelThree();
 	}
-	
+
 	function createBorder() {
 		let border = [];
 		bordersLevel3Length = randomInteger(3, 8);
@@ -275,7 +280,7 @@ $(document).ready(function() {
 				return createBorder();
 			}
 		}
-		
+
 		r = randomInteger(0, 1);
 		for (let i = bordersLevel3Length; i > 0; i--) {
 			if (r) {
@@ -291,7 +296,7 @@ $(document).ready(function() {
 				});
 			}
 		}
-		
+
 		//	FIXME. sometimes a border can be generated on the snake
 		for (let i = 0; i < border.length; i++) {
 			if (border[i].x === food.x && border[i].y === food.y) return createBorder();
@@ -299,10 +304,10 @@ $(document).ready(function() {
 				if (border[i].x === snakeArray[j].x && border[i].y === snakeArray[j].y) return createBorder();
 			}
 		}
-		
+
 		borders = borders.concat(border);
 	}
-	
+
 	function draw() {
 		headX = snakeArray[0].x;
 		headY = snakeArray[0].y;
@@ -311,7 +316,7 @@ $(document).ready(function() {
 		checkCollision();
 		dropFood();
 		eatFood();
-		
+
 		//	snake turns && movement
 		if (gameOver === false) {
 			if (direction === 'right') headX++;
@@ -324,10 +329,10 @@ $(document).ready(function() {
 			snakeArray.unshift(tail);
 			isRotateAllowed = true;
 		}
-		
+
 		//	teleport
 		if (isTeleportAllowed === true) teleport();
-		
+
 		//	snake draw
 		for (let i = 0; i < snakeArray.length; i++) {
 			let snake = snakeArray[i];
@@ -345,7 +350,7 @@ $(document).ready(function() {
 			ctx.strokeRect(border.x * cw, border.y * cw, cw, cw);
 		}
 	}
-	
+
 	//	options
 	$('.options__options-input').keyup(function() {
 		if (isOptionsAllowed === false) return;
@@ -353,13 +358,13 @@ $(document).ready(function() {
 		createSnake();
 		draw();
 	});
-	
+
 	//	buttons
 	//	start button
 	$('#game-wrapper__btn-start').click(function() {
 		isOptionsAllowed = false;
 		$('.options__options-input').attr('disabled', true);
-		
+
 		if (gameOver === false) {
 			$('.game-overlay').stop().fadeOut('linear');
 		}
@@ -374,19 +379,19 @@ $(document).ready(function() {
 				lvl3Timer = setInterval(createBorder, 2000);
 		}
 	});
-	
+
 	//	pause button
 	$('#game-wrapper__btn-pause').click(function() {
 		clearInterval(drawTimer);
 		drawTimer = undefined;
 		clearInterval(lvl3Timer);
 		lvl3Timer = undefined;
-		
+
 		$('.game-overlay').stop().fadeIn('linear');
 		$('.game-overlay').find('h2').text('PAUSE');
 		$('.game-overlay').find('p').text('Score: ' + score);
 	});
-	
+
 	//	reset button
 	$('#game-wrapper__btn-reset').click(function() {
 		$('.options__options-input').attr('disabled', false);
@@ -399,7 +404,7 @@ $(document).ready(function() {
 		reset();
 		init();
 	});
-	
+
 	// buttons on keyboard
 	$(document).keydown(function(event) {
 		let key = event.which;
@@ -421,5 +426,5 @@ $(document).ready(function() {
 			isRotateAllowed = false;
 		}
 	});
-	
+
 });

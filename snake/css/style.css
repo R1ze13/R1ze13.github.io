@@ -14,7 +14,7 @@ header {
 	width: 100%;
 	z-index: 3;
 	height: 2.625rem;
-	
+
 	/* Force Hardware Acceleration */
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
@@ -74,7 +74,7 @@ header .login p {
  header .dropdown-menu {
 	background: rgba(28, 28, 28, .8);
 	color: #ffa800;
-	 
+
   position: absolute;
   top: 45px;
   right: 0px;
