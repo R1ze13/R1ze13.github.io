@@ -11,7 +11,7 @@ body {
 	height: auto !important;
 	margin: 0;
 	padding: 0;
-	font-size: 16px;
+	font-size: 1em;
 }
 
 /*	sticky footer	*/
@@ -28,30 +28,13 @@ body {
 }
 /*	/sticky footer	*/
 
-a {
-	text-decoration: none;
-}
-
-ul {
-	list-style: none outside none;
-	padding: 0;
-	margin: 0;
-}
-
-li {
-	list-style: none;
-	display: inline-block;
-	margin: 0;
-	padding: 0;
-}
-
 .container {
 	width: 970px;
 	margin: 0 auto;
 }
 
 .wrapper {
-	min-width: calc(940px + 30px);
+	min-width: 970px;
 }
 
 /*	header	*/
@@ -292,20 +275,22 @@ li {
 
 .slider__arrows {
 	position: absolute;
+	width: 100%;
+	height: 100%;
 	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+/*	test for mobile chrome  */
 }
 
 .arrows {
 	position: absolute;
 	z-index: 9999;
 	transition: .5s;
-	width: calc(1.313rem + 20px);
-	height: calc(2rem + 20px);
+	width: calc(1.313rem + 40px);
+	height: calc(2rem + 50px);
 }
 .arrows:hover {
 	cursor: pointer;
@@ -709,6 +694,7 @@ li {
 .post__img {
 	align-self: flex-start;
 	margin-right: 13px;
+	flex: 0 0 auto;
 }
 
 .post__msg {
@@ -1047,7 +1033,7 @@ li {
 }
 
 /*	media	*/
-@media (max-width: 1100px) {
+@media only screen and (max-width: 1100px) {
 	.arrows__left {
 		left: 1em;
 		transform: scale(1.1);
