@@ -61,7 +61,7 @@ body {
 	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 	color: #f1eee5;
 	font-family: 'Days One', sans-serif;
-	font-size: 34px;
+	font-size: 2.125rem;
 	font-weight: 700;
 	line-height: 100%;
 }
@@ -70,7 +70,7 @@ body {
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 	color: rgba(255, 255, 255, 0.35);
 	font-family: Georgia;
-	font-size: 11px;
+	font-size: 0.688rem;
 	font-style: italic;
 	line-height: 14px;
 	border-left: 1px solid #5c474e;
@@ -85,14 +85,14 @@ body {
 }
 
 .nav__item {
-	line-height: 30px;
+	line-height: 1.875rem;
 	padding: 0 8px;
 	margin: 0 3px;
 	text-align: center;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 	color: #f1eee5;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 15px;
+	font-size: 0.813rem;
 	font-weight: 700;
 	transition: .3s;
 	white-space: nowrap;
@@ -125,7 +125,7 @@ body {
 
 .dropdown-toggle {
 	position: relative;
-	margin-right: -5px;
+/*	margin-right: -5px;*/
 }
 
 .dropdown-menu {
@@ -134,9 +134,9 @@ body {
 	z-index: 10000;
 	border-radius: 5px;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 2px 8px rgba(0, 0, 0, 0.4);
-	top: 40px;
-	left: -19px;
-	min-width: 180px;
+	top: 2.5rem;
+	left: -1.1875rem;
+	min-width: 11.25rem;
 	min-height: 270px;
 	background: url(../img/dropdown-menu-bg.png);
 	padding: 16px 16px 22px;
@@ -160,10 +160,9 @@ body {
 	text-shadow: 0 1px 1px black;
 	color: #f1eee5;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 12px;
+	font-size: 0.75rem;
 	font-weight: 400;
 	min-height: 25px;
-	padding: 7px 0;
 	transition: .3s;
 }
 
@@ -403,7 +402,7 @@ body {
 	font-size: 0.875rem;
 	font-style: italic;
 	line-height: 1.25rem;
-	padding: 10px 22px;
+	padding: 0.625rem 1.375rem;
 	vertical-align: middle;
 	text-align: center;
 	border-radius: 30px;
@@ -571,7 +570,7 @@ body {
 	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 	color: #f1eee5;
 	font-family: 'Days One', sans-serif;
-	font-size: 34px;
+	font-size: 2.125rem;
 	font-weight: 700;
 	line-height: 100%;
 	margin-top: 24%;
@@ -664,6 +663,7 @@ body {
 }
 .callout__btn:hover {
 	background: url(../img/callout-btn.hover.png) center center no-repeat;
+	background-size: 100% 100%;
 	color: inherit;
 }
 /*	/callout	*/
@@ -1034,13 +1034,22 @@ body {
 
 /*	media	*/
 @media only screen and (max-width: 1100px) {
+	html,
+	body {
+		font-size: 1.2em;
+	}
+	
 	.arrows__left {
-		left: 1em;
+		left: 1%;
 		transform: scale(1.1);
 	}
 	
 	.arrows__right {
-		right: 1em;
+		right: 1%;
 		transform: scale(1.1);
+	}
+	
+	.featureBar__btn {
+		padding: 0.525rem .75rem;
 	}
 }
