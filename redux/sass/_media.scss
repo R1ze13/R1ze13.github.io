@@ -1,0 +1,72 @@
+@media only screen and (max-width: 1100px) {
+	html,
+	body {
+		font-size: 1.2em;
+	}
+	
+	.arrows__left {
+		left: 1%;
+		transform: scale(1.1);
+	}
+	
+	.arrows__right {
+		right: 1%;
+		transform: scale(1.1);
+	}
+	
+	.featureBar__btn {
+		padding: 0.525rem .75rem;
+	}
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+	
+}
+
+@media only screen and (max-width: 40em) {
+	.container,
+	.wrapper {
+		min-width: 100%;
+		width: 95%;
+	}
+	
+	.logo-and-nav {
+		flex-wrap: wrap;
+	}
+	
+	.logo {
+		justify-content: center;
+	}
+	
+	.nav__list {
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: 2.5rem;
+	}
+	
+	.featureBar__rightRow {
+		margin-top: 2.5rem;
+	}
+	
+	.featureBar__btns {
+		justify-content: space-around;
+	}
+	
+	.content__about-text,
+	.content__screenshots,
+	.content__screencast,
+	.content__blog,
+	.content__tweets,
+	.container__testimonials {
+		margin-top: 2.5rem;
+	}
+	
+	.callout__btn {
+		white-space: pre-wrap;
+		min-width: 100%;
+	}
+	
+	.footer__newsletter {
+		margin-top: 2.5rem;
+	}
+}
