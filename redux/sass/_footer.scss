@@ -3,16 +3,6 @@
 	
 	position: relative;
 }
-.footer:before {
-	content: '';
-	display: inline-block;
-	position: absolute;
-	height: 10px;
-	width: 100%;
-	z-index: 0;
-	background: #e6e3da;
-	top: -10px;
-}
 
 .footer__footer-top {
 	padding: 40px 0 45px;

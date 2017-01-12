@@ -1,26 +1,30 @@
 .featureBar {
 	position: relative;
-	background: url(../img/feature-bar-bg.jpg) center center;
-	background-size: cover;
+	background: url(../img/featureBar-bg.jpg) center center repeat;
+	background-size: contain;
 	padding: 40px 0;
+	overflow: hidden;
+	
+	&:before,
+	&:after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		height: 15px;
+		width: 100%;
+		z-index: 0;
+		background-size: 100% 100%;
+	}
+	&:before {
+		background: url(../img/stitching-top.png) center center repeat-x;
+		top: 0;
+	}
+	&:after {
+		background: url(../img/stitching-bottom.png) center center repeat-x;
+		bottom: 0;
+	}
 }
-.featureBar:before,
-.featureBar:after {
-	content: '';
-	display: inline-block;
-	position: absolute;
-	height: 10px;
-	width: 100%;
-	z-index: 0;
-}
-.featureBar:before {
-	background: rgba(255,255,255,.02);
-	top: -10px;
-}
-.featureBar:after {
-	background: #e6e3da;
-	bottom: -10px;
-}
+
 
 .featureBar__leftRow {
 	display: flex;

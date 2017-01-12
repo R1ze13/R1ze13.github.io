@@ -1,7 +1,7 @@
 @media only screen and (max-width: 1100px) {
 	html,
 	body {
-		font-size: 1.2em;
+		font-size: 1.3em;
 	}
 	
 	.arrows__left {
@@ -14,20 +14,25 @@
 		transform: scale(1.1);
 	}
 	
+	.featureBar {
+		
+		&:before,
+		&:after {
+			transform: scale(2);
+			height: 30px;
+		}
+	}
+	
 	.featureBar__btn {
 		padding: 0.525rem .75rem;
 	}
 }
 
-@media only screen and (min-width: 40.063em) and (max-width: 64em) {
-	
-}
-
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 64em) {
 	.container,
 	.wrapper {
 		min-width: 100%;
-		width: 95%;
+		width: 100%;
 	}
 	
 	.logo-and-nav {
@@ -42,6 +47,11 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 		margin-top: 2.5rem;
+	}
+	
+	.featureBar {
+		@include rem(padding-top, 50);
+		@include rem(padding-bottom, 50);
 	}
 	
 	.featureBar__rightRow {
@@ -69,4 +79,95 @@
 	.footer__newsletter {
 		margin-top: 2.5rem;
 	}
+}
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+	.screenshots__shots,
+	.screencast__info-and-vid-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	.screenshots__shot:not(:first-of-type) {
+		@include rem (margin-top, 25);
+	}
+	
+	.testimonials__quotes {
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		align-items: flex-start;
+		justify-content: space-between;
+		
+		.testimonials__quote {
+			margin-top: 0;
+			width: 49%;
+			flex: 0 0 auto;
+		}
+	}
+	
+	.content__about-text,
+	.content__blog,
+	.content__tweets {
+		margin-top: 0;
+	}
+		
+	.content__screenshots,
+	.content__screencast,
+	.container__testimonials {
+		margin-top: 2.5rem;
+	}
+	
+	.footer__newsletter {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (max-width: 40em) {
+//	.container,
+//	.wrapper {
+//		min-width: 100%;
+//		width: 95%;
+//	}
+//	
+//	.logo-and-nav {
+//		flex-wrap: wrap;
+//	}
+//	
+//	.logo {
+//		justify-content: center;
+//	}
+//	
+//	.nav__list {
+//		justify-content: space-between;
+//		flex-wrap: wrap;
+//		margin-top: 2.5rem;
+//	}
+//	
+//	.featureBar__rightRow {
+//		margin-top: 2.5rem;
+//	}
+//	
+//	.featureBar__btns {
+//		justify-content: space-around;
+//	}
+//	
+//	.content__about-text,
+//	.content__screenshots,
+//	.content__screencast,
+//	.content__blog,
+//	.content__tweets,
+//	.container__testimonials {
+//		margin-top: 2.5rem;
+//	}
+//	
+//	.callout__btn {
+//		white-space: pre-wrap;
+//		min-width: 100%;
+//	}
+//	
+//	.footer__newsletter {
+//		margin-top: 2.5rem;
+//	}
 }
