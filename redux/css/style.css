@@ -325,7 +325,6 @@ body {
 .featureBar {
   position: relative;
   background: url(../img/featureBar-bg.jpg) center center repeat;
-  background-size: contain;
   padding: 40px 0;
   overflow: hidden;
 }
@@ -616,7 +615,7 @@ body {
   text-align: center;
 }
 
-.img-wrapper__overlay .h2 {
+.img-wrapper__overlay .overlay__h2 {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   color: #f1eee5;
   font-family: 'Days One', sans-serif;
@@ -626,7 +625,7 @@ body {
   margin-top: 24%;
 }
 
-.img-wrapper__overlay .p {
+.img-wrapper__overlay .overlay__p {
   text-shadow: 0 -0.062rem 0 rgba(0, 0, 0, 0.5);
   color: #6b96a8;
   font-family: Georgia;
@@ -669,10 +668,13 @@ body {
   padding: 20px 20px 20px 25px;
   border: 1px solid #dfdcd5;
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
-.content__callout .h2 {
+.content__callout .left-column__h2 {
   text-shadow: 0 0.063rem 0 white;
   color: #444;
   font-family: Georgia;
@@ -681,7 +683,7 @@ body {
   line-height: 1.25rem;
 }
 
-.content__callout .p {
+.content__callout .left-column__p {
   margin-top: 10px;
   color: #444;
   font-family: 'Source Sans Pro', sans-serif;
@@ -923,8 +925,26 @@ body {
 
 .footer__footer-top {
   padding: 40px 0 45px;
-  background: url(../img/footer-top-bg.jpg) center center repeat-x;
-  background-size: contain;
+  background: url(../img/featureBar-bg.jpg) center center repeat;
+  position: relative;
+  overflow: hidden;
+}
+.footer__footer-top:before, .footer__footer-top:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  height: 15px;
+  width: 100%;
+  z-index: 0;
+  background-size: 100% 100%;
+}
+.footer__footer-top:before {
+  background: url(../img/stitching-top.png) center center repeat-x;
+  top: 0;
+}
+.footer__footer-top:after {
+  background: url(../img/stitching-bottom.png) center center repeat-x;
+  bottom: 0;
 }
 
 .footer__contact {
@@ -1103,8 +1123,8 @@ body {
   }
 
   .featureBar:before, .featureBar:after {
-    transform: scale(2);
-    height: 30px;
+    transform: scale(1.6);
+    height: 24px;
   }
 
   .featureBar__btn {
@@ -1147,7 +1167,6 @@ body {
     justify-content: space-around;
   }
 
-  .content__about-text,
   .content__screenshots,
   .content__screencast,
   .content__blog,
@@ -1158,7 +1177,7 @@ body {
 
   .callout__btn {
     white-space: pre-wrap;
-    min-width: 100%;
+    min-width: 50%;
   }
 
   .footer__newsletter {
@@ -1205,6 +1224,46 @@ body {
 
   .footer__newsletter {
     margin-top: 0;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .header__intro h3 {
+    padding: 0 .5rem;
+  }
+
+  .slider__wrapper {
+    display: none;
+  }
+
+  .featureBar__leftRow {
+    flex-flow: column nowrap;
+    align-content: center;
+    align-items: center;
+  }
+  .featureBar__leftRow .featureBar__item {
+    margin-top: 1rem;
+    width: 100%;
+  }
+  .featureBar__leftRow .featureBar__item:first-of-type {
+    margin-top: 0;
+  }
+
+  .callout__left-column {
+    text-align: center;
+  }
+
+  .callout__right-column {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .content__blog {
+    margin-top: 0;
+  }
+
+  .footer__footer-top:before, .footer__footer-top:after {
+    transform: scale(1.6);
+    height: 24px;
   }
 }
 /*	HelveticaNeue ~ 'Source Sans Pro'	*/

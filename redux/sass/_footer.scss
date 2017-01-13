@@ -6,8 +6,28 @@
 
 .footer__footer-top {
 	padding: 40px 0 45px;
-	background: url(../img/footer-top-bg.jpg) center center repeat-x;
-	background-size: contain;
+	background: url(../img/featureBar-bg.jpg) center center repeat;
+	position: relative;
+	overflow: hidden;
+	
+	&:before,
+	&:after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		height: 15px;
+		width: 100%;
+		z-index: 0;
+		background-size: 100% 100%;
+	}
+	&:before {
+		background: url(../img/stitching-top.png) center center repeat-x;
+		top: 0;
+	}
+	&:after {
+		background: url(../img/stitching-bottom.png) center center repeat-x;
+		bottom: 0;
+	}
 }
 
 .footer__contact {
