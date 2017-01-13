@@ -90,12 +90,11 @@
 
 .shot__caption {
 	margin-top: 15px;
-	padding: 0 10px;
+	padding: .45rem .7rem;
 	color: #888;
 	font-family: Georgia;
 	font-size: 0.688rem;
 	font-style: italic;
-	line-height: 25px;
 	text-align: center;
 	border-radius: 5px;
 	box-shadow: 0 0.063rem 0 rgba(255, 255, 255, 0.57), inset 0 0.063rem 0.063rem rgba(0, 0, 0, 0.06);
@@ -185,11 +184,11 @@
 
 .vid__caption {
 	margin-top: 15px;
+	padding: .45rem .7rem;
 	color: #888;
 	font-family: Georgia;
 	font-size: 0.688rem;
 	font-style: italic;
-	line-height: 25px;
 	text-align: center;
 	border-radius: 5px;
 	box-shadow: 0 0.063rem 0 rgba(255, 255, 255, 0.57), inset 0 0.063rem 0.063rem rgba(0, 0, 0, 0.06);
@@ -244,7 +243,7 @@
 	background: url(../img/callout-btn.png) center center no-repeat;
 	background-size: 100% 100%;
 	white-space: nowrap;
-	padding: 18px 15px;
+	padding: 18px 20px;
 	
 	text-shadow: 0 0.063rem 0.063rem rgba(255, 255, 255, 0.8);
 	color: #252525;

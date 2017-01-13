@@ -283,19 +283,27 @@ is ripe for customisation and better yet, kind to your wallet - sounds almost to
 			<div class="footer__footer-top">
 				<div class="container">
 					<div class="row">
-						<div class=" medium-6 large-8 columns footer__contact">
+						<div class="medium-6 large-8 columns footer__contact">
 							<h2>If you’re using Redux then we want to hear from you!</h2>
 							<p>Sed ornare dictum mi, sed rutrum metus condimentum sodales. Fusce quis tellus mollis sapien porta placerat. In dapibus velit eget felis rutrum posuere. Pellentesque tincidunt augue vitae diam auctor id fermentum ante elementum. estibulum in luctus urna. Vivamus euismod, ligula eu commodo accumsan.</p>
 							<p class="contact__contacts">
 								Email: <span class="contact__email">hello@redux.com </span> Tel: <span class="contact__telephone">1-408-996-1010</span>
 							</p>
 						</div>
-						<div class=" medium-6 large-4 columns footer__newsletter">
+						<div class="medium-6 large-4 columns footer__newsletter">
 							<h2>Subscribe and get the inside scoop.</h2>
 							<p>Subscribe to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
 							<form action="" class="newsletter__form" onsubmit="return false;">
-								<input type="text" placeholder="enter your email address" class="newsletter__email-input">
-								<button class="newsletter__subscribe"><span>subscribe</span></button>
+								<div class="newsletter__input-wrapper">
+									<input type="text" id="newsletter__email" placeholder="enter your email address" class="newsletter__email-input">
+									<button class="newsletter__subscribe"><span>subscribe</span></button>
+								</div>
+								<div class="newsletter__check-wrapper">
+									<div class="newsletter__answer-icon newsletter__answer-icon-tick"></div>
+									<label for="newsletter__email" class="newsletter__check newsletter__check-okay">
+										thanks, your address has been added
+									</label>
+								</div>
 							</form>
 						</div>
 					</div>
