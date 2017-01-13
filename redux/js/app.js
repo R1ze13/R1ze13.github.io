@@ -21,20 +21,25 @@ $(document).ready(function () {
 		$('.slider__leftSlide').attr('src', mS);
 	});
 
-
 	function setEqualHeight(columns) {
-		var tallestcolumn = 0;
+		$('.equal-height-for-tablet').height('auto');
+		var tallestColumn = 0;
+		var currentHeight = 0;
 		columns.each(
 			function () {
 				currentHeight = $(this).height();
-				if (currentHeight > tallestcolumn) {
-					tallestcolumn = currentHeight;
+				if (currentHeight > tallestColumn) {
+					tallestColumn = currentHeight;
 				}
 			}
 		);
-		columns.height(tallestcolumn);
+		columns.height(tallestColumn);
 	}
 	setEqualHeight($(".equal-height-for-tablet"));
+	
+	$(window).resize(function() {
+		setEqualHeight($(".equal-height-for-tablet"));
+	});
 	
 	$('.hide-long-text').readmore();
 });

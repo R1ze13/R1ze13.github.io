@@ -272,7 +272,6 @@
 	padding: 0;
 	@include rem(padding-top, 20);
 	@include rem(padding-bottom, 20);
-	@include rem(max-height, 95);
 	border-bottom: 1px solid #e4e1d9;
 	
 	display: flex;
@@ -410,6 +409,7 @@
 
 .author__img {
 	margin-right: 15px;
+	align-self: flex-start;
 }
 
 .author__data-wrapper {

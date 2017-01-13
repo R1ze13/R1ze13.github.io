@@ -738,8 +738,6 @@ body {
   padding-top: 1.25rem;
   padding-bottom: 20px;
   padding-bottom: 1.25rem;
-  max-height: 95px;
-  max-height: 5.9375rem;
   border-bottom: 1px solid #e4e1d9;
   display: flex;
   align-content: center;
@@ -878,6 +876,7 @@ body {
 
 .author__img {
   margin-right: 15px;
+  align-self: flex-start;
 }
 
 .author__data-wrapper {
