@@ -53,6 +53,9 @@
 
 .screenshots__shot {
 	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	
 	&:first-of-type {
 		margin-top: 0;
@@ -113,6 +116,9 @@
 
 .screencast__info-and-vid-wrapper {
 	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .screencast__info {
@@ -286,6 +292,8 @@
 }
 
 .post__img {
+	max-width: 18%;
+	width: 3.313rem;
 	align-self: flex-start;
 	margin-right: 13px;
 	flex: 0 0 auto;
@@ -333,7 +341,6 @@
 .tweets__tweet {
 	@include rem(min-height, 95);
 	@include rem(max-height, 98);
-//	padding: 20px 0;
 	padding: 0;
 	@include rem(padding-top, 20);
 	@include rem(padding-bottom, 20);
@@ -450,4 +457,11 @@
 	font-style: italic;
 	line-height: 1.25rem;
 }
-/*	/trstimonoals	*/
+/*	/testimonoals	*/
+
+.screenshots__shots,
+	.screencast__info-and-vid-wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
