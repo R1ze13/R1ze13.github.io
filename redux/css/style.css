@@ -51,6 +51,7 @@ body {
   background-size: 100% 100%;
   min-height: 586px;
   padding-top: 40px;
+  overflow: hidden;
 }
 .header:after {
   content: '';
@@ -144,7 +145,6 @@ body {
 
 .dropdown-toggle {
   position: relative;
-  /*	margin-right: -5px;*/
 }
 
 .dropdown-menu {
@@ -161,10 +161,6 @@ body {
   padding: 16px 16px 22px;
 }
 
-.dropdown-menu-active {
-  display: inline-block !important;
-}
-
 /*	duct tape	for hover dropdown menu*/
 .dropdown-menu:before {
   content: '';
@@ -173,6 +169,10 @@ body {
   height: 100px;
   top: -20px;
   left: 0;
+}
+
+.dropdown-menu-active {
+  display: inline-block !important;
 }
 
 .dropdown-menu__item {
@@ -214,11 +214,6 @@ body {
 
 .dropdown-menu__item:hover .dropdown-right-img {
   background: url(../img/drop-arrow-right.png) center center no-repeat;
-}
-
-.dropdown-toggle:hover .dropdown-menu,
-.dropdown-menu:hover .dropdown-menu {
-  display: inline-block;
 }
 
 .header__intro {

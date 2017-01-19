@@ -25,6 +25,9 @@ $(document).ready(function () {
 	
 	// dropdown-menu
 	$('.dropdown-toggle').click(function() {
+		$('.dropdown-menu').not($(this).children()).removeClass('dropdown-menu-active');
+		console.log($(this).children());
+		$('.dropdown-toggle').not(this).removeClass('nav__item-active');
 		$(this).toggleClass('nav__item-active');
 		$(this).children('.dropdown-menu').toggleClass('dropdown-menu-active');
 	});
@@ -88,28 +91,13 @@ $(document).ready(function () {
 	$(document).click(function(event){
 		//	dropdown-menu
 		(function() {
-//			if ($(event.target).hasClass('dropdown-menu')) return;
+			if ($(event.target).hasClass('dropdown-menu')) return;
 			if ($(event.target).closest(".dropdown-toggle").length) return;
 			$('.dropdown-menu').stop().fadeOut("fast", "linear");
 			$('.dropdown-menu-active').removeClass('dropdown-menu-active');
 			$('.nav__item-active').removeClass('nav__item-active');
 		})();
 		// /dropdown-menu
-		
-		// login
-		(function() {
-			if ($(event.target).closest(".login").length) return;
-			$('.login').find('.dropdown-menu').stop().fadeOut("fast", "linear");
-		})();
-		// /login
-		
-		// ul-menus
-		(function() {
-			if ($(event.target).hasClass('dropdown-btn')) return;
-			if ($(event.target).closest(".dropdown-menu").length) return;
-			$('.dropdown-menu').fadeOut("fast", "linear");
-		})();
-		// /ul-menus
 	});
 	// /События по клику мимо
 });
