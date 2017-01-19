@@ -34,6 +34,17 @@ body {
 	min-width: 970px;
 }
 
+a {
+	color: inherit;
+	
+	&:hover {
+		color: inherit;
+	}
+	&:visited {
+		color: inherit;
+	}
+}
+
 .plus-icon {
 	position: absolute;
 	z-index: 1000;
@@ -41,4 +52,12 @@ body {
 
 .plus-icon:hover {
 	cursor: pointer;
+}
+
+.max-lines-2 {
+	@include rem(max-height, 40);
+}
+
+.max-lines-3 {
+	@include rem(max-height, 60);
 }

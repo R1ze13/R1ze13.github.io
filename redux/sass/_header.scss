@@ -115,16 +115,6 @@
 	padding: 16px 16px 22px;
 }
 
-/*	duct tape	for hover dropdown menu*/
-.dropdown-menu:before {
-	content: '';
-	position: absolute;
-	width: 60%;
-	height: 100px;
-	top: -20px;
-	left: 0;
-}
-
 .dropdown-menu-active {
 	display: inline-block !important;
 }
@@ -168,11 +158,6 @@
 
 .dropdown-menu__item:hover .dropdown-right-img{
 	background: url(../img/drop-arrow-right.png) center center no-repeat;
-}
-
-.dropdown-toggle:hover .dropdown-menu,
-.dropdown-menu:hover .dropdown-menu {
-//	display: inline-block;
 }
 
 .header__intro {

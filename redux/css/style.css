@@ -36,6 +36,16 @@ body {
   min-width: 970px;
 }
 
+a {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+
 .plus-icon {
   position: absolute;
   z-index: 1000;
@@ -43,6 +53,16 @@ body {
 
 .plus-icon:hover {
   cursor: pointer;
+}
+
+.max-lines-2 {
+  max-height: 40px;
+  max-height: 2.5rem;
+}
+
+.max-lines-3 {
+  max-height: 60px;
+  max-height: 3.75rem;
 }
 
 .header {
@@ -159,16 +179,6 @@ body {
   min-height: 270px;
   background: url(../img/dropdown-menu-bg.png);
   padding: 16px 16px 22px;
-}
-
-/*	duct tape	for hover dropdown menu*/
-.dropdown-menu:before {
-  content: '';
-  position: absolute;
-  width: 60%;
-  height: 100px;
-  top: -20px;
-  left: 0;
 }
 
 .dropdown-menu-active {
@@ -739,8 +749,6 @@ body {
 .blog__post {
   min-height: 95px;
   min-height: 5.9375rem;
-  max-height: 98px;
-  max-height: 6.125rem;
   padding: 0;
   padding-top: 20px;
   padding-top: 1.25rem;
@@ -749,7 +757,6 @@ body {
   border-bottom: 1px solid #e4e1d9;
   display: flex;
   align-content: center;
-  align-items: center;
 }
 
 .blog__post:first-of-type {
@@ -770,6 +777,7 @@ body {
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.2rem;
+  align-self: flex-start;
 }
 
 .post__info {
@@ -814,8 +822,8 @@ body {
   padding-bottom: 1.25rem;
   border-bottom: 1px solid #e4e1d9;
   display: flex;
-  align-content: center;
-  align-items: center;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 .tweets__tweet:first-of-type {

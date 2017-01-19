@@ -277,7 +277,7 @@
 
 .blog__post {
 	@include rem(min-height, 95);
-	@include rem(max-height, 98);
+//	@include rem(max-height, 98);
 	padding: 0;
 	@include rem(padding-top, 20);
 	@include rem(padding-bottom, 20);
@@ -285,7 +285,6 @@
 	
 	display: flex;
 	align-content: center;
-	align-items: center;
 }
 .blog__post:first-of-type {
 	margin-top: 10px;
@@ -305,6 +304,7 @@
 	font-size: 0.75rem;
 	font-weight: 400;
 	line-height: 1.2rem;
+	align-self: flex-start;
 }
 
 .post__info {
@@ -347,8 +347,8 @@
 	border-bottom: 1px solid #e4e1d9;
 	
 	display: flex;
-	align-content: center;
-	align-items: center;
+	flex-flow: column nowrap;
+	justify-content: center;
 }
 .tweets__tweet:first-of-type {
 	margin-top: 10px;
