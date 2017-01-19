@@ -73,7 +73,8 @@
 	margin-right: 0;
 }
 
-.nav__item:hover {
+.nav__item:hover,
+.nav__item-active {
 	cursor: pointer;
 	background: #1a1a1a;
 	border-radius: 5px;
@@ -90,7 +91,8 @@
 	transition: .3s;
 }
 
-.nav__item:hover .dropdown-img {
+.nav__item:hover .dropdown-img,
+.nav__item-active .dropdown-img {
 	background: url(../img/drop-arrow.png) center center no-repeat;
 }
 
@@ -111,6 +113,10 @@
 	min-height: 270px;
 	background: url(../img/dropdown-menu-bg.png);
 	padding: 16px 16px 22px;
+}
+
+.dropdown-menu-active {
+	display: inline-block !important;
 }
 
 /*	duct tape	for hover dropdown menu*/

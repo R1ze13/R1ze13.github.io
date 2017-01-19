@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+	
+	//	slider
 	$('.arrows__left').click(function () {
 		var mS = $('.slider__middleSlide').attr('src');
 		var rS = $('.slider__rightSlide').attr('src');
@@ -20,6 +21,14 @@ $(document).ready(function () {
 		$('.slider__rightSlide').attr('src', lS);
 		$('.slider__leftSlide').attr('src', mS);
 	});
+	//	slider
+	
+	// dropdown-menu
+	$('.dropdown-toggle').click(function() {
+		$(this).toggleClass('nav__item-active');
+		$(this).children('.dropdown-menu').toggleClass('dropdown-menu-active');
+	});
+	// /dropdown-menu
 
 	function setEqualHeight(columns) {
 		$('.equal-height-for-tablet').height('auto');
@@ -41,9 +50,10 @@ $(document).ready(function () {
 		setEqualHeight($(".equal-height-for-tablet"));
 	});
 
-	$('.hide-long-text').readmore();
+//	$('.hide-long-text').readmore();
 
 
+	//	check_email
 	$('.newsletter__subscribe').click(function () {
 		if ($('.newsletter__email-input').val() != '') {
 			var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
@@ -71,4 +81,35 @@ $(document).ready(function () {
 			$('.newsletter__check-wrapper').removeClass('newsletter__check-wrapper-active');
 		}, 5000);
 	});
+	//	/check_email
+	
+	
+	// События по клику мимо
+	$(document).click(function(event){
+		//	dropdown-menu
+		(function() {
+//			if ($(event.target).hasClass('dropdown-menu')) return;
+			if ($(event.target).closest(".dropdown-toggle").length) return;
+			$('.dropdown-menu').stop().fadeOut("fast", "linear");
+			$('.dropdown-menu-active').removeClass('dropdown-menu-active');
+			$('.nav__item-active').removeClass('nav__item-active');
+		})();
+		// /dropdown-menu
+		
+		// login
+		(function() {
+			if ($(event.target).closest(".login").length) return;
+			$('.login').find('.dropdown-menu').stop().fadeOut("fast", "linear");
+		})();
+		// /login
+		
+		// ul-menus
+		(function() {
+			if ($(event.target).hasClass('dropdown-btn')) return;
+			if ($(event.target).closest(".dropdown-menu").length) return;
+			$('.dropdown-menu').fadeOut("fast", "linear");
+		})();
+		// /ul-menus
+	});
+	// /События по клику мимо
 });
