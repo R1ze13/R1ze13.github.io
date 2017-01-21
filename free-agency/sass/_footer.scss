@@ -1,0 +1,239 @@
+.footer {
+	min-height: 145px;
+	
+	position: relative;
+}
+
+.footer__footer-top {
+	padding: 40px 0 45px;
+	background: url(../img/featureBar-bg.jpg) center center repeat;
+	position: relative;
+	overflow: hidden;
+	
+	&:before,
+	&:after {
+		content: '';
+		display: inline-block;
+		position: absolute;
+		height: 15px;
+		width: 100%;
+		z-index: 0;
+		background-size: 100% 100%;
+	}
+	&:before {
+		background: url(../img/stitching-top.png) center center repeat-x;
+		top: 0;
+	}
+	&:after {
+		background: url(../img/stitching-bottom.png) center center repeat-x;
+		bottom: 0;
+	}
+}
+
+.footer__contact {
+	text-shadow: 0 0.063rem 0.063rem rgba(0, 0, 0, 0.5);
+	color: #f1eee5;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 0.813rem;
+	font-weight: 700;
+}
+
+.footer__contact h2 {
+	color: #f1eee5;
+}
+
+.footer__contact p {
+	margin-top: 20px;
+	color: #979797;
+	line-height: 1.25rem;
+}
+
+.contact__email {
+	color: #f1eee5;
+	margin-right: 15px;
+}
+
+.footer__newsletter {
+	text-shadow: 0 0.063rem 0.063rem rgba(0, 0, 0, 0.5);
+	color: #f1eee5;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 0.813rem;
+	font-weight: 700;
+}
+
+.footer__newsletter p {
+	margin-top: 20px;
+	color: #979797;
+	line-height: 1.25rem;
+}
+
+.newsletter__form {
+	margin-top: 15px;
+	position: relative;
+}
+
+
+// looking for delete
+.newsletter__input-wrapper {
+	position: relative;
+}
+
+.newsletter__email-input {
+	opacity: 0.99;
+	background-color: #101010;
+	border-radius: 4px;
+	box-shadow: 0 0.063rem 0 rgba(255, 255, 255, 0.05), inset 0 0.063rem 0.125rem black;
+	border: none;
+	height: 36px;
+	width: 100%;
+	padding: 8px;
+	padding-right: 34%;
+	margin: 0;
+	text-shadow: 0 0.063rem 0.063rem rgba(0, 0, 0, 0.5);
+	color: #979797;
+	font-family: Arial;
+	font-size: 0.75rem;
+	font-weight: 400;
+	line-height: 1.25rem;
+}
+.newsletter__email-input:focus {
+	background: #101010;
+	outline: #000;
+	border: none;
+}
+
+.newsletter__subscribe {
+	text-shadow: 0 0.063rem 0 rgba(255, 255, 255, 0.43);
+	color: #4a4a4a;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	line-height: 1.25rem;
+	background-color: white;
+	background-image: linear-gradient(to top, #ccc 0%, #f4f4f4 100%);
+	border-radius: 4px;
+	box-shadow: 0 0.063rem 0.063rem rgba(0, 0, 0, 0.3);
+	width: 30%;
+	height: 80%;
+	margin: auto;
+  position: absolute;
+  top: 0; bottom: 0;
+	right: 5px;
+	z-index: 1;
+	overflow: hidden;
+	
+	&:after {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 4px;
+		background-color: white;
+		background-image: linear-gradient(to top, #f4f4f4 0%, #ccc 100%);
+		transition: opacity .3s ease-out;
+		z-index: 2;
+		opacity: 0;
+	}
+	
+	&:hover {
+		cursor: pointer;
+		
+		&:after {
+			opacity: 1;
+		}
+	}
+}
+
+.newsletter__subscribe span {
+	position: relative;
+	z-index: 3;
+}
+
+.newsletter__check-wrapper {
+	position: absolute;
+	bottom: -25px;
+	
+	display: none;
+	align-items: center;
+}
+.newsletter__check-wrapper-active {
+	display: flex !important;
+}
+
+.newsletter__check {
+	display: inline-block;
+	text-shadow: 0 0.063rem 0.063rem rgba(0, 0, 0, 0.3);
+	font-family: Arial;
+	font-size: 0.75rem;
+	font-weight: 400;
+	line-height: 1.25rem;
+	margin-left: 5px;
+}
+.newsletter__check-okay {
+	color: #8fa753;
+}
+.newsletter__check-not-okay {
+	color: #d04c49;
+}
+
+.newsletter__answer-icon {
+	display: inline-block;
+	background-size: 100% 100%;
+	width: 20px;
+	height: 20px;
+}
+.newsletter__answer-icon-tick {
+	background: url(../img/tick.png) center center no-repeat;
+}
+.newsletter__answer-icon-cross {
+	background: url(../img/cross.png) center center no-repeat;
+}
+
+.footer__footer-btm {
+	background: #0d0d0d;
+	min-height: 45px;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	
+	text-shadow: 0 0.063rem 0.063rem rgba(0, 0, 0, 0.5);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 0.75rem;
+	font-weight: 400;
+	line-height: 1.25rem;
+	color: #626262;
+}
+
+.footer__footer-btm .row {
+	padding: 0 15px;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+}
+
+.footer-btm__copyright {
+	width: 50%;
+}
+
+.footer-btm__copyright span {
+	color: #989898;
+}
+
+.footer-btm__powered-by {
+	width: 50%;
+	text-align: right;
+}
+
+.footer-btm__powered-by span {
+	color: #999;
+}
+.footer-btm__powered-by span:last-of-type {
+	color: #ccc;
+}
+
+.footer__footer-btm span:hover {
+	cursor: pointer;
+}
