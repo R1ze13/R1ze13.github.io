@@ -1,0 +1,154 @@
+.header__info {
+	box-shadow: 0 0.063rem 0 #e2e2e2;
+	background-color: #f0f2f4;
+}
+
+.header__info .info__row {
+	height: 2.625rem;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.info__telephone {
+	height: 100%;
+	@include rem(padding-right, 19);
+	border-right: 1px solid #e2e2e2;
+	display: flex;
+	align-items: center;
+	
+	color: #424242;
+	font-size: 0.938rem;
+	font-weight: 400;
+	
+	.fa {
+		font-size: 1.5rem;
+		font-weight: 400;
+		@include rem(margin-right, 11);
+	}
+}
+
+.info__mail {
+	@include rem(padding-left, 20);
+	
+	.fa {
+		@include rem(margin-right, 8);
+	}
+}
+
+.info__facebook {
+	@include rem(margin-left, 12);
+	width: 1.625rem;
+	height: 1.625rem;
+	border-radius: 0.188rem 0.125rem 0.125rem 0.188rem;
+	background-color: #1287bf;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	.fa {
+		color: #ffffff;
+	}
+}
+
+
+.menu-and-logo {
+	@include rem(min-height, 51);
+	@include rem(padding-top, 42);
+	@include rem(padding-bottom, 38);
+	color: #424242;
+	display: flex;
+	align-items: center;
+}
+
+.header__logo {
+	display: flex;
+	align-items: center;
+	
+	.fa {
+		line-height: 3.063rem;
+		color: #dd2a24;
+		font-size: 3.563rem;
+		@include rem(margin-right, 10);
+	}
+}
+
+.logo__business-name {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	
+	h1 {
+		line-height: 1.75rem;
+		font-size: 2.313rem;
+		font-weight: 700;
+	}
+	
+	h3 {
+		@include rem(margin-top, 8);
+		line-height: 0.938rem;
+		font-size: 0.938rem;
+		font-weight: 400;
+	}
+}
+
+.header__menu-wrapper {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.menu-wrapper__menu {
+	display: flex;
+	font-size: 0.938rem;
+	font-weight: 700;
+	color: #424242;
+}
+
+.menu__item {
+	display: inline-block;
+	@include rem(padding-left, 17);
+	@include rem(padding-right, 12);
+	position: relative;
+	transition: .3s;
+	white-space: nowrap;
+	
+	&:before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		@include rem(margin-top, -1);
+		width: 0.313rem;
+		height: 0.313rem;
+		border-radius: 50%;
+		background-color: #424242;
+	}
+	
+	&:first-of-type {
+		padding-left: 0;
+		&:before {
+			display: none;
+		}
+	}
+	&:last-of-type {
+		padding-right: 0;
+	}
+	
+	&:hover {
+		color: #de2b24;
+	}
+}
+
+.menu-wrapper__btn {
+	min-width: 10.688rem;
+	min-height: 2.25rem;
+	@include rem(margin-left, 32);
+	border-radius: 0.25rem;
+	background-color: #de2b24;
+	
+	color: #ffffff;
+	font-size: 0.938rem;
+	font-weight: 700;
+}

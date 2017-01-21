@@ -1,0 +1,36 @@
+.banner {
+	min-height: 36.875rem;
+	background: url(../img/banner.jpg) center bottom no-repeat;
+	background-size: cover;
+	color: #ffffff;
+	text-align: center;
+	@include rem(padding-top, 176);
+}
+
+.banner__layout {
+	position: relative;
+	z-index: 10;
+}
+
+.banner__h1 {
+	font-size: 3rem;
+	font-weight: 700;
+}
+
+.banner__h2 {
+	font-size: 1.875rem;
+	font-weight: 300;
+}
+
+.banner__btn {
+	@include rem(margin-top, 32);
+	@include rem(padding, 25);
+	@include rem(padding-left, 40);
+	@include rem(padding-right, 40);
+	border-radius: 0.375rem;
+	background-color: #f8cd53;
+	color: #ffffff;
+	font-size: 1.438rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
