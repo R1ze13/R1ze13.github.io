@@ -33,4 +33,8 @@
 	font-size: 1.438rem;
 	font-weight: 700;
 	text-transform: uppercase;
+	
+	&:hover {
+		cursor: pointer;
+	}
 }

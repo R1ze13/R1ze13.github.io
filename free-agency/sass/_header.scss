@@ -18,7 +18,6 @@
 	display: flex;
 	align-items: center;
 	
-	color: #424242;
 	font-size: 0.938rem;
 	font-weight: 400;
 	
@@ -57,7 +56,6 @@
 	@include rem(min-height, 51);
 	@include rem(padding-top, 42);
 	@include rem(padding-bottom, 38);
-	color: #424242;
 	display: flex;
 	align-items: center;
 }
@@ -103,7 +101,6 @@
 	display: flex;
 	font-size: 0.938rem;
 	font-weight: 700;
-	color: #424242;
 }
 
 .menu__item {
@@ -123,7 +120,7 @@
 		width: 0.313rem;
 		height: 0.313rem;
 		border-radius: 50%;
-		background-color: #424242;
+		background-color: $base-text-color;
 	}
 	
 	&:first-of-type {
@@ -151,4 +148,8 @@
 	color: #ffffff;
 	font-size: 0.938rem;
 	font-weight: 700;
+	
+	&:hover {
+		cursor: pointer;
+	}
 }

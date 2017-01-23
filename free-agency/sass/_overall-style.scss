@@ -8,6 +8,7 @@ body {
 	height: auto !important;
 	font-size: 16px;
 	font-family: 'Source Sans Pro', sans-serif;
+	color: $base-text-color;
 }
 
 /*	sticky footer	*/
@@ -42,4 +43,12 @@ a {
 	&:visited {
 		color: inherit;
 	}
+}
+
+.devider {
+	width: 2.938rem;
+	height: 0.313rem;
+	background-color: $base-text-color;
+	margin: 0 auto;
+	@include rem(margin-top, 14);
 }

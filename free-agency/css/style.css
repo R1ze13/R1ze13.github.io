@@ -8,6 +8,7 @@ body {
   height: auto !important;
   font-size: 16px;
   font-family: 'Source Sans Pro', sans-serif;
+  color: #424242;
 }
 
 /*	sticky footer	*/
@@ -45,6 +46,15 @@ a:visited {
   color: inherit;
 }
 
+.devider {
+  width: 2.938rem;
+  height: 0.313rem;
+  background-color: #424242;
+  margin: 0 auto;
+  margin-top: 14px;
+  margin-top: 0.875rem;
+}
+
 .header__info {
   box-shadow: 0 0.063rem 0 #e2e2e2;
   background-color: #f0f2f4;
@@ -65,7 +75,6 @@ a:visited {
   border-right: 1px solid #e2e2e2;
   display: flex;
   align-items: center;
-  color: #424242;
   font-size: 0.938rem;
   font-weight: 400;
 }
@@ -107,7 +116,6 @@ a:visited {
   padding-top: 2.625rem;
   padding-bottom: 38px;
   padding-bottom: 2.375rem;
-  color: #424242;
   display: flex;
   align-items: center;
 }
@@ -152,7 +160,6 @@ a:visited {
   display: flex;
   font-size: 0.938rem;
   font-weight: 700;
-  color: #424242;
 }
 
 .menu__item {
@@ -201,6 +208,9 @@ a:visited {
   font-size: 0.938rem;
   font-weight: 700;
 }
+.menu-wrapper__btn:hover {
+  cursor: pointer;
+}
 
 .banner {
   min-height: 36.875rem;
@@ -242,6 +252,67 @@ a:visited {
   font-size: 1.438rem;
   font-weight: 700;
   text-transform: uppercase;
+}
+.banner__btn:hover {
+  cursor: pointer;
+}
+
+.services {
+  padding-top: 102px;
+  padding-top: 6.375rem;
+  padding-bottom: 119px;
+  padding-bottom: 7.4375rem;
+  text-align: center;
+}
+.services .container {
+  width: 951px;
+}
+.services .services__h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+.services .services__h3 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-top: 2px;
+  margin-top: 0.125rem;
+}
+
+.services__row {
+  margin-top: 46px;
+  margin-top: 2.875rem;
+}
+
+.services__service {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.service__img {
+  max-height: 79px;
+  max-height: 4.9375rem;
+}
+
+.service__text-wrapper {
+  margin-top: 28px;
+  margin-top: 1.75rem;
+}
+
+.service__h5 {
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.service__p {
+  max-width: 14.875rem;
+  margin-top: 14px;
+  margin-top: 0.875rem;
+  color: #5c5c5c;
+  font-family: "Open Sans";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.375rem;
 }
 
 /*	HelveticaNeue ~ 'Source Sans Pro'	*/
