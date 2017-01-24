@@ -33,7 +33,7 @@ body {
 }
 
 .wrapper {
-  min-width: 970px;
+  min-width: 1051px;
 }
 
 a {
@@ -141,6 +141,7 @@ a:visited {
   line-height: 1.75rem;
   font-size: 2.313rem;
   font-weight: 700;
+  max-width: 15rem;
 }
 .logo__business-name h3 {
   margin-top: 8px;
@@ -148,6 +149,7 @@ a:visited {
   line-height: 0.938rem;
   font-size: 0.938rem;
   font-weight: 400;
+  max-width: 13rem;
 }
 
 .header__menu-wrapper {
@@ -171,6 +173,9 @@ a:visited {
   position: relative;
   transition: .3s;
   white-space: nowrap;
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .menu__item:before {
   content: '';
@@ -199,7 +204,9 @@ a:visited {
 
 .menu-wrapper__btn {
   min-width: 10.688rem;
+  max-width: 15rem;
   min-height: 2.25rem;
+  padding: .5rem 1rem;
   margin-left: 32px;
   margin-left: 2rem;
   border-radius: 0.25rem;
@@ -230,11 +237,13 @@ a:visited {
 .banner__h1 {
   font-size: 3rem;
   font-weight: 700;
+  padding: 0 13rem;
 }
 
 .banner__h2 {
   font-size: 1.875rem;
   font-weight: 300;
+  padding: 0 10rem;
 }
 
 .banner__btn {
@@ -246,6 +255,7 @@ a:visited {
   padding-left: 2.5rem;
   padding-right: 40px;
   padding-right: 2.5rem;
+  max-width: 40rem;
   border-radius: 0.375rem;
   background-color: #f8cd53;
   color: #ffffff;
@@ -267,13 +277,17 @@ a:visited {
 .services .container {
   width: 951px;
 }
-.services .services__h1 {
+
+.services__h1, .approch__h1 {
   font-size: 2.25rem;
   font-weight: 700;
+  padding: 0 13rem;
 }
-.services .services__h3 {
+
+.services__h3, .approch__h3 {
   font-size: 1.25rem;
   font-weight: 300;
+  padding: 0 10rem;
   margin-top: 2px;
   margin-top: 0.125rem;
 }
@@ -313,6 +327,133 @@ a:visited {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.375rem;
+}
+
+.approch {
+  padding-top: 90px;
+  padding-top: 5.625rem;
+  padding-bottom: 133px;
+  padding-bottom: 8.3125rem;
+}
+
+.approch__h1 {
+  text-align: center;
+}
+
+.approch__h3 {
+  text-align: center;
+}
+
+.approch__steps {
+  padding: 0 15px;
+  padding-top: 45px;
+  padding-top: 2.8125rem;
+  padding-bottom: 132px;
+  padding-bottom: 8.25rem;
+}
+
+.steps__step {
+  margin-top: 40px;
+  margin-top: 2.5rem;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 0.313rem #a7a7a7;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+.steps__step:first-of-type {
+  margin-top: 0;
+}
+
+.step__left-column {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.step__right-column {
+  flex: 1 1 auto;
+}
+
+.step__img {
+  display: block;
+  max-width: 400px;
+  max-width: 25rem;
+}
+
+.step__img-emblem-wrapper {
+  position: relative;
+}
+
+.step__emblem {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: calc(-6.563rem / 2);
+  margin-right: calc(-6.563rem / 2);
+  width: 6.563rem;
+  height: 6.563rem;
+  border-radius: .3rem;
+  border: 0.125rem solid #ffffff;
+  background-color: #de2b24;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.emblem__number {
+  line-height: 2.113rem;
+  font-family: Georgia;
+  font-size: 3.75rem;
+  font-weight: 700;
+}
+.emblem__number span {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.step__text-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding: 30px;
+  padding: 1.875rem;
+  padding-left: 90px;
+  padding-left: 5.625rem;
+  padding-right: 72px;
+  padding-right: 4.5rem;
+}
+.step__text-wrapper .step__h2 {
+  max-width: 32.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.step__text-wrapper .step__p {
+  max-width: 32.5rem;
+  margin-top: 13px;
+  margin-top: 0.8125rem;
+  color: #5c5c5c;
+  font-family: "Open Sans";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+}
+
+.steps__step-right .step__left-column {
+  order: 2;
+}
+.steps__step-right .step__right-column {
+  order: 1;
+}
+.steps__step-right .step__emblem {
+  left: 0;
+  margin-right: 0;
+  margin-left: calc(-6.563rem / 2);
 }
 
 /*	HelveticaNeue ~ 'Source Sans Pro'	*/

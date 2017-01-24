@@ -15,11 +15,13 @@
 .banner__h1 {
 	font-size: 3rem;
 	font-weight: 700;
+	padding: 0 13rem;
 }
 
 .banner__h2 {
 	font-size: 1.875rem;
 	font-weight: 300;
+	padding: 0 10rem;
 }
 
 .banner__btn {
@@ -27,6 +29,7 @@
 	@include rem(padding, 25);
 	@include rem(padding-left, 40);
 	@include rem(padding-right, 40);
+	max-width: 40rem;
 	border-radius: 0.375rem;
 	background-color: #f8cd53;
 	color: #ffffff;
