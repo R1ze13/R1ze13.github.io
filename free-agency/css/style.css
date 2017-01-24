@@ -494,16 +494,15 @@ a:visited {
 .work__projects {
   margin-top: 47px;
   margin-top: 2.9375rem;
-  height: 506px;
-  height: 31.625rem;
   display: flex;
   flex-flow: row wrap;
 }
 
 .projects__project {
-  flex: 0 0 25%;
+  flex: 1 1 25%;
   min-height: 15.813rem;
   max-height: 50%;
+  overflow: hidden;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -527,11 +526,17 @@ a:visited {
   font-size: 1.625rem;
   color: #ffffff;
   background-color: #f35e59;
+  padding: 1rem;
+}
+.projects__project-empty .project__h2 {
+  padding: 0 1rem;
+  overflow: hidden;
 }
 .projects__project-empty .project__h3 {
   margin-top: 3px;
   margin-top: 0.1875rem;
   font-size: 1rem;
+  overflow: hidden;
 }
 
 .projects__project-with-img {

@@ -29,16 +29,17 @@
 
 .work__projects {
 	@include rem(margin-top, 47);
-	@include rem(height, 506);
+//	@include rem(height, 506);
 	
 	display: flex;
 	flex-flow: row wrap;
 }
 
 .projects__project {
-	flex: 0 0 25%;
+	flex: 1 1 25%;
 	min-height: 15.813rem;
 	max-height: 50%;
+	overflow: hidden;
 	
 	display: flex;
 	flex-flow: column nowrap;
@@ -64,10 +65,17 @@
 	font-size: 1.625rem;
 	color: #ffffff;
 	background-color: #f35e59;
+	padding: 1rem;
+	
+	.project__h2 {
+		padding: 0 1rem;
+		overflow: hidden;
+	}
 	
 	.project__h3 {
 		@include rem(margin-top, 3);
 		font-size: 1rem;
+		overflow: hidden;
 	}
 }
 
