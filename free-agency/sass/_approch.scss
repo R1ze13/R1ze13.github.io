@@ -15,8 +15,7 @@
 
 .approch__steps {
 	padding: 0 15px;
-	@include rem(padding-top, 45);
-	@include rem(padding-bottom, 132);
+	@include rem(margin-top, 45);
 }
 
 .steps__step {
@@ -31,17 +30,27 @@
 	&:first-of-type {
 		margin-top: 0;
 	}
+	
+	&:nth-of-type(n+3) {
+		.emblem__title {
+			margin-top: .4rem;
+		}
+	}
 }
 
 .step__left-column {
-	flex: 1 0 auto;
+	flex: 0 1 33%;
 	
 	display: flex;
 	align-items: center;
 }
 
 .step__right-column {
-	flex: 1 1 auto;
+	flex: 1 1 67%;
+	
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
 }
 
 .step__img {
@@ -55,6 +64,8 @@
 
 .step__emblem {
 	position: absolute;
+	overflow: hidden;
+	white-space: nowrap;
 	top: 50%;
 	right: 0;
 	margin-top: calc(-6.563rem / 2);
@@ -73,22 +84,19 @@
 }
 
 .emblem__number {
-	line-height: 2.113rem;
+	line-height: .6;
 	font-family: Georgia;
 	font-size: 3.75rem;
+	height: 2.6rem;
 	font-weight: 700;
-	
-	span {
-		display: block;
-		font-size: 1.25rem;
-		font-weight: 400;
-	}
+}
+
+.emblem__title {
+	font-size: 1.25rem;
+	font-weight: 400;
 }
 
 .step__text-wrapper {
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
 	@include rem(padding, 30);
 	@include rem(padding-left, 90);
 	@include rem(padding-right, 72);
@@ -123,5 +131,14 @@
 		left: 0;
 		margin-right: 0;
 		margin-left: calc(-6.563rem / 2);
+	}
+	
+	.step__h2,
+	.step__p {
+		text-align: right;
+	}
+	
+	.step__h2 {
+		@include rem(padding-right, 15);
 	}
 }
