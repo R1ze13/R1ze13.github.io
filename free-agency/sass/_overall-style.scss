@@ -52,3 +52,11 @@ a {
 	margin: 0 auto;
 	@include rem(margin-top, 14);
 }
+
+.ellipse {
+	width: 4rem;
+	height: 4rem;
+	margin: 0 auto;
+	background: url(../img/test.png) center center no-repeat;
+	background-size: cover;
+}

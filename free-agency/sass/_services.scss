@@ -44,6 +44,7 @@
 }
 
 .service__p {
+	margin: 0 auto;
 	max-width: 14.875rem;
 	@include rem(margin-top, 14);
 	color: #5c5c5c;

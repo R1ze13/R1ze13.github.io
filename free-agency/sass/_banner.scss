@@ -5,6 +5,7 @@
 	color: #ffffff;
 	text-align: center;
 	@include rem(padding-top, 176);
+	@include rem(padding-bottom, 236);
 }
 
 .banner__layout {
@@ -13,29 +14,36 @@
 }
 
 .banner__h1 {
+	max-height: 8rem;
 	font-size: 3rem;
 	font-weight: 700;
 	padding: 0 13rem;
+	overflow: hidden;
 }
 
 .banner__h2 {
+	max-height: 8rem;
 	font-size: 1.875rem;
 	font-weight: 300;
-	padding: 0 10rem;
+	padding: 0 9rem;
+	overflow: hidden;
 }
 
 .banner__btn {
 	@include rem(margin-top, 32);
-	@include rem(padding, 25);
+	@include rem(padding, 23);
 	@include rem(padding-left, 40);
 	@include rem(padding-right, 40);
+	display: inline-block;
 	max-width: 40rem;
+	max-height: 8rem;
 	border-radius: 0.375rem;
 	background-color: #f8cd53;
 	color: #ffffff;
 	font-size: 1.438rem;
 	font-weight: 700;
 	text-transform: uppercase;
+	overflow: hidden;
 	
 	&:hover {
 		cursor: pointer;

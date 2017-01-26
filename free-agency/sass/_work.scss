@@ -29,7 +29,6 @@
 
 .work__projects {
 	@include rem(margin-top, 47);
-//	@include rem(height, 506);
 	
 	display: flex;
 	flex-flow: row wrap;
@@ -45,6 +44,7 @@
 	flex-flow: column nowrap;
 	justify-content: center;
 	
+	
 	&:nth-of-type(2) {
 		background: url(../img/project-1.jpg);
 	}
@@ -56,6 +56,10 @@
 	}
 	&:nth-of-type(7) {
 		background: url(../img/project-4.jpg);
+	}
+	
+	&:hover {
+		cursor: pointer;
 	}
 }
 
@@ -80,8 +84,8 @@
 }
 
 .projects__project-with-img {
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
 }
 
 .project__icon {

@@ -4,22 +4,34 @@
 }
 
 .header__info .info__row {
-	height: 2.625rem;
+	min-height: 2.625rem;
+//	padding: 0.4375rem 0 0.5625rem;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: flex-end;
 	align-items: center;
+	font-size: 0.938rem;
 }
 
 .info__telephone {
-	height: 100%;
 	@include rem(padding-right, 19);
-	border-right: 1px solid #e2e2e2;
+	max-width: 15.75rem;
+	min-height: inherit;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	display: flex;
 	align-items: center;
 	
-	font-size: 0.938rem;
-	font-weight: 400;
+	position: relative;
+	&:after {
+		position: absolute;
+		content: '';
+		right: 0; top: 0;
+		width: 1px;
+		height: 100%;
+		background-color: #e2e2e2;
+	}
 	
 	.fa {
 		font-size: 1.5rem;
@@ -30,6 +42,10 @@
 
 .info__mail {
 	@include rem(padding-left, 20);
+	max-width: 18.75rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	
 	.fa {
 		@include rem(margin-right, 8);
@@ -78,18 +94,23 @@
 	justify-content: center;
 	
 	h1 {
-		line-height: 1.75rem;
+		line-height: 1.79rem;
 		font-size: 2.313rem;
 		font-weight: 700;
 		max-width: 15rem;
+		max-height: 3.625rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 	
 	h3 {
-		@include rem(margin-top, 8);
-		line-height: 0.938rem;
+		@include rem(margin-top, 5);
+		line-height: 1.35;
 		font-size: 0.938rem;
 		font-weight: 400;
 		max-width: 13rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 
@@ -147,7 +168,9 @@
 	min-width: 10.688rem;
 	max-width: 15rem;
 	min-height: 2.25rem;
-	padding: .5rem 1rem;
+	max-height: 3.125rem;
+	padding: .6rem 1rem;
+	text-align: center;
 	@include rem(margin-left, 32);
 	border-radius: 0.25rem;
 	background-color: #de2b24;
@@ -158,5 +181,10 @@
 	
 	&:hover {
 		cursor: pointer;
+		color: #fff;
+	}
+	
+	&:visited {
+		color: #fff;
 	}
 }
