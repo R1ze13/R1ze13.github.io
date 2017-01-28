@@ -3,6 +3,7 @@
 	@include rem(padding-bottom, 112);
 	background-color: #1287bf;
 	text-align: center;
+	overflow: hidden
 }
 
 .facebook__h1,
@@ -25,7 +26,7 @@
 .facebook__fbForm {
 	margin: 3.9rem auto 0;
 	padding: 3.5rem 4.063rem 4.063rem 4.063rem;
-	width: 42.688rem;
+	max-width: 42.688rem;
 	position: relative;
 	border-radius: 0.225rem;
 	background-color: #ffffff;
@@ -33,7 +34,7 @@
 	&:before {
 		content: '';
 		position: absolute;
-		top: -36px;
+		top: -35px;
 		left: 50%;
 		margin-left: -36px;
 		width: 0; 
@@ -80,6 +81,7 @@
 }
 
 .fbForm__input {
+	max-width: 100%;
 	margin-top: .5rem;
 	padding: 0 1.313rem;
 	@include rem(width, 445);

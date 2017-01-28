@@ -423,7 +423,7 @@ template {
   display: none; }
 
 .foundation-mq {
-  font-family: "small=0em&medium=40em&large=64.0625em&xlarge=75em&xxlarge=90em"; }
+  font-family: "small=0em&medium=40em&large=65.94rem&xlarge=75em&xxlarge=90em"; }
 
 html {
   box-sizing: border-box;
@@ -728,7 +728,7 @@ kbd {
   .medium-text-justify {
     text-align: justify; } }
 
-@media print, screen and (min-width: 64.0625em) {
+@media print, screen and (min-width: 65.94rem) {
   .large-text-left {
     text-align: left; }
   .large-text-right {
@@ -836,27 +836,27 @@ kbd {
   .show-for-medium {
     display: none !important; } }
 
-@media screen and (min-width: 40em) and (max-width: 64.0625em) {
+@media screen and (min-width: 40em) and (max-width: 65.94rem) {
   .hide-for-medium-only {
     display: none !important; } }
 
-@media screen and (max-width: 39.9375em), screen and (min-width: 64.0625em) {
+@media screen and (max-width: 39.9375em), screen and (min-width: 65.94rem) {
   .show-for-medium-only {
     display: none !important; } }
 
-@media print, screen and (min-width: 64.0625em) {
+@media print, screen and (min-width: 65.94rem) {
   .hide-for-large {
     display: none !important; } }
 
-@media screen and (max-width: 64.0625em) {
+@media screen and (max-width: 65.94rem) {
   .show-for-large {
     display: none !important; } }
 
-@media screen and (min-width: 64.0625em) and (max-width: 74.9375em) {
+@media screen and (min-width: 65.94rem) and (max-width: 74.9375em) {
   .hide-for-large-only {
     display: none !important; } }
 
-@media screen and (max-width: 64.0625em), screen and (min-width: 75em) {
+@media screen and (max-width: 65.94rem), screen and (min-width: 75em) {
   .show-for-large-only {
     display: none !important; } }
 
@@ -918,7 +918,7 @@ kbd {
       .row .row {
         margin-right: -0.9375rem;
         margin-left: -0.9375rem; } }
-    @media print, screen and (min-width: 64.0625em) {
+    @media print, screen and (min-width: 65.94rem) {
       .row .row {
         margin-right: -0.9375rem;
         margin-left: -0.9375rem; } }
@@ -1434,7 +1434,7 @@ kbd {
     margin-right: 0;
     margin-left: 0; } }
 
-@media print, screen and (min-width: 64.0625em) {
+@media print, screen and (min-width: 65.94rem) {
   .large-1 {
     width: 8.33333%; }
   .large-push-1 {

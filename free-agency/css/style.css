@@ -46,6 +46,10 @@ a:visited {
   color: inherit;
 }
 
+fieldset {
+  min-width: 100%;
+}
+
 .devider {
   width: 2.938rem;
   height: 0.313rem;
@@ -185,6 +189,7 @@ a:visited {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  align-content: center;
 }
 
 .menu-wrapper__menu {
@@ -273,9 +278,10 @@ a:visited {
 
 .banner__h1 {
   max-height: 8rem;
+  line-height: 1.2;
   font-size: 3rem;
   font-weight: 700;
-  padding: 0 13rem;
+  padding: 0 10%;
   overflow: hidden;
 }
 
@@ -283,7 +289,7 @@ a:visited {
   max-height: 8rem;
   font-size: 1.875rem;
   font-weight: 300;
-  padding: 0 9rem;
+  padding: 0 15%;
   overflow: hidden;
 }
 
@@ -325,13 +331,13 @@ a:visited {
 .services__h1, .approch__h1, .work__h1, .facebook__h1 {
   font-size: 2.25rem;
   font-weight: 700;
-  padding: 0 13rem;
+  padding: 0 10%;
 }
 
 .services__h3, .approch__h3, .work__h3, .facebook__h3 {
   font-size: 1.25rem;
   font-weight: 300;
-  padding: 0 10rem;
+  padding: 0 15%;
   margin-top: 2px;
   margin-top: 0.125rem;
 }
@@ -411,9 +417,25 @@ a:visited {
 .steps__step:nth-of-type(n+3) .emblem__title {
   margin-top: .4rem;
 }
+.steps__step:first-of-type .step__img {
+  background: url(../img/step-1-photo.png) center center no-repeat;
+  background-size: cover;
+}
+.steps__step:nth-of-type(2) .step__img {
+  background: url(../img/step-2-photo.jpg) center center no-repeat;
+  background-size: cover;
+}
+.steps__step:nth-of-type(3) .step__img {
+  background: url(../img/step-3-photo.jpg) center center no-repeat;
+  background-size: cover;
+}
+.steps__step:last-of-type .step__img {
+  background: url(../img/step-4-photo.jpg) center center no-repeat;
+  background-size: cover;
+}
 
 .step__left-column {
-  flex: 0 1 33%;
+  flex: 1 1 33%;
   display: flex;
   align-items: center;
 }
@@ -426,9 +448,9 @@ a:visited {
 }
 
 .step__img {
-  display: block;
-  max-width: 400px;
-  max-width: 25rem;
+  width: 100%;
+  min-height: 236px;
+  height: 100%;
 }
 
 .step__img-emblem-wrapper {
@@ -588,6 +610,7 @@ a:visited {
 }
 
 .projects__project-with-img {
+  background-position: center center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
@@ -608,6 +631,7 @@ a:visited {
   padding-bottom: 7rem;
   background-color: #1287bf;
   text-align: center;
+  overflow: hidden;
 }
 
 .facebook__h1,
@@ -623,7 +647,7 @@ a:visited {
 .facebook__fbForm {
   margin: 3.9rem auto 0;
   padding: 3.5rem 4.063rem 4.063rem 4.063rem;
-  width: 42.688rem;
+  max-width: 42.688rem;
   position: relative;
   border-radius: 0.225rem;
   background-color: #ffffff;
@@ -631,7 +655,7 @@ a:visited {
 .facebook__fbForm:before {
   content: '';
   position: absolute;
-  top: -36px;
+  top: -35px;
   left: 50%;
   margin-left: -36px;
   width: 0;
@@ -676,6 +700,7 @@ a:visited {
 }
 
 .fbForm__input {
+  max-width: 100%;
   margin-top: .5rem;
   padding: 0 1.313rem;
   width: 445px;
@@ -725,7 +750,7 @@ a:visited {
 .subscribe__h1 {
   font-size: 1.813rem;
   font-weight: 700;
-  padding: 0 13rem;
+  padding: 0 10%;
 }
 
 .subscribe__socials {
@@ -779,7 +804,7 @@ a:visited {
 
 .subForm__legend {
   min-width: 100%;
-  padding: 0 10rem;
+  padding: 0 15%;
   color: #cecece;
   font-family: "Open Sans";
   font-size: 0.875rem;
@@ -855,5 +880,111 @@ a:visited {
   text-overflow: ellipsis;
 }
 
+@media only screen and (max-width: 1100px) {
+  html,
+  body,
+  .container,
+  .wrapper,
+  .work > .container {
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 65.94em) {
+  html,
+  body {
+    font-size: 120%;
+  }
+
+  .menu-and-logo {
+    flex-flow: column nowrap;
+  }
+
+  .menu-wrapper__menu {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .menu__item {
+    line-height: 2;
+  }
+
+  .header__logo {
+    justify-content: center;
+  }
+
+  .header__menu-wrapper {
+    margin-top: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .banner {
+    min-height: 0;
+    padding: 19% 0 25%;
+  }
+
+  .services {
+    padding-bottom: 3rem;
+  }
+
+  .steps__step-left .step__text-wrapper {
+    padding-right: 1rem;
+  }
+
+  .steps__step-right .step__text-wrapper {
+    padding-left: 1rem;
+  }
+
+  .projects__project {
+    flex: 1 1 50%;
+  }
+
+  .subForm__input {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 55.81em) {
+  .fbForm__closeIcon {
+    margin-right: calc(-3.063rem / 4.5);
+  }
+}
+@media only screen and (max-width: 40em) {
+  html,
+  body {
+    font-size: 120%;
+  }
+
+  .services__service {
+    margin-top: 2rem;
+  }
+  .services__service:first-of-type {
+    margin-top: 0;
+  }
+
+  .steps__step {
+    flex-flow: column nowrap;
+  }
+
+  .step__text-wrapper {
+    padding: 2rem;
+  }
+
+  .step__emblem {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .steps__step-right .step__left-column {
+    order: 1;
+  }
+  .steps__step-right .step__right-column {
+    order: 2;
+  }
+
+  .projects__project {
+    flex: 0 0 100%;
+  }
+}
 /*	HelveticaNeue ~ 'Source Sans Pro'	*/
 /*	Ronnia ~ 'Days One'	*/

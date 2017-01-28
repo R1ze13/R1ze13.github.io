@@ -1,180 +1,128 @@
+// 65.94rem = 1055
+//40.063rem = 641
+//64rem = 1024
+
+
 @media only screen and (max-width: 1100px) {
 	html,
-	body {
-		font-size: 130%;
-	}
-	
-	.arrows__left {
-		left: 1%;
-		transform: scale(1.1);
-	}
-	
-	.arrows__right {
-		right: 1%;
-		transform: scale(1.1);
-	}
-	
-	.featureBar {
-		
-		&:before,
-		&:after {
-			transform: scale(1.6);
-			height: 24px;
-		}
-	}
-	
-	.featureBar__btn {
-		padding: 0.525rem .75rem;
+	body,
+	.container,
+	.wrapper,
+	.work > .container {
+		min-width: 100% !important;
+		width: 100% !important;
 	}
 }
 
-@media only screen and (max-width: 64em) {
+@media only screen and (max-width: 65.94em) {
+	html,
+	body {
+		font-size: 120%;
+	}
+	
 	.container,
 	.wrapper {
-		min-width: 100%;
-		width: 100%;
+//		overflow: hidden;
 	}
 	
-	.logo-and-nav {
-		flex-wrap: wrap;
+	.menu-and-logo {
+		flex-flow: column nowrap;
 	}
 	
-	.logo {
+	.menu-wrapper__menu {
+		flex-flow: row wrap;
 		justify-content: center;
 	}
 	
-	.nav__list {
-		justify-content: space-between;
+	.menu__item {
+		line-height: 2;
+	}
+	
+	.header__logo {
+		justify-content: center;
+	}
+	
+	.header__menu-wrapper {
+		margin-top: 1.5rem;
+		justify-content: center;
 		flex-wrap: wrap;
-		margin-top: 2.5rem;
 	}
 	
-	.featureBar {
-		@include rem(padding-top, 50);
-		@include rem(padding-bottom, 50);
+	.banner {
+		min-height: 0;
+		padding: 19% 0 25%;
 	}
 	
-	.featureBar__rightRow {
-		margin-top: 2.5rem;
+	.services {
+		padding-bottom: 3rem;
 	}
 	
-	.featureBar__btns {
-		justify-content: space-around;
+	.steps__step-left .step__text-wrapper {
+		padding-right: 1rem;
 	}
 	
-	.content__screenshots,
-	.content__screencast,
-	.content__blog,
-	.content__tweets,
-	.container__testimonials {
-		margin-top: 2.5rem;
+	.steps__step-right .step__text-wrapper {
+		padding-left: 1rem;
 	}
 	
-	.callout__btn {
-		white-space: pre-wrap;
-		min-width: 50%;
+	.projects__project {
+		flex: 1 1 50%;
 	}
 	
-	.footer__newsletter {
-		margin-top: 2.5rem;
+	.subForm__input {
+		width: 100%;
+	}
+}
+	
+@media only screen and (max-width: 55.81em) {
+	.fbForm__closeIcon {
+		margin-right: calc(-3.063rem / 4.5);
 	}
 }
 
 //	min-width 641px and max-width 1024px
-@media only screen and (min-width: 40.063em) and (max-width: 64em) {
-	.screenshots__shots,
-	.screencast__info-and-vid-wrapper {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
+@media only screen and (min-width: 40.063em) and (max-width: 65.94em) {
 	
-	.screenshots__shot:not(:first-of-type) {
-		@include rem (margin-top, 25);
-	}
-	
-	.testimonials__quotes {
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-content: flex-start;
-		align-items: flex-start;
-		justify-content: space-between;
-		
-		.testimonials__quote {
-			margin-top: 0;
-			width: 49%;
-			flex: 0 0 auto;
-		}
-	}
-	
-	.content__about-text,
-	.content__blog,
-	.content__tweets {
-		margin-top: 0;
-	}
-		
-	.content__screenshots,
-	.content__screencast,
-	.container__testimonials {
-		margin-top: 2.5rem;
-	}
-	
-	.footer__newsletter {
-		margin-top: 0;
-	}
 }
 
 @media only screen and (max-width: 40em) {
-	.header__intro {
-		padding-bottom: 1rem;
+	html,
+	body {
+		font-size: 120%;
+	}
+	
+	.services__service {
+		margin-top: 2rem;
 		
-		h3 {
-			padding: 0 .5rem;
+		&:first-of-type {
+			margin-top: 0;
 		}
 	}
 	
-	.slider__wrapper {
-		display: none;
-	}
-	
-	.featureBar__leftRow {
+	.steps__step {
 		flex-flow: column nowrap;
-		align-content: center;
-		align-items: center;
-		
-		.featureBar__item {
-			margin-top: 1rem;
-			width: 100%;
-			
-			&:first-of-type {
-				margin-top: 0;
-			}
+	}
+	
+	.step__text-wrapper {
+		padding: 2rem;
+	}
+	
+	.step__emblem {
+		margin-right: 0 !important;
+		margin-left: 0 !important;
+	}
+	
+	.steps__step-right {
+		.step__left-column {
+			order: 1;
+		}
+
+		.step__right-column {
+			order: 2;
 		}
 	}
 	
-	.callout__left-column {
-		text-align: center;
-	}
-	
-	.callout__right-column {
-		margin-top: 1rem;
-		text-align: center;
-	}
-	
-	.content__blog {
-		margin-top: 0;
-	}
-	
-	.footer__footer-top {
-		
-		&:before,
-		&:after {
-			transform: scale(1.6);
-			height: 24px;
-		}
-	}
-	
-	.footer__footer-btm {
-		padding: .5rem 0;
+	.projects__project {
+		flex: 0 0 100%;
 	}
 }

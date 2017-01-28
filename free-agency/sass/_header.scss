@@ -5,7 +5,6 @@
 
 .header__info .info__row {
 	min-height: 2.625rem;
-//	padding: 0.4375rem 0 0.5625rem;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: flex-end;
@@ -118,6 +117,7 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	align-content: center;
 }
 
 .menu-wrapper__menu {
