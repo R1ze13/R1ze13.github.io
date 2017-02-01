@@ -70,9 +70,8 @@
 
 .subForm__input {
 	width: 42.688rem;
-	height: 3.375rem;
 	margin-top: 1.938rem;
-	@include rem(padding, 22);
+	@include rem(padding, 16);
 	border-radius: 0.063rem;
 	border: 0;
 	background-color: #515151;

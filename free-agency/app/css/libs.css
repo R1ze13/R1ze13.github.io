@@ -2832,13 +2832,11 @@ img {
 textarea {
   height: auto;
   min-height: 50px;
-  -webkit-border-radius: 3px;
-          border-radius: 3px; }
+  border-radius: 3px; }
 
 select {
   width: 100%;
-  -webkit-border-radius: 3px;
-          border-radius: 3px; }
+  border-radius: 3px; }
 
 .map_canvas img,
 .map_canvas embed,
@@ -2854,8 +2852,7 @@ button {
   -moz-appearance: none;
   appearance: none;
   border: 0;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
   background: transparent;
   line-height: 1; }
 
@@ -3070,8 +3067,7 @@ kbd {
   background-color: #e6e6e6;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   color: #0a0a0a;
-  -webkit-border-radius: 3px;
-          border-radius: 3px; }
+  border-radius: 3px; }
 
 .subheader {
   margin-top: 0.2rem;

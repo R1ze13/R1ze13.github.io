@@ -7,8 +7,7 @@
 	html,
 	body,
 	.container,
-	.wrapper,
-	.work > .container {
+	.wrapper {
 		min-width: 100% !important;
 		width: 100% !important;
 	}
@@ -18,11 +17,6 @@
 	html,
 	body {
 		font-size: 120%;
-	}
-	
-	.container,
-	.wrapper {
-//		overflow: hidden;
 	}
 	
 	.menu-and-logo {
@@ -112,12 +106,17 @@
 		margin-left: 0 !important;
 	}
 	
+	.step__img-emblem-wrapper,
+	.step__text-wrapper {
+		width: 100%;
+	}
+	
 	.steps__step-right {
-		.step__left-column {
+		.step__img-emblem-wrapper {
 			order: 1;
 		}
 
-		.step__right-column {
+		.step__text-wrapper {
 			order: 2;
 		}
 	}
