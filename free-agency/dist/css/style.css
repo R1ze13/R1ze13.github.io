@@ -543,8 +543,8 @@ fieldset {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 30px;
-  padding: 1.875rem;
+  padding: 70px;
+  padding: 4.375rem;
   padding-left: 90px;
   padding-left: 5.625rem;
   padding-right: 72px;
