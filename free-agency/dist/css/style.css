@@ -457,18 +457,14 @@ fieldset {
     margin-top: 0; }
   .steps__step:nth-of-type(n+3) .emblem__title {
     margin-top: .4rem; }
-  .steps__step:first-of-type .step__img {
-    background: url(../img/step-1-photo.png) center center no-repeat/cover; }
-  .steps__step:nth-of-type(2) .step__img {
-    background: url(../img/step-2-photo.jpg) center center no-repeat/cover; }
-  .steps__step:nth-of-type(3) .step__img {
-    background: url(../img/step-3-photo.jpg) center center no-repeat/cover; }
-  .steps__step:last-of-type .step__img {
-    background: url(../img/step-4-photo.jpg) center center no-repeat/cover; }
-
-.step__img {
-  width: 100%;
-  min-height: 100%; }
+  .steps__step:first-of-type .step__img-emblem-wrapper {
+    background: url(../img/step-1-photo.png) center center no-repeat; }
+  .steps__step:nth-of-type(2) .step__img-emblem-wrapper {
+    background: url(../img/step-2-photo.jpg) center center no-repeat; }
+  .steps__step:nth-of-type(3) .step__img-emblem-wrapper {
+    background: url(../img/step-3-photo.jpg) center center no-repeat; }
+  .steps__step:last-of-type .step__img-emblem-wrapper {
+    background: url(../img/step-4-photo.jpg) center center no-repeat; }
 
 .step__img-emblem-wrapper {
   position: relative;
@@ -480,7 +476,8 @@ fieldset {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  background-size: cover !important; }
 
 .step__emblem {
   position: absolute;
