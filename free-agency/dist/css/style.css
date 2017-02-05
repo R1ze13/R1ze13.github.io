@@ -1008,7 +1008,8 @@ fieldset {
     margin-left: 0 !important; }
   .step__img-emblem-wrapper,
   .step__text-wrapper {
-    width: 100%; }
+    width: 100%;
+    min-height: 220px; }
   .steps__step-right .step__img-emblem-wrapper {
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
