@@ -622,7 +622,7 @@ hr {
 ul,
 ol,
 dl {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   list-style-position: outside;
   line-height: 1.6; }
 
@@ -630,14 +630,14 @@ li {
   font-size: inherit; }
 
 ul {
-  margin-left: 1.25rem;
+  margin-left: 0;
   list-style-type: disc; }
 
 ol {
   margin-left: 1.25rem; }
 
 ul ul, ol ul, ul ol, ol ol {
-  margin-left: 1.25rem;
+  margin-left: 0;
   margin-bottom: 0; }
 
 dl {
@@ -900,7 +900,7 @@ kbd {
       display: block !important; } }
 
 .row {
-  max-width: 72.5rem;
+  max-width: 82.5rem;
   margin-right: auto;
   margin-left: auto; }
   .row::before, .row::after {

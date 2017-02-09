@@ -7,7 +7,7 @@ body {
 	min-height: 100vh !important;
 	height: auto !important;
 	font-size: 16px;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: $base-text-color;
 }
 
@@ -26,12 +26,12 @@ body {
 /*	/sticky footer	*/
 
 .container {
-	width: 1051px;
+	width: 1200px;
 	margin: 0 auto;
 }
 
 .wrapper {
-	min-width: 1051px;
+	min-width: 1200px;
 }
 
 a {
@@ -43,24 +43,4 @@ a {
 	&:visited {
 		color: inherit;
 	}
-}
-
-fieldset {
-	min-width: 100%;
-}
-
-.devider {
-	width: 2.938rem;
-	height: 0.313rem;
-	background-color: $base-text-color;
-	margin: 0 auto;
-	@include rem(margin-top, 14);
-}
-
-.ellipse {
-	width: 4rem;
-	height: 4rem;
-	margin: 0 auto;
-	background: url(../img/test.png) center center no-repeat;
-	background-size: cover;
 }

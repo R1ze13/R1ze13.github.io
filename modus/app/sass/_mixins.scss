@@ -1,8 +1,6 @@
 @mixin font-size($sizeValue: 16){
-font-size: ($sizeValue) + px;
 font-size: ($sizeValue / 16) + rem;
 }
 @mixin rem($prop, $sizeValue: 16){
-#{$prop}: ($sizeValue) + px;
 #{$prop}: ($sizeValue / 16) + rem;
 }
