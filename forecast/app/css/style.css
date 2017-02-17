@@ -57,7 +57,7 @@ a {
   margin-bottom: 50px;
   margin-bottom: 3.125rem; }
 
-.forecast__currentCity, .cities__h1 {
+.forecast__currentCity, .cities__wrapper h1 {
   padding: 0 1.3rem;
   font-size: 3rem;
   text-align: right; }
@@ -86,7 +86,7 @@ a {
   font-size: 2rem;
   text-align: right; }
 
-.cities__h1 {
+.cities__wrapper h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,11 +96,11 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  .cities__h1 .fa {
+  .cities__wrapper h1 .fa {
     color: #9f2121;
     -webkit-transition: .3s ease;
     transition: .3s ease; }
-    .cities__h1 .fa:hover {
+    .cities__wrapper h1 .fa:hover {
       cursor: pointer;
       color: #c92a2a; }
 
