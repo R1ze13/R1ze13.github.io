@@ -1,6 +1,19 @@
 .cities__h1 {
   @extend .forecast__currentCity;
-  text-align: left;
+	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	.fa {
+		color: firebrick;
+		transition: .3s ease;
+		
+		&:hover {
+			cursor: pointer;
+			color: lighten(firebrick, 5%);
+		}
+	}
 }
 
 .cities__city {
@@ -10,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+	text-transform: capitalize;
 
   &:first-of-type {
     margin-top: .5rem;

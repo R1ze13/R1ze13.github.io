@@ -22,7 +22,9 @@ body {
   background: url(../img/sea.jpg) center center no-repeat;
   background-size: cover;
   padding-top: 50px;
-  padding-top: 3.125rem; }
+  padding-top: 3.125rem;
+  padding-bottom: 100px;
+  padding-bottom: 6.25rem; }
 
 .content-wrapper {
   -webkit-box-flex: 1;
@@ -79,7 +81,22 @@ a {
   font-size: 10rem; }
 
 .cities__h1 {
-  text-align: left; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .cities__h1 .fa {
+    color: firebrick;
+    -webkit-transition: .3s ease;
+    transition: .3s ease; }
+    .cities__h1 .fa:hover {
+      cursor: pointer;
+      color: #c72626; }
 
 .cities__city {
   background-color: rgba(255, 255, 255, 0.5);
@@ -93,7 +110,8 @@ a {
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between; }
+          justify-content: space-between;
+  text-transform: capitalize; }
   .cities__city:first-of-type {
     margin-top: .5rem; }
   .cities__city:not(:first-of-type) {
@@ -111,11 +129,8 @@ a {
     .cities__city .fa-times:hover {
       color: red; }
 
-.search {
-  margin-top: 5rem;
-  margin-bottom: 10rem; }
-
 .search__form {
+  margin-top: 8rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
