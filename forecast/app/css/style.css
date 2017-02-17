@@ -99,6 +99,7 @@ a {
 
 .forecast__condition {
   width: 40%;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -219,6 +220,11 @@ a {
   .search__btn:hover {
     cursor: pointer;
     background: #0a0c0d; }
+
+@media only screen and (max-width: 65.94em) {
+  .forecast__mainWeather {
+    -ms-flex-pack: distribute;
+        justify-content: space-around; } }
 
 @media only screen and (max-width: 40em) {
   .columns {
