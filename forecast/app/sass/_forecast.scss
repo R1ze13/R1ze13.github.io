@@ -1,0 +1,24 @@
+main {
+
+}
+
+.forecast__currentCity {
+  padding: 0 1.3rem;
+  font-size: 3rem;
+  text-align: right;
+}
+
+.forecast__mainWeather {
+  display: flex;
+  justify-content: space-between;;
+  align-items: center;
+}
+
+.forecast__weatherIcon {
+  max-width: 40%;
+}
+
+.forecast__temp {
+  margin-left: 2rem;
+  font-size: 10rem;
+}

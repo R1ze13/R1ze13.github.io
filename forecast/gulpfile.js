@@ -14,7 +14,7 @@ var gulp       = require('gulp'), // Подключаем Gulp
 gulp.task('sass', function(){ // Создаем таск Sass
     return gulp.src('app/sass/**/*.scss') // Берем источник
         .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
-        .pipe(autoprefixer(['last 10 versions', '> 1%'], { cascade: true })) // Создаем префиксы
+        .pipe(autoprefixer(['last 2 versions', '> 1%'], { cascade: true })) // Создаем префиксы
         .pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
         .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
 });
@@ -31,10 +31,10 @@ gulp.task('browser-sync', function() { // Создаем таск browser-sync
 gulp.task('scripts', function() {
     return gulp.src([ // Берем все необходимые библиотеки
         'app/libs/jquery/dist/jquery.min.js', // Берем jQuery
-        'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js', // Берем Magnific Popup
-        'app/libs/dotdotdot.min.js', // Берем Magnific Popup
-        'app/libs/wow/dist/wow.min.js', // Берем Magnific Popup
-        'app/libs/foundation.min.js' // Берем Magnific Popup
+        'app/libs/jquery-ui-1.12.1/jquery-ui.min.js',
+        'app/libs/dotdotdot.min.js',
+        'app/libs/wow/dist/wow.min.js',
+        'app/libs/foundation.min.js'
         ])
         .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
         .pipe(uglify()) // Сжимаем JS файл

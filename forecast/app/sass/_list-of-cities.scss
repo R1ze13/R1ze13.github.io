@@ -1,0 +1,42 @@
+.cities__h1 {
+  @extend .forecast__currentCity;
+  text-align: left;
+}
+
+.cities__city {
+  background-color: rgba(255,255,255,.5);
+  padding: 1.3rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:first-of-type {
+    margin-top: .5rem;
+  }
+
+  &:not(:first-of-type) {
+    margin-top: .3rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .fa {
+    font-size: 1.5rem;
+    transition: color .3s ease;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .fa-times {
+    color: darken(red, 20%);
+
+    &:hover {
+      color: red;
+    }
+  }
+}

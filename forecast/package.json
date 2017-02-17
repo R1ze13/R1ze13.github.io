@@ -1,7 +1,7 @@
 {
-  "name": "free-agency",
-  "version": "1.2.0",
-  "description": "free psd template",
+  "name": "forecast",
+  "version": "0.5.0",
+  "description": "i'll show u a weather",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

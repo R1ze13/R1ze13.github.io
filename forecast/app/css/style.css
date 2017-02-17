@@ -1,99 +1,153 @@
+* {
+  box-sizing: border-box; }
+
 html,
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+  min-height: 100vh !important;
+  height: auto !important;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: #343434; }
 
-body {
-  color: #211f1e;
-  background: url(https://s3.amazonaws.com/codecademy-content/projects/2/forecast/bg.jpg) no-repeat center center fixed; 
+/*	sticky footer	*/
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+  background: url(../img/sea.jpg) center center no-repeat;
   background-size: cover;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
-  height: 100%;
-}
+  padding-top: 50px;
+  padding-top: 3.125rem; }
 
-.main {
-  height: 100%;
-}
+.content-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto; }
 
+.footer {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto; }
+
+/*	/sticky footer	*/
 .container {
-  position: relative;
-  padding-top: 100px;
-  min-height: 100%;
-}
+  width: 1200px;
+  margin: 0 auto; }
 
-h1 {
-  font-family: "HelveticaNeue-UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 80px;
-  font-weight: normal;
-  margin: 0;
-  text-align: right;
-}
+.wrapper {
+  min-width: 1200px; }
 
-h2 {
-  border-top: 1px solid #211f1e;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 10px 0 40px 0;
-  padding: 30px 0 0 0;
-  text-align: right;
-}
+a {
+  color: inherit; }
+  a:hover {
+    color: inherit; }
+  a:visited {
+    color: inherit; }
 
-.day {
-  cursor: pointer;
-}
-
-.day > div {
-  line-height: 48px;
-}
-
-.weekday span {
-  font-size: 10px;
-}
-
-.weekday p {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.weather img {
-  width: 48px;
-}
-
-.high p,
-.low p,
-.hourly .temp {
-  font-size: 16px;
-}
-
-.hourly {
+.app-name {
   text-align: center;
-  display: none;
-}
+  font-size: 5rem;
+  margin-bottom: 50px;
+  margin-bottom: 3.125rem; }
 
-.hourly .hour {
-  font-weight: bold;
-  font-size: 16px;
-}
+.forecast__currentCity, .cities__h1 {
+  padding: 0 1.3rem;
+  font-size: 3rem;
+  text-align: right; }
 
-.hourly img {
-  width: 24px;
-}
+.forecast__mainWeather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
-.hourly p {
-  margin: 16px 0;
-}
+.forecast__weatherIcon {
+  max-width: 40%; }
 
-.last {
-  margin-bottom: 100px;
-}
+.forecast__temp {
+  margin-left: 2rem;
+  font-size: 10rem; }
 
-@media (max-width: 720px) {
-  .container {
-    background: rgba(255,255,255,0.8);
-  }
-}
+.cities__h1 {
+  text-align: left; }
 
+.cities__city {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1.3rem;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .cities__city:first-of-type {
+    margin-top: .5rem; }
+  .cities__city:not(:first-of-type) {
+    margin-top: .3rem; }
+  .cities__city:hover {
+    cursor: pointer; }
+  .cities__city .fa {
+    font-size: 1.5rem;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease; }
+    .cities__city .fa:hover {
+      cursor: pointer; }
+  .cities__city .fa-times {
+    color: #990000; }
+    .cities__city .fa-times:hover {
+      color: red; }
 
+.search {
+  margin-top: 5rem;
+  margin-bottom: 10rem; }
+
+.search__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+#search__input {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: .7rem;
+  width: 20rem;
+  border: none;
+  -webkit-transition: .3s;
+  transition: .3s; }
+  #search__input:focus {
+    outline: none;
+    border: none;
+    box-shadow: 0 0 10px black, inset 0 0 5px black; }
+
+.search__btn {
+  height: 3rem;
+  width: 3rem;
+  background: #343434;
+  font-size: 2rem;
+  color: aliceblue;
+  margin-left: .5rem;
+  -webkit-transition: .3s;
+  transition: .3s; }
+  .search__btn:hover {
+    cursor: pointer;
+    background: #1b1b1b; }
