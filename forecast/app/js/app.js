@@ -36,7 +36,7 @@ $(document).ready(function() {
 	
 	// удаление города из списка
 	$('.cities').on('click', '.city__closeIcon', function() {
-		delCityFromLS( $(this).siblings('.city__name').val() );
+		delCityFromLS( $(this).siblings('.city__name').text() );
 		$(this).parent().remove();
 	});
 	
@@ -114,6 +114,10 @@ $(document).ready(function() {
 		});
 	}
 	
+	function checkCities() {
+		
+	}
+	
   function getWeather() {
     $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720', function(json) {
       weather = json;
@@ -179,11 +183,12 @@ $(document).ready(function() {
 		localStorage.setItem('Cities', JSON.stringify(listOfCities));
 	}
 	
-	function delCityFromLS(source) {
-		var find = function(source, value) {
-			return listOfCities.indexOf(value);
+	function delCityFromLS(arr, value = 1) {
+		var f = arr;
+		var find = function(array) {
+			return listOfCities.indexOf( f.toString() );
 		}
-		if (find !== -1) listOfCities.splice(find, 1);
+		if (find() !== -1) listOfCities.splice(find(), value);
 		localStorage.setItem('Cities', JSON.stringify(listOfCities));
 	}
 
