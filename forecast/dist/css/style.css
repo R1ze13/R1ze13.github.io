@@ -57,6 +57,21 @@ a {
   margin-bottom: 50px;
   margin-bottom: 3.125rem; }
 
+.main {
+  min-height: 31rem;
+  height: 60vh;
+  max-height: 40rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
 .forecast__currentCity, .cities__wrapper h1 {
   padding: 0 1.3rem;
   font-size: 3rem;
@@ -71,10 +86,34 @@ a {
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
+
+.forecast__condition {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
           align-items: center; }
 
 .forecast__weatherIcon {
-  max-width: 40%; }
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2); }
+
+.forecast__description {
+  margin-top: .5rem;
+  font-size: 2rem; }
 
 .forecast__temp {
   margin-left: 2rem;
@@ -104,6 +143,9 @@ a {
       cursor: pointer;
       color: #c92a2a; }
 
+.cities {
+  margin-top: .5rem; }
+
 .cities__city {
   background-color: #ffe8cc;
   padding: 1.3rem;
@@ -119,7 +161,7 @@ a {
           justify-content: space-between;
   text-transform: capitalize; }
   .cities__city:first-of-type {
-    margin-top: .5rem; }
+    margin-top: 0; }
   .cities__city:not(:first-of-type) {
     margin-top: .3rem; }
   .cities__city:hover {
@@ -136,7 +178,6 @@ a {
       color: #c92a2a; }
 
 .search__form {
-  margin-top: 8rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

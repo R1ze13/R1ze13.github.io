@@ -96,34 +96,28 @@ $(document).ready(function () {
 	}
 
 	function getGeo() {
-		var lat, long;
-		navigator.geolocation.getCurrentPosition(function (position) {
-			lat = position.coords.latitude;
-			long = position.coords.longitude;
-			console.log(position.coords.latitude, position.coords.longitude);
 			$.ajax({
 				dataType: 'json',
 				crossDomain: 'true',
-				url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720',
+				url: 'https://api.apixu.com/v1/current.json?key=66a4c90913bd4052811210101171702&q=auto:ip',
 				timeout: 500,
 				success: function (json) {
 					weather = json;
-					city = weather.name;
+					city = weather.location.name;
 					setDefaultCity();
 					setWeather();
 				}
 			});
-		});
 	}
 
 	function getWeather() {
 		$.ajax({
 			dataType: 'json',
 			crossDomain: 'true',
-			url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720',
+			url: 'https://api.apixu.com/v1/current.json?key=66a4c90913bd4052811210101171702&q=' + city,
 			success: function (json) {
 				weather = json;
-				city = weather.name;
+				city = weather.location.name;
 				setWeather();
 			}
 		});
@@ -133,39 +127,33 @@ $(document).ready(function () {
 		changeCurrentCity();
 		setTemp();
 		setIcon();
+		setDescription();
 		setHumidity();
 		setBarometer();
 	}
 
 	function changeCurrentCity() {
-		// Костыль для Питера
-		if (city === 'Novaya Gollandiya') {
-			$('.forecast__currentCity').text('Saint-Petersburg');
-		} else $('.forecast__currentCity').text(city);
+		$('.forecast__currentCity').text(city);
 	}
 
-	// -273 потому что ответ с сервака в Кельвинах
 	function setTemp() {
-		$('.forecast__temp').text((weather.main.temp - 273).toFixed(0) + '°');
+		$('.forecast__temp').text((weather.current.temp_c).toFixed(0) + '°');
 	}
 
 	function setIcon() {
-		var weatherMain = weather.weather['0'].main;
-		if (weatherMain === 'Clouds') {
-			$('.forecast__weatherIcon').attr('src', 'img/clouds.svg');
-		} else if (weatherMain === 'Sun' || weatherMain === 'Clear') {
-			$('.forecast__weatherIcon').attr('src', 'img/sun.svg');
-		} else if (weatherMain === 'Rain') {
-			$('.forecast__weatherIcon').attr('src', 'img/rain.svg');
-		}
+		$('.forecast__weatherIcon').attr('src', weather.current.condition.icon);
+	}
+	
+	function setDescription() {
+		$('.forecast__description').text(weather.current.condition.text);
 	}
 
 	function setHumidity() {
-		$('.forecast__humidity').text('Humidity: ' + weather.main.humidity + '%');
+		$('.forecast__humidity').text('Humidity: ' + weather.current.humidity + '%');
 	}
 
 	function setBarometer() {
-		$('.forecast__barometer').text('Barometer: ' + weather.main.pressure.toFixed(0) + 'hPa');
+		$('.forecast__barometer').text('Barometer: ' + weather.current.pressure_mb.toFixed(0) + 'hPa');
 	}
 
 	// Функция добавления городов в aside
