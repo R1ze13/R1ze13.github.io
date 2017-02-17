@@ -7,6 +7,7 @@ $(document).ready(function() {
 	// searchCity - название города, которое набирается в поле ввода
   var city;
 	var listOfCities = [];
+	var geolocation;
 	var restoredCities;
   var weather;
 	var searchCity;
@@ -15,33 +16,8 @@ $(document).ready(function() {
 	};
 	
 	
-	//	Если существует restoredCities, то приравниваем listOfCities ней
-	//	Добавляем города из LS юзера
-	//	Если городов нет, то при след входе он увидит города по умолчанию
-	restoredCities = JSON.parse(localStorage.getItem('Cities'));
-	if (restoredCities !== null) {
-		listOfCities = restoredCities;
-		$('.cities__city').remove();
-		for (var i = 0; i < restoredCities.length; i++) {
-			addCity( restoredCities[i] );
-		}
-	}
-	else {
-		listOfCities = ['Saint-Petersburg', 'Moscow', 'London'];
-		localStorage.setItem('Cities', JSON.stringify(listOfCities));
-	}
-	console.log(restoredCities);
-	console.log(listOfCities);
 	
-	
-	
-	if( weather === undefined ) city = listOfCities[0];
-	else city = weather.name;
-	
-	
-  getWeather();
-	
-  $('.forecast__currentCity').text(city);
+	init();
 	
 	// Клик по диву с городом
   $( '.cities' ).on( 'click', '.cities__city', function() {
@@ -53,6 +29,9 @@ $(document).ready(function() {
 	$('.search__btn').click(function() {
 		addCityToLS( $('#search__input').val() );
 		addCity( $('#search__input').val() );
+		
+		city = searchCity;
+		getWeather();
 	});
 	
 	// удаление города из списка
@@ -70,7 +49,7 @@ $(document).ready(function() {
 	});
 	
 	// сортировка городов
-//	$('.cities').sortable();
+	$('.cities').sortable();
 	
 //	$( ".cities" ).sortable({
 //    update: function() {
@@ -84,24 +63,81 @@ $(document).ready(function() {
 //			}
 //		}
 //});
+//	console.log( $('.city__name').length );
+//	console.log( $('.city__name').eq(0).text() );
 	
-	console.log( $('.city__name').length );
-	console.log( $('.city__name').eq(0).text() );
+	//	Если существует restoredCities, то приравниваем listOfCities ней
+	//	Добавляем города из LS юзера
+	//	Если юзер тут впервые, запуститься проверка на геолокацию
+	//	Если да - покажет город юзера
+	//	Если нет, то он увидит города по умолчанию
+	function init() {
+		restoredCities = JSON.parse(localStorage.getItem('Cities'));
+		if (restoredCities !== null) {
+			listOfCities = restoredCities;
+			$('.cities__city').remove();
+			for (var i = 0; i < restoredCities.length; i++) {
+				addCity( restoredCities[i] );
+			}
+			city = listOfCities[0];
+			getWeather();
+		}
+		else {
+			checkGeo();
+			if (geolocation === true) getGeo();
+			else {
+				listOfCities = ['Saint-Petersburg', 'Moscow', 'London'];
+				localStorage.setItem('Cities', JSON.stringify(listOfCities));
+				city = listOfCities[0];
+				getWeather();
+			}
+		}
+	}
+	
+	//	geo
+	function checkGeo() {
+		if ("geolocation" in navigator) {
+			geolocation = true;
+		}
+		else {
+			geolocation = false;
+			console.log('geolocation is offline');
+		}
+	}
+	
+	function getGeo() {
+		var lat, long;
+		navigator.geolocation.getCurrentPosition(function(position) {
+			lat = position.coords.latitude;
+			long = position.coords.longitude;
+			console.log(position.coords.latitude, position.coords.longitude);
+
+			$.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720', function(json) {
+				weather = json;
+				city = weather.name
+				setWeather();
+//				console.log(weather);
+//				console.log(city);
+			});
+		});
+	}
 	
   function getWeather() {
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=08a5dc1a636b7b57d11cb7d84abd2720", function(json) {
+    $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720', function(json) {
       weather = json;
 			city = weather.name;
       setWeather();
-      console.log(weather);
-      console.log(city);
+//      console.log(weather);
+//      console.log(city);
     });
   }
 
   function setWeather() {
-    changeCurrentCity();
-    setTemp();
-    setIcon();
+		changeCurrentCity();
+		setTemp();
+		setIcon();
+		setHumidity();
+		setBarometer();
   }
 
   function changeCurrentCity() {
@@ -109,7 +145,7 @@ $(document).ready(function() {
 		if (city === 'Novaya Gollandiya') {
 			$('.forecast__currentCity').text('Saint-Petersburg');
 		}
-		else $('.forecast__currentCity').text( city );
+		else $('.forecast__currentCity').text(city);
   }
 
 	// -273 потому что ответ с сервака в Кельвинах
@@ -130,9 +166,16 @@ $(document).ready(function() {
     }
   }
 	
+	function setHumidity() {
+		$('.forecast__humidity').text('Humidity: ' + weather.main.humidity + '%');
+	}
+	
+	function setBarometer() {
+		$('.forecast__barometer').text('Barometer: ' + weather.main.pressure + 'hPa');
+	}
+	
 	// Функция добавления городов в aside
 	function addCity(source) {
-//		searchCity = $('#search__input').val();
 		searchCity = source;
 		$('#search__input').val('');
 		if (searchCity !== '') {

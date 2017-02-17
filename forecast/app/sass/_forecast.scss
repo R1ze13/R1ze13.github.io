@@ -22,3 +22,10 @@ main {
   margin-left: 2rem;
   font-size: 10rem;
 }
+
+.forecast__humidity,
+.forecast__barometer {
+	margin-top: 1rem;
+	font-size: 2rem;
+	text-align: right;
+}

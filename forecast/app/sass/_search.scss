@@ -1,12 +1,12 @@
 .search__form {
 	margin-top: 8rem;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 }
 
 #search__input {
-	background-color: rgba(255,255,255,.8);
+	background-color: $base-light-color;
   font-size: 1.5rem;
   padding: .7rem;
   width: 20rem;

@@ -6,18 +6,18 @@
 	align-items: center;
 	
 	.fa {
-		color: firebrick;
+		color: darken($base-close-color, 10%);
 		transition: .3s ease;
 		
 		&:hover {
 			cursor: pointer;
-			color: lighten(firebrick, 5%);
+			color: $base-close-color;
 		}
 	}
 }
 
 .cities__city {
-  background-color: rgba(255,255,255,.5);
+  background-color: $base-light-color;
   padding: 1.3rem;
   font-size: 1.5rem;
   display: flex;
@@ -47,10 +47,10 @@
   }
 
   .fa-times {
-    color: darken(red, 20%);
+    color: darken($base-close-color, 10%);
 
     &:hover {
-      color: red;
+      color: $base-close-color;
     }
   }
 }
