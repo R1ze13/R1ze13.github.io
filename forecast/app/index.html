@@ -17,7 +17,7 @@
 					<h1 class="app-name">forecast</h1>
 
 					<aside class="small-4 columns cities__wrapper">
-						<h1 class="">Cities
+						<h1>Cities
               	<i class="fa fa-times cities__closeIcon" aria-hidden="true"></i>
               </h1>
 						<div class="cities">
@@ -25,14 +25,19 @@
 						</div>
 					</aside>
 
-					<main class="small-5 columns small-offset-3 forecast">
-						<h1 class="forecast__currentCity"></h1>
-						<div class="forecast__mainWeather">
-							<img src="img/clouds.svg" alt="clouds" class="forecast__weatherIcon">
-							<h2 class="forecast__temp"></h2>
+					<main class="small-5 columns small-offset-3 main">
+						<div class="forecast">
+							<h1 class="forecast__currentCity"></h1>
+							<div class="forecast__mainWeather">
+								<div class="forecast__condition">
+									<img src="" alt="" class="forecast__weatherIcon">
+									<p class="forecast__description"></p>
+								</div>
+								<h2 class="forecast__temp"></h2>
+							</div>
+							<p class="forecast__humidity">Humidity: </p>
+							<p class="forecast__barometer">Barometer: </p>
 						</div>
-						<p class="forecast__humidity">Humidity: </p>
-						<p class="forecast__barometer">Barometer: </p>
 
 						<form autocomplete="off" class="search__form" onsubmit="return false;">
 							<input type="text" id="search__input" placeholder="find your city">

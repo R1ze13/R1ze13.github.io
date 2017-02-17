@@ -16,6 +16,10 @@
 	}
 }
 
+.cities {
+	margin-top: .5rem;
+}
+
 .cities__city {
   background-color: $base-light-color;
   padding: 1.3rem;
@@ -26,7 +30,7 @@
 	text-transform: capitalize;
 
   &:first-of-type {
-    margin-top: .5rem;
+    margin-top: 0;
   }
 
   &:not(:first-of-type) {

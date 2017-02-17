@@ -1,3 +1,13 @@
+.main {
+	min-height: 31rem;
+	height: 60vh;
+	max-height: 40rem;
+	
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+}
+
 .forecast__currentCity {
   padding: 0 1.3rem;
   font-size: 3rem;
@@ -8,10 +18,24 @@
   display: flex;
   justify-content: space-between;;
   align-items: center;
+	align-items: stretch;
+}
+
+.forecast__condition {
+	width: 40%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
 }
 
 .forecast__weatherIcon {
-  max-width: 40%;
+	transform: scale(1.2);
+}
+
+.forecast__description {
+	margin-top: .5rem;
+	font-size: 2rem;
 }
 
 .forecast__temp {
