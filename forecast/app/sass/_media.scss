@@ -1,0 +1,18 @@
+@media only screen and (max-width: 40em) {
+	.columns {
+		margin-top: 2rem;
+	}
+	
+	.forecast__mainWeather {
+		justify-content: space-between;
+	}
+	
+	.forecast__humidity,
+	.forecast__barometer {
+		text-align: center;
+	}
+	
+	.search__form {
+		justify-content: center;
+	}
+}
