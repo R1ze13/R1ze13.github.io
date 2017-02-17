@@ -114,10 +114,6 @@ $(document).ready(function() {
 		});
 	}
 	
-	function checkCities() {
-		
-	}
-	
   function getWeather() {
     $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720', function(json) {
       weather = json;
