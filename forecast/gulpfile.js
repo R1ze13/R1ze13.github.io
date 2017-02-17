@@ -32,8 +32,6 @@ gulp.task('scripts', function() {
     return gulp.src([ // Берем все необходимые библиотеки
         'app/libs/jquery/dist/jquery.min.js', // Берем jQuery
         'app/libs/jquery-ui-1.12.1/jquery-ui.min.js',
-        'app/libs/dotdotdot.min.js',
-        'app/libs/wow/dist/wow.min.js',
         'app/libs/foundation.min.js'
         ])
         .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
