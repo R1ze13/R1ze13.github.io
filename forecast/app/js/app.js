@@ -104,22 +104,31 @@ $(document).ready(function() {
 			lat = position.coords.latitude;
 			long = position.coords.longitude;
 			console.log(position.coords.latitude, position.coords.longitude);
-
-			$.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720', function(json) {
+			$.ajax({
+			dataType: 'json',
+			crossDomain: 'true',
+			url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720',
+			success: function(json) {
 				weather = json;
 				city = weather.name;
 				setDefaultCity();
 				setWeather();
-			});
+			}
+		});
 		});
 	}
 	
   function getWeather() {
-    $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720', function(json) {
-      weather = json;
-			city = weather.name;
-      setWeather();
-    });
+		$.ajax({
+			dataType: 'json',
+			crossDomain: 'true',
+			url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=08a5dc1a636b7b57d11cb7d84abd2720',
+			success: function(json) {
+				weather = json;
+				city = weather.name;
+      	setWeather();
+			}
+		});
   }
 
   function setWeather() {
@@ -161,7 +170,7 @@ $(document).ready(function() {
 	}
 	
 	function setBarometer() {
-		$('.forecast__barometer').text('Barometer: ' + weather.main.pressure + 'hPa');
+		$('.forecast__barometer').text('Barometer: ' + weather.main.pressure.toFixed(0) + 'hPa');
 	}
 	
 	// Функция добавления городов в aside
