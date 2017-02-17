@@ -1,6 +1,10 @@
 "use strict";
 $(document).ready(function() {
 
+	// city - текущий город, который отображается в main
+	// listOfCities - список городов для localstorage
+	// weather - объект, содержащий инфу о погоде в текущем городе
+	// searchCity - название города, которое набирается в поле ввода
   var city;
 	var listOfCities;
   var weather;
@@ -11,14 +15,12 @@ $(document).ready(function() {
 	
   getWeather();
 	
-	
   $('.forecast__currentCity').text(city);
 	
 	// Клик по диву с городом
   $( '.cities' ).on( 'click', '.cities__city', function() {
 		city = $(this).find('.city__name').text();
-    getWeather(city);
-    setWeather();
+    getWeather();
   });
 	
 	var template = function(searchCity) {
@@ -39,10 +41,9 @@ $(document).ready(function() {
 
 	
 	
-  function getWeather(city = 'London') {
+  function getWeather() {
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=08a5dc1a636b7b57d11cb7d84abd2720", function(json) {
       weather = json;
-			// see later
 			city = weather.name;
       setWeather();
       console.log(weather);
@@ -61,7 +62,7 @@ $(document).ready(function() {
 			// Костыль для Питера
 			$('.forecast__currentCity').text('Saint-Petersburg');
 		}
-    $('.forecast__currentCity').text( city );
+		else $('.forecast__currentCity').text( city );
   }
 
   function setTemp() {
