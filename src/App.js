@@ -1,38 +1,32 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
 
+import Header from './components/Header';
+import Todo from './components/Todo';
+
+
 class App extends Component {
+
+	static propTypes = {
+		title: PropTypes.string
+	}
+
+	static defaultProps = {
+		title: 'default title'
+	}
+
 	render() {
 		return (
 			<main className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">React ToDo</h1>
-				</header>
+				<Header logo={ logo } title={ this.props.title } />
+
 				<section className="todo-list">
-					<div className="todo completed">
-						<button className="checkbox icon">
-							<i className="material-icons">check_box</i>
-						</button>
 
-						<span className="todo-title">Изучить js</span>
+					<Todo title={'ttl'} completed={ true } />
+					<Todo title={'ttl2'} completed={ false } />
 
-						<button className="delete icon">
-							<i className="material-icons">delete</i>
-						</button>
-					</div>
-					<div className="todo">
-						<button className="checkbox icon">
-							<i className="material-icons">check_box_outline_blank</i>
-						</button>
-
-						<span className="todo-title">Изучить React</span>
-
-						<button className="delete icon">
-							<i className="material-icons">delete</i>
-						</button>
-					</div>
 				</section>
 			</main>
 		);
