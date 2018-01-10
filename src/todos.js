@@ -1,0 +1,20 @@
+const todos = [
+	{
+		id: 1,
+		title: 'Изучить JavaScript',
+		isCompleted: true
+	},
+	{
+		id: 2,
+		title: 'Изучить React',
+		isCompleted: false
+	},
+	{
+		id: 3,
+		title: 'Написать приложение',
+		isCompleted: false
+	}
+];
+
+
+export default todos;

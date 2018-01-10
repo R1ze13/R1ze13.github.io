@@ -10,7 +10,12 @@ import Todo from './components/Todo';
 class App extends Component {
 
 	static propTypes = {
-		title: PropTypes.string
+		title: PropTypes.string,
+		todos: PropTypes.arrayOf(PropTypes.shape({
+			id: PropTypes.number.isRequired,
+			title: PropTypes.string.isRequired,
+			isCompleted: PropTypes.bool.isRequired
+		})).isRequired
 	}
 
 	static defaultProps = {
@@ -23,10 +28,12 @@ class App extends Component {
 				<Header logo={ logo } title={ this.props.title } />
 
 				<section className="todo-list">
-
-					<Todo title={'ttl'} completed={ true } />
-					<Todo title={'ttl2'} completed={ false } />
-
+					{ this.props.todos.map(todo =>
+						<Todo
+							id={ todo.id }
+							key={ todo.id }
+							title={ todo.title }
+							isCompleted={ todo.isCompleted } />) }
 				</section>
 			</main>
 		);
