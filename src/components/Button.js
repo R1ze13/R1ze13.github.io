@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 
 function Button(props) {
 	return (
-		<button className={ props.className }>
+		<button className={ props.className } onClick={ props.onClick }>
 			<i className="material-icons">{ props.icon }</i>
 		</button>
 	);
@@ -12,7 +12,8 @@ function Button(props) {
 
 Button.propTypes = {
 	className: PropTypes.string,
-	icon: PropTypes.string
+	icon: PropTypes.string,
+	onClick: PropTypes.func
 }
 
 

@@ -11,7 +11,7 @@ class App extends Component {
 
 	static propTypes = {
 		title: PropTypes.string,
-		todos: PropTypes.arrayOf(PropTypes.shape({
+		initialData: PropTypes.arrayOf(PropTypes.shape({
 			id: PropTypes.number.isRequired,
 			title: PropTypes.string.isRequired,
 			isCompleted: PropTypes.bool.isRequired
@@ -22,18 +22,50 @@ class App extends Component {
 		title: 'default title'
 	}
 
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			todos: this.props.initialData
+		}
+
+		this.handleStatusChange = this.handleStatusChange.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
+	}
+
+	handleStatusChange(id) {
+		let todos = this.state.todos.map(todo => {
+			if (todo.id === id) {
+				todo.isCompleted = !todo.isCompleted
+			}
+
+			return todo;
+		});
+
+		this.setState({ todos });
+	}
+
+	handleDelete(id) {
+		let todos = this.state.todos.filter(todo => todo.id !== id);
+
+		this.setState({ todos });
+	}
+
 	render() {
 		return (
 			<main className="App">
 				<Header logo={ logo } title={ this.props.title } />
 
 				<section className="todo-list">
-					{ this.props.todos.map(todo =>
+					{ this.state.todos.map(todo =>
 						<Todo
 							id={ todo.id }
 							key={ todo.id }
 							title={ todo.title }
-							isCompleted={ todo.isCompleted } />) }
+							isCompleted={ todo.isCompleted }
+							onStatusChange={ this.handleStatusChange }
+							onDelete={ this.handleDelete }
+						/>) }
 				</section>
 			</main>
 		);
