@@ -30,8 +30,8 @@
 
 /* todo */
 body {
-    background-color: #fafafa;
-    color: #757575;
+    background-color: #3c3c3c;
+    color: darkgoldenrod;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     margin: 0;
 }
@@ -148,6 +148,14 @@ header h1 {
     font-size: .7em;
 }
 
+.stats tr:nth-child(2) td {
+    color: indianred;
+}
+
+.stats tr:last-child td {
+    color: darkgoldenrod;
+}
+
 .stats td {
     text-align: left;
     font-size: 1.5rem;
@@ -176,8 +184,8 @@ header h1 {
 .todo {
     display: flex;
     font-size: 1rem;
-    border-top: 1px solid rgba(0,0,0,.1);
-    background-color: #fff;
+    border-top: 1px solid rgba(255,255,255,.1);
+    background-color: #2b2b2b;
     transition: all .2s;
     -webkit-user-select: none;
     user-select: none;
@@ -186,7 +194,7 @@ header h1 {
 }
 
 .todo.completed * {
-    color: lightgray;
+    color: indianred;
 }
 
 .todo.completed .todo-title {
@@ -229,7 +237,7 @@ header h1 {
 
 .todo-form {
     display: flex;
-    background-color: #FAFAFA;
+    background-color: #222;
     border-top: 1px solid rgba(0,0,0,.1);
     padding: 10px;
 }
@@ -238,10 +246,12 @@ header h1 {
     flex: 1;
     outline: none;
     transition: all .2s;
+    background-color: #111;
+    border-color: currentColor;
 }
 
 .todo-form input:focus {
-    border: 1px solid #00d8ff;
+    border: 1px solid darkgoldenrod;
 }
 
 .todo-form button {

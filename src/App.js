@@ -5,6 +5,7 @@ import './App.css';
 
 import Header from './components/Header';
 import Todo from './components/Todo';
+import Form from './components/Form';
 
 
 class App extends Component {
@@ -67,6 +68,8 @@ class App extends Component {
 							onDelete={ this.handleDelete }
 						/>) }
 				</section>
+
+				<Form />
 			</main>
 		);
 	}
