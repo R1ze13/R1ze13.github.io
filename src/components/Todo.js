@@ -16,6 +16,13 @@ export default class Todo extends React.Component {
 	}
 
 
+	componentDidUpdate() {
+		if (this.refs.title) {
+			this.refs.title.select();
+		}
+	}
+
+
 	constructor(props) {
 		super(props);
 

@@ -104,6 +104,10 @@ input {
 	outline: none;
 }
 
+input::selection {
+    color: darkolivegreen;
+}
+
 main {
 	background: #fff;
 	width: 700px;
