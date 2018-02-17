@@ -7,7 +7,7 @@ function Button(props) {
 		<button className={ props.className } onClick={ props.onClick } { ...props }>
 			{
 				props.icon ?
-					props.icon :
+					'' :
 					props.children
 			}
 			<i className="material-icons">{ props.icon }</i>
