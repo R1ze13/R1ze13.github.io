@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
@@ -40,59 +41,70 @@ export default class App extends Component {
 
 
 	componentDidMount() {
-		fetch('/api/todos')
-			.then(response => response.json())
+		axios.get('/api/todos')
+			.then(response => response.data)
 			.then(todos => this.setState({ todos }))
 			.catch(error => console.warn(error));
 	}
 
 
-	_getNextId() {
-		let maxId = 0;
-		this.state.todos.forEach(todo => todo.id > maxId ? maxId = todo.id : '');
-		return maxId + 1;
-	}
-
 
 	handleStatusChange(id) {
-		let todos = this.state.todos.map(todo => {
-			if (todo.id === id) {
-				todo.isCompleted = !todo.isCompleted
-			}
+		axios.patch(`/api/todos/${id}`)
+			.then(response => {
+				const todos = this.state.todos.map(todo => {
+					if (todo.id === id) {
+						todo.isCompleted = response.data.isCompleted;
+					}
 
-			return todo;
-		});
+					return todo;
+				});
 
-		this.setState({ todos });
+				this.setState({ todos });
+			})
+			.catch(error => console.warn(error));
 	}
 
 
 	handleDelete(id) {
-		let todos = this.state.todos.filter(todo => todo.id !== id);
-
-		this.setState({ todos });
+		axios.delete(`/api/todos/${id}`)
+			.then(() => {
+				const todos = this.state.todos.filter(todo => todo.id !== id);
+				this.setState({ todos });
+			})
+			.catch(this.handleError);
 	}
 
 	handleAdd(title) {
-		const todo = {
-			id: this._getNextId(),
-			title,
-			isCompleted: false
-		};
-		const todos = [...this.state.todos, todo];
-		this.setState({ todos });
+		axios.post('/api/todos', { title })
+			.then(response => response.data)
+			.then(todo => {
+				const todos = this.state.todos.concat(todo);
+				this.setState({ todos });
+			})
+			.catch(this.handleError);
 	}
 
 
 	handleEdit(id, title) {
-		const todos = this.state.todos.map(todo => {
-			if (todo.id === id) {
-				todo.title = title;
-			}
-			return todo;
-		});
+		axios.put(`/api/todos/${id}`, { title })
+			.then(response => response.data)
+			.then(response => {
+				const todos = this.state.todos.map(todo => {
+					if (todo.id === id) {
+						todo.title = response.title;
+					}
+					return todo;
+				});
 
-		this.setState({ todos });
+				this.setState({ todos });
+			})
+			.catch(this.handleError);
+	}
+
+
+	handleError(error) {
+		console.warn(error);
 	}
 
 
