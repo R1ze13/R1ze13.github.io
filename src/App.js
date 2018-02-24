@@ -19,15 +19,17 @@ export default class App extends Component {
 		})).isRequired
 	}
 
+
 	static defaultProps = {
 		title: 'default title'
 	}
+
 
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			todos: this.props.initialData
+			todos: []
 		}
 
 		this.handleStatusChange = this.handleStatusChange.bind(this);
@@ -36,11 +38,21 @@ export default class App extends Component {
 		this.handleEdit = this.handleEdit.bind(this);
 	}
 
+
+	componentDidMount() {
+		fetch('/api/todos')
+			.then(response => response.json())
+			.then(todos => this.setState({ todos }))
+			.catch(error => console.warn(error));
+	}
+
+
 	_getNextId() {
 		let maxId = 0;
 		this.state.todos.forEach(todo => todo.id > maxId ? maxId = todo.id : '');
 		return maxId + 1;
 	}
+
 
 	handleStatusChange(id) {
 		let todos = this.state.todos.map(todo => {
@@ -53,6 +65,7 @@ export default class App extends Component {
 
 		this.setState({ todos });
 	}
+
 
 	handleDelete(id) {
 		let todos = this.state.todos.filter(todo => todo.id !== id);
@@ -70,6 +83,7 @@ export default class App extends Component {
 		this.setState({ todos });
 	}
 
+
 	handleEdit(id, title) {
 		const todos = this.state.todos.map(todo => {
 			if (todo.id === id) {
@@ -80,6 +94,7 @@ export default class App extends Component {
 
 		this.setState({ todos });
 	}
+
 
 	render() {
 		return (

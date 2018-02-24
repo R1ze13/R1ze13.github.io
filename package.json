@@ -2,6 +2,11 @@
   "name": "react-todo",
   "homepage": "https://r1ze13.github.io/todo-app",
   "version": "0.1.0",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3002"
+    }
+  },
   "private": true,
   "dependencies": {
     "gh-pages": "^1.1.0",
