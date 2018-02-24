@@ -274,10 +274,16 @@ header h1 {
 
 /* animation */
 .slide-enter {
+	height: 0;
+	opacity: 0;
+	font-size: 0;
 	transform: translateX(-100%);
 }
 
 .slide-enter.slide-enter-active {
+	height: auto;
+	opacity: 1;
+	font-size: 100%;
 	transform: translateX(0);
 	transition: all .5s;
 }
@@ -292,4 +298,76 @@ header h1 {
 	font-size: 0;
 	overflow: hidden;
 	transition: all .5s;
+}
+
+
+/* books */
+.mdc-toolbar__row {
+	padding: 0 28px;
+}
+
+.mdc-toolbar__section {
+	align-items: center;
+}
+
+.mdc-tab-bar {
+	margin: 0;
+}
+
+.content {
+	display: flex;
+}
+
+.content main:first-child {
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.mdc-card {
+	height: 100%;
+	justify-content: space-between;
+}
+
+.mdc-card__horizontal-block {
+	padding: 0;
+	justify-content: flex-start;
+}
+
+.mdc-card__primary .mdc-card__title--large {
+	margin-bottom: .5em;
+	padding-top: 0;
+}
+
+.mdc-card__subtitle {
+	margin-bottom: .5em;
+}
+
+#login {
+	margin: 3rem auto;
+}
+
+#login form .mdc-textfield,
+#login form .mdc-button {
+	width: 100%;
+	display: block;
+}
+
+#login form .mdc-textfield {
+	margin-bottom: 1rem;
+}
+
+/* Book */
+#book .mdc-card {
+	margin: 16px;
+}
+
+/* Not Found */
+#not-found {
+	text-align: center;
+	margin-top: 3em;
+}
+
+#not-found .material-icons {
+	font-size: 4rem;
 }
