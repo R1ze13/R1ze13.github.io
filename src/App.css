@@ -105,7 +105,7 @@ input {
 }
 
 input::selection {
-    color: darkolivegreen;
+	color: darkolivegreen;
 }
 
 main {
@@ -185,6 +185,10 @@ header h1 {
 
 
 /* Todo */
+.todo-list {
+	background-color: #222;
+}
+
 .todo {
 	display: flex;
 	font-size: 1rem;
@@ -265,3 +269,27 @@ header h1 {
 	margin-left: 10px;
 }
 /* todo */
+
+
+
+/* animation */
+.slide-enter {
+	transform: translateX(-100%);
+}
+
+.slide-enter.slide-enter-active {
+	transform: translateX(0);
+	transition: all .5s;
+}
+
+.slide-leave {
+	opacity: 1;
+}
+
+.slide-leave.slide-leave-active {
+	opacity: 0;
+	height: 0;
+	font-size: 0;
+	overflow: hidden;
+	transition: all .5s;
+}

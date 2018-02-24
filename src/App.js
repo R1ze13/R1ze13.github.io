@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import axios from 'axios';
+import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import logo from './logo.svg';
 import './App.css';
 
@@ -113,7 +114,13 @@ export default class App extends Component {
 			<main className="App">
 				<Header logo={ logo } title={ this.props.title } todos={ this.state.todos } />
 
-				<section className="todo-list">
+				<ReactCssTransitionGroup
+					component="section"
+					className="todo-list"
+					transitionName="slide"
+					transitionEnterTimeout={ 500 }
+					transitionLeaveTimeout={ 500 }
+				>
 					{ this.state.todos.map(todo =>
 						<Todo
 							id={ todo.id }
@@ -124,7 +131,7 @@ export default class App extends Component {
 							onDelete={ this.handleDelete }
 							onEdit={ this.handleEdit }
 						/>) }
-				</section>
+				</ReactCssTransitionGroup>
 
 				<Form onAdd={ this.handleAdd } />
 			</main>
